@@ -7,16 +7,23 @@ namespace Capa._4_Persistencia.ADO_MySQL
 {
     public class GestorMySQL : IGestorAccesoDatos
     {
+        private static readonly GestorMySQL instance = new GestorMySQL();
         private MySqlConnection conexion;
         private MySqlTransaction transaccion;
 
+        public static GestorMySQL getIntance()
+        {
+            return instance;
+        }
         public void AbrirConexion()
         {
             try
             {
                 conexion = new MySqlConnection();
-                conexion.ConnectionString = "Server= ;Database= ; Uid= ; Pwd= ;";//Falta Rellenar Con los datos del MySQL
+                conexion.ConnectionString = "Server=us-cdbr-east-03.cleardb.com;Database=heroku_2ba31acba78a0d7 ; Uid=b3d1f76cb67209; Pwd=562721ea;";//Falta Rellenar Con los datos del MySQL
                 conexion.Open();
+                Console.WriteLine("Connecion: ",conexion);
+                Console.WriteLine(conexion);
             }
             catch (Exception err)
             {

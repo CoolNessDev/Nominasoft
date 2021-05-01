@@ -36,3 +36,6 @@ X:\Virtuales\Calidad\SOWAD\NOMINASOFT\obj\Debug\NOMINASOFT.csproj.CoreCompileInp
 X:\Virtuales\Calidad\SOWAD\NOMINASOFT\obj\Debug\NOMINASOFT.csproj.CopyComplete
 X:\Virtuales\Calidad\SOWAD\NOMINASOFT\obj\Debug\NOMINASOFT.exe
 X:\Virtuales\Calidad\SOWAD\NOMINASOFT\obj\Debug\NOMINASOFT.pdb
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT\bin\Debug\Capa.4_Persistencia.dll
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT\bin\Debug\Capa.4_Persistencia.pdb
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT\bin\Debug\Capa.4_Persistencia.dll.config

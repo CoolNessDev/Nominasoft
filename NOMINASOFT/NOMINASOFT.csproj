@@ -129,6 +129,10 @@
       <Project>{f7aaeb1f-1722-4afd-9c7a-acb8c60bf450}</Project>
       <Name>Capa.3_Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Capa.4_Persistencia\Capa.4_Persistencia.csproj">
+      <Project>{97BCEF96-EA71-4FEA-95FB-20F5C3221BC6}</Project>
+      <Name>Capa.4_Persistencia</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
