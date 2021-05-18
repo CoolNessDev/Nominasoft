@@ -11,8 +11,8 @@ namespace Capa._4_Persistencia.FabricaDatos
     {
         public static FabricaAbstracta crearInstancia()
         {
-            //return new FabricaSQLServer();
-            return new FabricaMySQL();
+            return new FabricaSQLServer();
+            //return new FabricaMySQL();
         }
 
         public abstract IAfp crearAfp(IGestorAccesoDatos gestorAccesoDatos);

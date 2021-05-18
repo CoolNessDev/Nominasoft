@@ -9,30 +9,56 @@ namespace Capa._3_Dominio.Entidades
     public class Contrato
     {
         private int id_contrato;
-        private bool asignacion_familiar;
-        private bool estado;
-        private DateTime fecha_inicio;
-        private DateTime fecha_fin;
-        private int horas_semana;
-        private int valor_hora;
-        private float monto_horas_extras;
-        private float monto_reingresos;
-        private float monto_horas_ausentes;
-        private Empleado empleado;
+        private bool asignacionFamiliar;
+        private string cargo;
+        private DateTime fechaInicio;
+        private DateTime fechaFin;
+        private int horasContratadasPorSemana;
+        private int valorHora;
+
         private Afp afp;
+        private Empleado empleado;
+        private Pago pago;
 
         public int Id_contrato { get => id_contrato; set => id_contrato = value; }
-        public bool Asignacion_familiar { get => asignacion_familiar; set => asignacion_familiar = value; }
-        public bool Estado { get => estado; set => estado = value; }
-        public DateTime Fecha_inicio { get => fecha_inicio; set => fecha_inicio = value; }
-        public DateTime Fecha_fin { get => fecha_fin; set => fecha_fin = value; }
-        public int Horas_semana { get => horas_semana; set => horas_semana = value; }
-        public int Valor_hora { get => valor_hora; set => valor_hora = value; }
-        public float Monto_horas_extras { get => monto_horas_extras; set => monto_horas_extras = value; }
-        public float Monto_reingreso { get => monto_reingresos; set => monto_reingresos = value; }
-        public float Monto_horas_ausentes { get => monto_horas_ausentes; set => monto_horas_ausentes = value; }
-        public Empleado Empleado { get => empleado; set => empleado = value; }
+        public bool AsignacionFamiliar { get => asignacionFamiliar; set => asignacionFamiliar = value; }
+        public string Cargo { get => cargo; set => cargo = value; }
+        public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
+        public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
+        public int HorasContratadasPorSemana { get => horasContratadasPorSemana; set => horasContratadasPorSemana = value; }
+        public int ValorHora { get => valorHora; set => valorHora = value; }
         public Afp Afp { get => afp; set => afp = value; }
+        public Empleado Empleado { get => empleado; set => empleado = value; }
+        public Pago Pago { get => pago; set => pago = value; }
 
+        void CalcularMontoPorAsignacionFamiliar()
+        {
+
+        }
+
+        void ValidarFechaFinContrato()
+        {
+
+        }
+
+        void ValidarFechaInicioContrato()
+        {
+
+        }
+
+        void ValidarHoras()
+        {
+
+        }
+
+        void ValidarValorHoras()
+        {
+
+        }
+
+        void ValidarVigenciaContrato()
+        {
+
+        }
     }
 }

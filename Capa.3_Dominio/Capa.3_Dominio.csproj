@@ -94,13 +94,11 @@
     <Compile Include="Contratos\IPeriodo.cs" />
     <Compile Include="Contratos\IRol.cs" />
     <Compile Include="Entidades\Afp.cs" />
+    <Compile Include="Entidades\ConceptoIngresoDeDescuento.cs" />
     <Compile Include="Entidades\Contrato.cs" />
-    <Compile Include="Entidades\Descuento.cs" />
     <Compile Include="Entidades\Empleado.cs" />
-    <Compile Include="Entidades\Ingreso.cs" />
     <Compile Include="Entidades\Pago.cs" />
     <Compile Include="Entidades\Periodo.cs" />
-    <Compile Include="Entidades\Rol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
