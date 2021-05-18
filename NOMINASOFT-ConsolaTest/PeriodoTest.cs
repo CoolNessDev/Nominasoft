@@ -11,13 +11,15 @@ namespace NOMINASOFT_ConsolaTest
         public void Test1_CalcularSemanasPeriodos()
         {
             Periodo periodo = new Periodo();
+            periodo.FechaFin = new DateTime(2021, 5, 17);
+            periodo.FechaInicio = new DateTime(2021, 4, 16);
+            /*
+                 return (FechaFin - FechaInicio).TotalDays / 7;
+             */
 
-            //Rellenar
-
-            //--------
-
-            double SemanasPeriodo_esperado = ;
-            double SemanasPeriodo_obtenido = periodo.CalcularSemanasPeriodos();
+            Console.WriteLine("Difference in weeks: " + (periodo.FechaFin - periodo.FechaInicio).TotalDays / 7);
+            double SemanasPeriodo_esperado = (periodo.FechaFin - periodo.FechaInicio).TotalDays / 7;
+            double SemanasPeriodo_obtenido = periodo.CalcularSemanasPeriodo();
             Assert.AreEqual(SemanasPeriodo_esperado, SemanasPeriodo_obtenido);
 
         }
@@ -25,13 +27,19 @@ namespace NOMINASOFT_ConsolaTest
         public void Test1_ValidarPeriodoActivo()
         {
             Periodo periodo = new Periodo();
+            periodo.FechaFin = new DateTime(2021, 6, 16);
+            periodo.FechaInicio = new DateTime(2021, 4, 16);
+            periodo.Estado = true;
+            /*
+            if(FechaFin > FechaInicio && Estado)
+            {
+                return true;
+            }
+            return false;
+                        */
 
-            //Rellenar
-
-            //--------
-
-            double PeriodoActivo_esperado = ;
-            double PeriodoActivo_obtenido = periodo.ValidarPeriodoActivos();
+            bool PeriodoActivo_esperado = (periodo.FechaFin > periodo.FechaInicio && periodo.Estado);
+            bool PeriodoActivo_obtenido = periodo.ValidarPeriodoActivos();
             Assert.AreEqual(PeriodoActivo_esperado, PeriodoActivo_obtenido);
         }
     }

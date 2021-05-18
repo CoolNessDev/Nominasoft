@@ -18,13 +18,18 @@ namespace NOMINASOFT_Consola
         public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
         public bool Estado { get => estado; set => estado = value; }
 
-        public double ValidarPeriodoActivos()
+        public bool ValidarPeriodoActivos()
         {
-            throw new NotImplementedException();
+            if(FechaFin > FechaInicio && Estado)
+            {
+                return true;
+            }
+            return false;
         }
-        public double CalcularSemanasPeriodos()
+        public double CalcularSemanasPeriodo()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Difference in weeks1: " + (FechaFin - FechaInicio).TotalDays / 7);
+            return (FechaFin - FechaInicio).TotalDays / 7;
         }
     }
 }

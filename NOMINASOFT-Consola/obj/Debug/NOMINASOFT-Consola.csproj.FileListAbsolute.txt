@@ -1,0 +1,7 @@
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT-Consola\bin\Debug\NOMINASOFT-Consola.exe.config
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT-Consola\bin\Debug\NOMINASOFT-Consola.exe
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT-Consola\bin\Debug\NOMINASOFT-Consola.pdb
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT-Consola\obj\Debug\NOMINASOFT-Consola.csprojAssemblyReference.cache
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT-Consola\obj\Debug\NOMINASOFT-Consola.csproj.CoreCompileInputs.cache
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT-Consola\obj\Debug\NOMINASOFT-Consola.exe
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT-Consola\obj\Debug\NOMINASOFT-Consola.pdb

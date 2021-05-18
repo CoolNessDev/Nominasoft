@@ -11,13 +11,13 @@ namespace NOMINASOFT_ConsolaTest
         public void Test1_CalcularTotalConceptoDescuento()
         {
             ConceptoIngresoDeDescuento conceptoIngresoDeDescuento = new ConceptoIngresoDeDescuento();
+            conceptoIngresoDeDescuento.MontoHorasAusente = 3.2f;
+            conceptoIngresoDeDescuento.MontoPorAdelanto = 3.2f;
+            conceptoIngresoDeDescuento.MontoOtrosDescuentos = 3.2f;
+            //MontoHorasAusente + MontoPorAdelanto + MontoOtrosDescuentos;
 
-            //Rellenar
-
-
-            //---------
-
-            double TotalConceptoDescuento_esperado =  ;
+            double TotalConceptoDescuento_esperado = conceptoIngresoDeDescuento.MontoHorasAusente + conceptoIngresoDeDescuento.MontoPorAdelanto +
+                conceptoIngresoDeDescuento.MontoOtrosDescuentos;
             double TotalConceptoDescuento_obtenido = conceptoIngresoDeDescuento.CalcularTotalConceptoDescuento();
             Assert.AreEqual(TotalConceptoDescuento_esperado, TotalConceptoDescuento_obtenido);
         }
@@ -25,13 +25,15 @@ namespace NOMINASOFT_ConsolaTest
         public void Test1_CalcularTotalConceptoIngreso()
         {
             ConceptoIngresoDeDescuento conceptoIngresoDeDescuento = new ConceptoIngresoDeDescuento();
+            conceptoIngresoDeDescuento.MontoHorasExtras = 2.3f;
+            conceptoIngresoDeDescuento.MontoReingreso = 2.3f;
+            conceptoIngresoDeDescuento.MontoOtrosIngresos = 2.3f;
 
-            //Rellenar
+            //return MontoHorasExtras + MontoReingreso + MontoOtrosIngresos;
 
 
-            //---------
-
-            double TotalConceptoIngreso_esperado = ;
+            double TotalConceptoIngreso_esperado = conceptoIngresoDeDescuento.MontoHorasExtras + conceptoIngresoDeDescuento.MontoReingreso +
+                conceptoIngresoDeDescuento.MontoOtrosIngresos;
             double TotalConceptoIngreso_obtenido = conceptoIngresoDeDescuento.CalcularTotalConceptoIngreso();
             Assert.AreEqual(TotalConceptoIngreso_esperado, TotalConceptoIngreso_obtenido);
         }

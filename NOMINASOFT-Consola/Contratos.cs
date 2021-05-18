@@ -15,6 +15,7 @@ namespace NOMINASOFT_Consola
         private DateTime fechaFin;
         private int horasContratadasPorSemana;
         private int valorHora;
+        private bool estado;
 
         private Afp afp;
         private Empleado empleado;
@@ -27,40 +28,77 @@ namespace NOMINASOFT_Consola
         public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
         public int HorasContratadasPorSemana { get => horasContratadasPorSemana; set => horasContratadasPorSemana = value; }
         public int ValorHora { get => valorHora; set => valorHora = value; }
+        public bool Estado { get => estado; set => estado = value; }
         public Afp Afp { get => afp; set => afp = value; }
         public Empleado Empleado { get => empleado; set => empleado = value; }
         public Pagos Pago { get => pago; set => pago = value; }
 
-        public double CalcularMontoPorAsignacionFamiliar()
+        public double CalcularMontoPorAsignacionFamiliar(float sueldoMinimo)
         {
-            throw new NotImplementedException();
+            if (AsignacionFamiliar)
+            {
+                return sueldoMinimo * 0.1;
+            }
+            return 0;
         }
 
  
-        public double ValidarFechaFinContrato()
+        public bool ValidarFechaFinContrato()
         {
-            throw new NotImplementedException();
+            if ((FechaFin - FechaInicio).TotalDays > 90 && (FechaFin - FechaInicio).TotalDays < 365)
+            {
+                return true;
+            }
+            return false;
         }
 
 
-        public double ValidarFechaInicioContrato()
+        public bool ValidarFechaInicioContrato(DateTime FechaFinAnterior)
         {
-            throw new NotImplementedException();
+            if (FechaInicio > FechaFinAnterior)
+            {
+                return true;
+            }
+            return false;
         }
-
-        public double ValidarHoras()
+        /*
+         El total de horas contratadas por semana sólo puede 
+        ser de 8 a 40 horas, pero sólo valores enteros con 
+        diferencia de 4 horas a partir de las 8 horas. Por 
+        ejemplo: 8, 12, 16, … , 36, 40
+         */
+        public bool ValidarHoras()
         {
-            throw new NotImplementedException();
+            if (8<HorasContratadasPorSemana && HorasContratadasPorSemana<40 && HorasContratadasPorSemana%4==0)
+            {
+                return true;
+            }
+            return false;
         }
-
-        public double ValidarValorHoras()
+        /*
+         El valor hora de un contrato sólo puede ser desde 10 
+        soles a 60 soles, pero sólo valores entero
+         */
+        public bool ValidarValorHoras()
         {
-            throw new NotImplementedException();
+            if(10<ValorHora && ValorHora < 60 && ValorHora-(int)ValorHora==0)
+            {
+                return true;
+            }
+            return false;
         }
-
-        public double ValidarVigenciaContrato()
+        /*
+         Un contrato está vigente si su fecha fin es mayor o igual 
+        a la fecha actual y no está anulado.
+         */
+        public bool ValidarVigenciaContrato()
         {
-            throw new NotImplementedException();
+            DateTime currentDate = new DateTime();
+            if(FechaFin>= currentDate && Estado)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

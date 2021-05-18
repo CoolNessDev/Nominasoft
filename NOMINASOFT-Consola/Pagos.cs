@@ -31,36 +31,36 @@ namespace NOMINASOFT_Consola
         public ConceptoIngresoDeDescuento ConceptoIngresoDeDescuento { get => conceptoIngresoDeDescuento; set => conceptoIngresoDeDescuento = value; }
 
 
-        public double CalcularDescuentoTotal()
+        public double CalcularDescuentoTotal(float MontoOtrosDescuento)
         {
-            throw new NotImplementedException();
+            return MontoOtrosDescuento + DescuentAFP;
         }
 
-        public double CalcularDescuentoAFP()
+        public double CalcularDescuentoAFP(float porcentajeDescuento)
         {
-            throw new NotImplementedException();
+            return SueldoMinimo * porcentajeDescuento;
         }
 
 
-        public double CalcularIngresoTotal()
+        public double CalcularIngresoTotal(float montoPorAsignacion, float totalConceptosIngreso)
         {
-            throw new NotImplementedException();
+            return SueldoMinimo + montoPorAsignacion + totalConceptosIngreso;
         }
 
         public double CalcularSueldoBasico()
         {
-            throw new NotImplementedException();
+            return TotalHoras * ValorHora1;
         }
 
 
-        public double CalcularSueldoNeto()
+        public double CalcularSueldoNeto(float totalIngresos, float totalDescuentos)
         {
-            throw new NotImplementedException();
+            return totalIngresos - totalDescuentos;
         }
 
-        public double CalcularTotalDeHoras()
+        public double CalcularTotalDeHoras(double totalSemanasPeriodo, float totalHorasSemana)
         {
-            throw new NotImplementedException();
+            return totalSemanasPeriodo * totalHorasSemana;
         }
     }
 }
