@@ -1,0 +1,11 @@
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.csproj.CoreCompileInputs.cache
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\bin\Debug\Capa.2_Aplicacion.dll
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\bin\Debug\Capa.2_Aplicacion.pdb
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\bin\Debug\Capa.3_Dominio.dll
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\bin\Debug\Capa.4_Persistencia.dll
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\bin\Debug\Capa.3_Dominio.pdb
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\bin\Debug\Capa.4_Persistencia.pdb
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.csproj.CopyComplete
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.dll
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.pdb
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.csproj.AssemblyReference.cache
