@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capa._3_Dominio.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Capa._3_Dominio.Contratos
 {
     public interface IEmpleado
     {
-
+        Empleado BuscarEmpleadoPorDNI(int DNI);
     }
 }
