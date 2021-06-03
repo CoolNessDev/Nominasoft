@@ -153,12 +153,13 @@ InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInici
 @ID_AFP=1,@ID_EMPLEADO=4;
 go
 
-delete from contrato where ID_EMPLEADO=3 AND idContrato=9
+select * from contrato where ID_EMPLEADO=10
+delete from contrato where ID_EMPLEADO=0 AND idContrato=0
 --delete from Empleado
 
 select * from contrato
 
-select * from Contrato where ID_EMPLEADO=3 and estado =1 Order by fechaFinal desc
+select * from Contrato where idContrato=0
 
 select * from Empleado
 
