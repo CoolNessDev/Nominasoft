@@ -66,6 +66,7 @@ namespace Capa._3_Dominio.Entidades
             {
                 anterior = null;
             }
+            //Error
             if (anterior != null && Id_contrato == anterior.id_contrato)
             {
                 return true;

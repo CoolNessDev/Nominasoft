@@ -89,6 +89,10 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             Afp afp = new Afp();
             afp.Id_afp = resultadoSQL.GetInt32(8);
             contrato.Afp = afp;
+            if (!contrato.ValidarVigenciaContrato())
+            {
+                contrato.Estado = false;
+            }
             return contrato;
 
         }

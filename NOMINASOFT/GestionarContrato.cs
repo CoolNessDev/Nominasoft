@@ -232,24 +232,29 @@ namespace NOMINASOFT
                 showError("Campos invalidos");
                 return;
             }
-            
+            if (!contrato.ValidarVigenciaContrato())
+            {
+                showError("Contrato no vigente");
+                return;
+            }
             if (!contrato.ValidarFechaInicioContrato())
             {
-                showError("Fecha de inicio invalida");
+                showError("El contrato anterior es aún vigente");
                 return;
             }if (!contrato.ValidarFechaFinContrato())
             {
-                showError("Fecha final invalida");
+                showError("Fecha final no valida");
                 return;
             }if (!contrato.ValidarHoras())
             {
-                showError("Horas por semana invalidas");
+                showError("El valor de horas por semana no es válido");
                 return;
             }if (!contrato.ValidarValorHoras())
             {
-                showError("Horas por semana invalidas");
+                showError("El valor de hora no es válido");
                 return;
             }
+            
 
             try
             {

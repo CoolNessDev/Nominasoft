@@ -1,3 +1,5 @@
+create database nominasoft
+use nominasoft
 CREATE TABLE Empleado(
 	idEmpleado int IDENTITY(1,1) constraint PK_IDEMPLEADO primary key,
 	dni int,
@@ -128,12 +130,13 @@ insert into Empleado(dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,te
 select * from Empleado
 go
 InsertarContrato @asignacionFamiliar = false, @cargo = 'cargo22', @fechaInicial='20210418 10:34:09 AM',@fechaFinal='20210518 10:34:09 AM',@horasContradasPorSemana=16,@valorHora=20,@estado=true,
-@ID_AFP=1,@ID_EMPLEADO=1;
+@ID_AFP=2,@ID_EMPLEADO=4;
 go
 InsertarContrato @asignacionFamiliar = false, @cargo = 'cargo3', @fechaInicial='20210518 10:34:09 AM',@fechaFinal='20210618 10:34:09 AM',@horasContradasPorSemana=16,@valorHora=20,@estado=true,
-@ID_AFP=1,@ID_EMPLEADO=1;
+@ID_AFP=3,@ID_EMPLEADO=5;
 go
-
+--delete from contrato
+--delete from Empleado
 
 select * from contrato
 
