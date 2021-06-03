@@ -10,53 +10,66 @@ namespace Capa._3_Dominio.Entidades
     {
         private int id_pago;
         private DateTime fechaActual;
-        private float asignacionFamiliar;
+        private float montoAsignacionFamiliar;
         private float descuentAFP;
         private float sueldoMinimo;
-        private float porsentajeDescuento;
-        private float ValorHora;
+        private float porcentajeDescuento;
+        private float valorHora;
         private float totalHoras;
 
         private ConceptoIngresoDeDescuento conceptoIngresoDeDescuento;
-
+        private Periodo periodo;
+        private Contrato contrato;
         public int Id_pago { get => id_pago; set => id_pago = value; }
         public DateTime FechaActual { get => fechaActual; set => fechaActual = value; }
-        public float AsignacionFamiliar { get => asignacionFamiliar; set => asignacionFamiliar = value; }
+        public float MontoAsignacionFamiliar { get => montoAsignacionFamiliar; set => montoAsignacionFamiliar = value; }
         public float DescuentAFP { get => descuentAFP; set => descuentAFP = value; }
         public float SueldoMinimo { get => sueldoMinimo; set => sueldoMinimo = value; }
-        public float PorsentajeDescuento { get => porsentajeDescuento; set => porsentajeDescuento = value; }
-        public float ValorHora1 { get => ValorHora; set => ValorHora = value; }
+        public float PorcentajeDescuento { get => porcentajeDescuento; set => porcentajeDescuento = value; }
+        public float ValorHora { get => valorHora; set => valorHora = value; }
         public float TotalHoras { get => totalHoras; set => totalHoras = value; }
         public ConceptoIngresoDeDescuento ConceptoIngresoDeDescuento { get => conceptoIngresoDeDescuento; set => conceptoIngresoDeDescuento = value; }
+        public Periodo Periodo { get => periodo; set => periodo = value; }
+        public Contrato Contrato { get => contrato; set => contrato = value; }
 
-        void CalcularDescuentoAFP()
+        public double CalcularMontoPorAsignacionFamiliar()
         {
-
+            if (contrato.AsignacionFamiliar)
+            {
+                return SueldoMinimo * 0.1;
+            }
+            return 0;
         }
 
-        void CalcularDescuentoTotal()
+        public double CalcularDescuentoTotal()
         {
-
+            return ConceptoIngresoDeDescuento.CalcularTotalConceptoDescuento() + CalcularDescuentoAFP();
         }
 
-        void CalcularIngresoTotal()
+        public double CalcularDescuentoAFP()
         {
-
+            return CalcularSueldoBasico() * (PorcentajeDescuento / 100);
         }
 
-        void CalcularSueldoBasico()
-        {
 
-        }
-        
-        void CalcularSueldoNeto()
+        public double CalcularIngresoTotal()
         {
-
+            return CalcularSueldoBasico() + MontoAsignacionFamiliar + ConceptoIngresoDeDescuento.CalcularTotalConceptoIngreso();
         }
 
-        void CalcularTotalDeHoras()
+        public double CalcularSueldoBasico()
         {
+            return TotalHoras * ValorHora;
+        }
 
+        public double CalcularSueldoNeto()
+        {
+            return CalcularIngresoTotal() - CalcularDescuentoTotal();
+        }
+
+        public double CalcularTotalDeHoras()
+        {
+            return Periodo.CalcularSemanasPeriodo() * TotalHoras;
         }
     }
 }

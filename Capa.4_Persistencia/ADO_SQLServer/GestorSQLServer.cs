@@ -1,7 +1,11 @@
 ﻿using Capa._3_Dominio.Contratos;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
 {
@@ -15,7 +19,8 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             try
             {
                 conexion = new SqlConnection();
-                conexion.ConnectionString = "Data Source=(local);Initial Catalog= ;Integrated Security=true";//Rellenar con los datos de SQLServer
+                //conexion.ConnectionString = "Data Source=(local);Initial Catalog=CALIDAD_G5 ;Integrated Security=true";//Rellenar con los datos de SQLServer
+                conexion.ConnectionString = "Data Source=(local);Initial Catalog=nominasoft ;Integrated Security=true";//Rellenar con los datos de SQLServer
                 conexion.Open();
             }
             catch (Exception err)

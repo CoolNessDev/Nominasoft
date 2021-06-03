@@ -1,5 +1,4 @@
-﻿using Capa._4_Persistencia.ADO_MySQL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,8 +16,6 @@ namespace NOMINASOFT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            GestorMySQL instance = new GestorMySQL();
-            instance.AbrirConexion();
             Application.Run(new Form1());
         }
     }

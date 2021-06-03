@@ -1,66 +1,18 @@
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Capa.4_Persistencia.dll.config
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Capa.4_Persistencia.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Capa.4_Persistencia.pdb
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\BouncyCastle.Crypto.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Capa.3_Dominio.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Google.Protobuf.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\K4os.Compression.LZ4.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\K4os.Compression.LZ4.Streams.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\K4os.Hash.xxHash.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\MySql.Data.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Buffers.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Memory.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Numerics.Vectors.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Ubiety.Dns.Core.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Zstandard.Net.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Capa.3_Dominio.pdb
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Capa.3_Dominio.dll.config
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Google.Protobuf.pdb
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Google.Protobuf.xml
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\K4os.Compression.LZ4.xml
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\K4os.Compression.LZ4.Streams.xml
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\K4os.Hash.xxHash.xml
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\MySql.Data.xml
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Buffers.xml
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Memory.xml
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Numerics.Vectors.xml
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csprojAssemblyReference.cache
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csproj.CoreCompileInputs.cache
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csproj.CopyComplete
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.dll
-C:\Users\Valentin\Desktop\CALIDAD-G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.pdb
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Capa.4_Persistencia.dll.config
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Capa.4_Persistencia.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Capa.4_Persistencia.pdb
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\BouncyCastle.Crypto.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Capa.3_Dominio.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Google.Protobuf.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\K4os.Compression.LZ4.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\K4os.Compression.LZ4.Streams.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\K4os.Hash.xxHash.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\MySql.Data.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Buffers.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Memory.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Numerics.Vectors.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Ubiety.Dns.Core.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Zstandard.Net.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Capa.3_Dominio.pdb
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Capa.3_Dominio.dll.config
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Google.Protobuf.pdb
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\Google.Protobuf.xml
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\K4os.Compression.LZ4.xml
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\K4os.Compression.LZ4.Streams.xml
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\K4os.Hash.xxHash.xml
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\MySql.Data.xml
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Buffers.xml
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Memory.xml
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Numerics.Vectors.xml
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csprojAssemblyReference.cache
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csproj.CoreCompileInputs.cache
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csproj.CopyComplete
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.dll
-C:\Users\DiegoSullon\Desktop\CALIDAD-G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.pdb
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csproj.CoreCompileInputs.cache
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\bin\Debug\Capa.4_Persistencia.dll
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\bin\Debug\Capa.4_Persistencia.pdb
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\bin\Debug\Capa.3_Dominio.dll
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\bin\Debug\Capa.3_Dominio.pdb
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csproj.CopyComplete
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.dll
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.pdb
+C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csproj.AssemblyReference.cache
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\bin\Debug\Capa.4_Persistencia.dll
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\bin\Debug\Capa.4_Persistencia.pdb
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\bin\Debug\Capa.3_Dominio.dll
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\bin\Debug\Capa.3_Dominio.pdb
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csprojAssemblyReference.cache
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csproj.CoreCompileInputs.cache
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csproj.CopyComplete
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.dll
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.pdb
