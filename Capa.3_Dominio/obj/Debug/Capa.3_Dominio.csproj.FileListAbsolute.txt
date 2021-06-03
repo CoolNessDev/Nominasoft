@@ -10,3 +10,9 @@ X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\obj\Debug\Cap
 X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.csproj.CoreCompileInputs.cache
 X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.dll
 X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.pdb
+X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\bin\Debug\Capa.3_Dominio.dll
+X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\bin\Debug\Capa.3_Dominio.pdb
+X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.csprojAssemblyReference.cache
+X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.csproj.CoreCompileInputs.cache
+X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.dll
+X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.pdb

@@ -20,3 +20,14 @@ X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\obj\Debug\
 X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.csproj.CopyComplete
 X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.dll
 X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.pdb
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\bin\Debug\Capa.2_Aplicacion.dll
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\bin\Debug\Capa.2_Aplicacion.pdb
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\bin\Debug\Capa.3_Dominio.dll
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\bin\Debug\Capa.4_Persistencia.dll
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\bin\Debug\Capa.3_Dominio.pdb
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\bin\Debug\Capa.4_Persistencia.pdb
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.csprojAssemblyReference.cache
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.csproj.CoreCompileInputs.cache
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.csproj.CopyComplete
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.dll
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.pdb
