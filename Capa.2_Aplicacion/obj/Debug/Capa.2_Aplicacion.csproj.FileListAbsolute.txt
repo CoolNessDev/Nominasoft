@@ -31,3 +31,14 @@ X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.csproj.
 X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.csproj.CopyComplete
 X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.dll
 X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.pdb
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\bin\Debug\Capa.2_Aplicacion.dll
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\bin\Debug\Capa.2_Aplicacion.pdb
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\bin\Debug\Capa.3_Dominio.dll
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\bin\Debug\Capa.4_Persistencia.dll
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\bin\Debug\Capa.3_Dominio.pdb
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\bin\Debug\Capa.4_Persistencia.pdb
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.csprojAssemblyReference.cache
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.csproj.CoreCompileInputs.cache
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.csproj.CopyComplete
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.dll
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.pdb

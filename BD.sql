@@ -121,28 +121,73 @@ values(@asignacionFamiliar ,
 	@ID_AFP  ,
 	@ID_EMPLEADO ) 
 end
+
 --delete from Contrato
 insert into afp(nombre,porcentajeDeDescuento) values ('Prima',0.18)
 insert into afp(nombre,porcentajeDeDescuento) values ('Integra',0.17)
 select * from afp
+
+
+
+
+
 insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('03789456','address','Soltero','2001-10-29','Grado academico','044531282','Jorge')
+
 insert into Empleado(dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('01234567','asda','soltero','20120618 10:34:09 AM','asd','989466206','Pedro')
-select * from Empleado
+
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('76543210','address','Soltero','2001-10-29','Grado academico','044531282','Juan')
+
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('12344321','address','Soltero','2001-10-29','Grado academico','044531282','Roberto')
+
 go
-InsertarContrato @asignacionFamiliar = false, @cargo = 'cargo22', @fechaInicial='20210418 10:34:09 AM',@fechaFinal='20210518 10:34:09 AM',@horasContradasPorSemana=16,@valorHora=20,@estado=true,
-@ID_AFP=2,@ID_EMPLEADO=4;
+InsertarContrato @asignacionFamiliar = true, @cargo = 'Trabajador', @fechaInicial='20210121 10:34:09 AM',@fechaFinal='20210521 10:34:09 AM',@horasContradasPorSemana=16,@valorHora=20,@estado=true,
+@ID_AFP=1,@ID_EMPLEADO=1;
 go
-InsertarContrato @asignacionFamiliar = false, @cargo = 'cargo3', @fechaInicial='20210518 10:34:09 AM',@fechaFinal='20210618 10:34:09 AM',@horasContradasPorSemana=16,@valorHora=20,@estado=true,
-@ID_AFP=3,@ID_EMPLEADO=5;
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial='20210202 10:35:09 AM',@fechaFinal='20210702 10:34:09 AM',@horasContradasPorSemana=16,@valorHora=20,@estado=true,
+@ID_AFP=1,@ID_EMPLEADO=2;
 go
---delete from contrato
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial='20210202 10:35:09 AM',@fechaFinal='20210602 10:34:09 AM',@horasContradasPorSemana=20,@valorHora=20,@estado=true,
+@ID_AFP=1,@ID_EMPLEADO=3;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial='20210201 10:35:09 AM',@fechaFinal='20210601 10:34:09 AM',@horasContradasPorSemana=30,@valorHora=30,@estado=true,
+@ID_AFP=1,@ID_EMPLEADO=4;
+go
+
+delete from contrato where ID_EMPLEADO=3 AND idContrato=9
 --delete from Empleado
 
 select * from contrato
 
-
-
-select * from Contrato where ID_EMPLEADO=1 and estado =1 Order by fechaFinal desc
+select * from Contrato where ID_EMPLEADO=3 and estado =1 Order by fechaFinal desc
 
 select * from Empleado
 
+
+
+
+
+
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('12121212','address','Soltero','2001-10-29','Grado academico','044531282','Carlos Gomes')
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('23232323','address','Soltero','2001-10-29','Grado academico','044531282','Paolo Gonzales')
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('00004321','address','Soltero','2001-10-29','Grado academico','044531282','Diego Sullon')
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('00123456','address','Soltero','2001-10-29','Grado academico','044531282','Jose Wong')
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('09876543','address','Soltero','2001-10-29','Grado academico','044531282','Roland Quispe')
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('34567890','address','Soltero','2001-10-29','Grado academico','044531282','Cristian Pino')
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial='20210201 10:35:09 AM',@fechaFinal='20210601 10:34:09 AM',@horasContradasPorSemana=30,@valorHora=30,@estado=true,
+@ID_AFP=1,@ID_EMPLEADO=5;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Gerente', @fechaInicial='20210201 10:35:09 AM',@fechaFinal='20210601 10:34:09 AM',@horasContradasPorSemana=30,@valorHora=30,@estado=true,
+@ID_AFP=1,@ID_EMPLEADO=6;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial='20210201 10:35:09 AM',@fechaFinal='20210601 10:34:09 AM',@horasContradasPorSemana=30,@valorHora=30,@estado=true,
+@ID_AFP=1,@ID_EMPLEADO=7;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial='20210201 10:35:09 AM',@fechaFinal='20210601 10:34:09 AM',@horasContradasPorSemana=30,@valorHora=30,@estado=true,
+@ID_AFP=1,@ID_EMPLEADO=8;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Gerente', @fechaInicial='20210201 10:35:09 AM',@fechaFinal='20210601 10:34:09 AM',@horasContradasPorSemana=30,@valorHora=30,@estado=true,
+@ID_AFP=1,@ID_EMPLEADO=9;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial='20210201 10:35:09 AM',@fechaFinal='20210601 10:34:09 AM',@horasContradasPorSemana=30,@valorHora=30,@estado=true,
+@ID_AFP=1,@ID_EMPLEADO=10;
