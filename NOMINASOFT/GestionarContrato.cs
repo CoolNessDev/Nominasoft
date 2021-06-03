@@ -16,6 +16,7 @@ namespace NOMINASOFT
     {
 
         Boolean EDITAR = false;
+        int auxIdContrato = 0;
         public GestionarContrato()
         {
             InitializeComponent();
@@ -64,22 +65,26 @@ namespace NOMINASOFT
 
                 GestionarContratos servicio = new GestionarContratos();
                 Contrato contrato = servicio.MostrarContratos(int.Parse(textIDResultado.Text.Trim()));
-                /*if(contrato.AsignacionFamiliar == true)
-                {
-                    AsignacionSI.Checked = true;
-                }
-                if(contrato.AsignacionFamiliar == false)
-                {
-                    AsignacionNO.Checked = true;
-                }*/
-                Afp afp = servicio.BuscarAFPCodigo(contrato.Afp.Id_afp);
+            auxIdContrato = contrato.Id_contrato;
+            /*if(contrato.AsignacionFamiliar == true)
+            {
+                AsignacionSI.Checked = true;
+            }
+            if(contrato.AsignacionFamiliar == false)
+            {
+                AsignacionNO.Checked = true;
+            }*/
+            Afp afp = servicio.BuscarAFPCodigo(contrato.Afp.Id_afp);
                 cbAFP.Text = afp.Nombre;
                 TextCargo.Text = contrato.Cargo;
                 fechaInicio.Value = contrato.FechaInicio;
                 fechaFinal.Value = contrato.FechaFin;
                 textTotalDeHoras.Text = contrato.HorasContratadasPorSemana.ToString();
                 textValorHora.Text = contrato.ValorHora.ToString();
-            
+                AsignacionSI.Checked = contrato.AsignacionFamiliar;
+                AsignacionNO.Checked = !contrato.AsignacionFamiliar;
+
+
         }
         private void inavilitarDatosContrato()
         {
@@ -197,8 +202,8 @@ namespace NOMINASOFT
             GestionarContratos servicio = new GestionarContratos();
 
             Contrato contrato = new Contrato();
-            
-            if(AsignacionSI.Checked == true )
+            contrato.Id_contrato = auxIdContrato;
+            if (AsignacionSI.Checked == true )
             {
                 contrato.AsignacionFamiliar = true;
             }
@@ -207,20 +212,44 @@ namespace NOMINASOFT
                 contrato.AsignacionFamiliar =false;
             }
 
-            contrato.Cargo = TextCargo.Text.Trim();
-            contrato.FechaInicio =  fechaInicio.Value.Date;
-            contrato.FechaFin = fechaFinal.Value.Date;
-            contrato.HorasContratadasPorSemana = int.Parse(textTotalDeHoras.Text.Trim());
-            contrato.ValorHora = int.Parse(textValorHora.Text.Trim());
-            contrato.Estado = true;
-            
-            Afp afp = new Afp();
-            afp = servicio.BuscarAFP(cbAFP.Text.Trim());
-            contrato.Afp = afp;
+            try{
+                contrato.Cargo = TextCargo.Text.Trim();
+                contrato.FechaInicio = fechaInicio.Value.Date;
+                contrato.FechaFin = fechaFinal.Value.Date;
+                contrato.HorasContratadasPorSemana = int.Parse(textTotalDeHoras.Text.Trim());
+                contrato.ValorHora = int.Parse(textValorHora.Text.Trim());
+                contrato.Estado = true;
+                Afp afp = new Afp();
+                afp = servicio.BuscarAFP(cbAFP.Text.Trim());
+                contrato.Afp = afp;
 
-            Empleado empleado = new Empleado();
-            empleado = servicio.BuscarEmpleado(int.Parse(textDniBuscar.Text.Trim()));
-            contrato.Empleado =  empleado;
+                Empleado empleado = new Empleado();
+                empleado = servicio.BuscarEmpleado(int.Parse(textDniBuscar.Text.Trim()));
+                contrato.Empleado = empleado;
+            }
+            catch(Exception exce)
+            {
+                showError("Campos invalidos");
+                return;
+            }
+            
+            if (!contrato.ValidarFechaInicioContrato())
+            {
+                showError("Fecha de inicio invalida");
+                return;
+            }if (!contrato.ValidarFechaFinContrato())
+            {
+                showError("Fecha final invalida");
+                return;
+            }if (!contrato.ValidarHoras())
+            {
+                showError("Horas por semana invalidas");
+                return;
+            }if (!contrato.ValidarValorHoras())
+            {
+                showError("Horas por semana invalidas");
+                return;
+            }
 
             try
             {
@@ -285,6 +314,11 @@ namespace NOMINASOFT
             bCrear.Enabled = true;
             bAnular.Enabled = true;
             bEditar.Enabled = true;
+        }
+        private void showError(string message)
+        {
+            Exception err = new Exception(message);
+            MessageBox.Show(this, err.Message, message, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

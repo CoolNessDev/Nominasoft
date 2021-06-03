@@ -16,6 +16,7 @@ namespace Capa._3_Dominio.Entidades
         private string nombre;
         private int telefono;
         private string direccion;
+        private List<Contrato> contratos;
 
         public int Id_empleado { get => id_empleado; set => id_empleado = value; }
         public int Dni { get => dni; set => dni = value; }
@@ -25,9 +26,10 @@ namespace Capa._3_Dominio.Entidades
         public string Nombre { get => nombre; set => nombre = value; }
         public int Telefono { get => telefono; set => telefono = value; }
         public string Direccion { get => direccion; set => direccion = value; }
+        public List<Contrato> Contratos { get => contratos; set => contratos = value; }
 
 
-        
+
 
     }
 }

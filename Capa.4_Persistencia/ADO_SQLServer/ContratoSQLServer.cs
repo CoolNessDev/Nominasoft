@@ -101,7 +101,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
         public Contrato MostrarDatosContrato(int CodigoEmpleado)
         {
             Contrato contrato;
-            string mostrarContrato = "select idContrato,  cargo, fechaInicial, fechaFinal, horasContradasPorSemana, valorHora, ID_AFP from Contrato where ID_EMPLEADO = " + CodigoEmpleado + "" +
+            string mostrarContrato = "select idContrato, asignacionFamiliar, cargo, fechaInicial, fechaFinal, horasContradasPorSemana, valorHora, estado, ID_AFP from Contrato where ID_EMPLEADO = " + CodigoEmpleado + "" +
                                      "and fechaInicial = (Select MAX(fechaInicial) from Contrato where ID_EMPLEADO = " + CodigoEmpleado + ")" +
                                      "and estado = 1";
             
@@ -133,14 +133,15 @@ namespace Capa._4_Persistencia.ADO_SQLServer
         {
             Contrato contrato = new Contrato();
             contrato.Id_contrato = resultadoSQL.GetInt32(0);
-            //contrato.AsignacionFamiliar = resultadoSQL.GetBoolean(1);
-            contrato.Cargo = resultadoSQL.GetString(1);
-            contrato.FechaInicio = resultadoSQL.GetDateTime(2);
-            contrato.FechaFin = resultadoSQL.GetDateTime(3);
-            contrato.HorasContratadasPorSemana = resultadoSQL.GetInt32(4);
-            contrato.ValorHora = resultadoSQL.GetInt32(5);
+            contrato.AsignacionFamiliar = resultadoSQL.GetBoolean(1);
+            contrato.Cargo = resultadoSQL.GetString(2);
+            contrato.FechaInicio = resultadoSQL.GetDateTime(3);
+            contrato.FechaFin = resultadoSQL.GetDateTime(4);
+            contrato.HorasContratadasPorSemana = resultadoSQL.GetInt32(5);
+            contrato.ValorHora = resultadoSQL.GetInt32(6);
+            contrato.Estado = resultadoSQL.GetBoolean(7);
             Afp afp = new Afp();
-            afp.Id_afp = resultadoSQL.GetInt32(6);
+            afp.Id_afp = resultadoSQL.GetInt32(8);
             contrato.Afp = afp;
             return contrato;
 

@@ -19,7 +19,8 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             try
             {
                 conexion = new SqlConnection();
-                conexion.ConnectionString = "Data Source=(local);Initial Catalog=CALIDAD_G5 ;Integrated Security=true";//Rellenar con los datos de SQLServer
+                //conexion.ConnectionString = "Data Source=(local);Initial Catalog=CALIDAD_G5 ;Integrated Security=true";//Rellenar con los datos de SQLServer
+                conexion.ConnectionString = "Data Source=(local);Initial Catalog=nominasoft ;Integrated Security=true";//Rellenar con los datos de SQLServer
                 conexion.Open();
             }
             catch (Exception err)

@@ -7,3 +7,12 @@ C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Ca
 C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.dll
 C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.pdb
 C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csproj.AssemblyReference.cache
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\bin\Debug\Capa.4_Persistencia.dll
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\bin\Debug\Capa.4_Persistencia.pdb
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\bin\Debug\Capa.3_Dominio.dll
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\bin\Debug\Capa.3_Dominio.pdb
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csprojAssemblyReference.cache
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csproj.CoreCompileInputs.cache
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.csproj.CopyComplete
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.dll
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.4_Persistencia\obj\Debug\Capa.4_Persistencia.pdb

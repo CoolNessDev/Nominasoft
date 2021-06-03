@@ -4,3 +4,9 @@ C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\obj\Debug\Capa.3_
 C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.dll
 C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.pdb
 C:\Users\Valentin\Desktop\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.csproj.AssemblyReference.cache
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\bin\Debug\Capa.3_Dominio.dll
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\bin\Debug\Capa.3_Dominio.pdb
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.csprojAssemblyReference.cache
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.csproj.CoreCompileInputs.cache
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.dll
+X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.pdb

@@ -30,7 +30,7 @@ namespace Capa._2_Aplicacion.Servicios
         {
             gestorAccesoDatos.AbrirConexion();
             Empleado empleado = empleadoDAO.BuscarEmpleadoPorDNI(dni);
-            gestorAccesoDatos.CerrarConexion();
+            empleado.Contratos = empleadoDAO.obtenerContratos(empleado.Id_empleado);
             return empleado;
         }
 

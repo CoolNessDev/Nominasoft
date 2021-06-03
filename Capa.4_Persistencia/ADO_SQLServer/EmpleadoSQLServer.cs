@@ -33,6 +33,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 {
                     return null;
                 }
+                resultadoSQL.Close();
             }
             catch (Exception err)
             {
@@ -40,7 +41,27 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             return empleado;
         }
-
+        public List<Contrato> obtenerContratos(int idEmpleado)
+        {
+            List<Contrato> contratos = new List<Contrato>();
+            Contrato contrato;
+            string consultaSQL = "select* from Contrato where ID_EMPLEADO ='" + idEmpleado + "' Order by fechaFinal desc";
+            try
+            {
+                SqlDataReader resultadoSQL2 = gestorSQL.EjecutarConsulta(consultaSQL);
+                while (resultadoSQL2.Read())
+                {
+                    contrato = ObtenerContrato(resultadoSQL2);
+                    contratos.Add(contrato);
+                }
+                resultadoSQL2.Close();
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show("Error: "+er);
+            }
+            return contratos;
+        }
         private Empleado ObtenerDatosEmpleaods(SqlDataReader resultadoSQL)
         {
             Empleado empleado = new Empleado();
@@ -53,6 +74,23 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             empleado.Telefono = resultadoSQL.GetInt32(6);
             empleado.Nombre = resultadoSQL.GetString(7);
             return empleado;
+        }
+        private Contrato ObtenerContrato(SqlDataReader resultadoSQL)
+        {
+            Contrato contrato = new Contrato();
+            contrato.Id_contrato = resultadoSQL.GetInt32(0);
+            contrato.AsignacionFamiliar = resultadoSQL.GetBoolean(1);
+            contrato.Cargo = resultadoSQL.GetString(2);
+            contrato.FechaInicio = resultadoSQL.GetDateTime(3);
+            contrato.FechaFin = resultadoSQL.GetDateTime(4);
+            contrato.HorasContratadasPorSemana = resultadoSQL.GetInt32(5);
+            contrato.ValorHora = resultadoSQL.GetInt32(6);
+            contrato.Estado = resultadoSQL.GetBoolean(7);
+            Afp afp = new Afp();
+            afp.Id_afp = resultadoSQL.GetInt32(8);
+            contrato.Afp = afp;
+            return contrato;
+
         }
     }
 }

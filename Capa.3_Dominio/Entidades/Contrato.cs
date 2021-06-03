@@ -35,6 +35,12 @@ namespace Capa._3_Dominio.Entidades
 
 
 
+        /// <summary>
+        /// La fecha fin de un contrato debe ser superior a la fecha 
+        /// de inicio con una diferencia de tres meses como mínimo
+        /// y 12 meses como máximo
+        /// </summary>
+        /// <returns>bool</returns>
         public bool ValidarFechaFinContrato()
         {
             if ((FechaFin - FechaInicio).TotalDays > 90 && (FechaFin - FechaInicio).TotalDays < 365)
@@ -44,22 +50,39 @@ namespace Capa._3_Dominio.Entidades
             return false;
         }
 
-        /*
-        public bool ValidarFechaInicioContrato(Contrato contreatoAnterior)
+
+        /// <summary>
+        /// La fecha de inicio de un contrato debe ser superior a la  fecha fin de su anterior contrato si lo tuviera.
+        /// </summary>
+        /// <returns>bool</returns>
+        public bool ValidarFechaInicioContrato()
         {
-            if (FechaInicio > contreatoAnterior.FechaFin)
+            Contrato anterior = null;
+            try
+            {
+                anterior = Empleado.Contratos[0];
+            }
+            catch (Exception e)
+            {
+                anterior = null;
+            }
+            if (anterior != null && Id_contrato == anterior.id_contrato)
+            {
+                return true;
+            }
+            if (anterior == null || FechaInicio > anterior.FechaFin)
             {
                 return true;
             }
             return false;
-        }*/
-
-        /*
-         El total de horas contratadas por semana sólo puede 
-        ser de 8 a 40 horas, pero sólo valores enteros con 
-        diferencia de 4 horas a partir de las 8 horas. Por 
-        ejemplo: 8, 12, 16, … , 36, 40
-         */
+        }
+        /// <summary>
+        ///  El total de horas contratadas por semana sólo puede 
+        ///  ser de 8 a 40 horas, pero sólo valores enteros con 
+        ///  diferencia de 4 horas a partir de las 8 horas. Por 
+        ///  ejemplo: 8, 12, 16, … , 36, 40
+        /// </summary>
+        /// <returns>bool</returns>
         public bool ValidarHoras()
         {
             if (8 <= HorasContratadasPorSemana && HorasContratadasPorSemana <= 40 && HorasContratadasPorSemana % 4 == 0)
@@ -68,10 +91,12 @@ namespace Capa._3_Dominio.Entidades
             }
             return false;
         }
-        /*
-         El valor hora de un contrato sólo puede ser desde 10 
-        soles a 60 soles, pero sólo valores entero
-         */
+
+        /// <summary>
+        ///  El valor hora de un contrato sólo puede ser desde 10 
+        ///  soles a 60 soles, pero sólo valores entero
+        /// </summary>
+        /// <returns>bool</returns>
         public bool ValidarValorHoras()
         {
             if (10 < ValorHora && ValorHora < 60 && ValorHora - (int)ValorHora == 0)
@@ -80,17 +105,21 @@ namespace Capa._3_Dominio.Entidades
             }
             return false;
         }
-        /*
-         Un contrato está vigente si su fecha fin es mayor o igual 
-        a la fecha actual y no está anulado.
-         */
-        /*public bool ValidarVigenciaContrato(Contrato contreatoAnterior)
+        /// <summary>
+        ///   Un contrato está vigente si su fecha fin es mayor o igual 
+        ///  a la fecha actual y no está anulado.
+        /// </summary>
+        /// <returns>bool</returns>
+        public bool ValidarVigenciaContrato()
         {
-            if (contreatoAnterior.FechaFin >= FechaInicio && Estado == true)
+            DateTime today = DateTime.Now;
+            
+            //Console.WriteLine(DateTime.Compare(today, FechaFin));
+            if (today <= FechaFin && Estado == true)
             {
                 return true;
             }
             return false;
-        }*/
+        }
     }
 }
