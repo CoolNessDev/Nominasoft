@@ -100,7 +100,7 @@ namespace Capa._3_Dominio.Entidades
         /// <returns>bool</returns>
         public bool ValidarValorHoras()
         {
-            if (10 < ValorHora && ValorHora < 60 && ValorHora - (int)ValorHora == 0)
+            if (10 <= ValorHora && ValorHora <= 60 && ValorHora - (int)ValorHora == 0)
             {
                 return true;
             }
