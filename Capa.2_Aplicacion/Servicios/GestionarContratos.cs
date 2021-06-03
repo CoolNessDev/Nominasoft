@@ -26,11 +26,14 @@ namespace Capa._2_Aplicacion.Servicios
             contratoDAO = fabricaAbstracta.crearContratoDAO(gestorAccesoDatos);
         }
 
-        public Empleado BuscarEmpleado(int dni)
+        public Empleado BuscarEmpleado(string dni)
         {
             gestorAccesoDatos.AbrirConexion();
             Empleado empleado = empleadoDAO.BuscarEmpleadoPorDNI(dni);
-            empleado.Contratos = empleadoDAO.obtenerContratos(empleado.Id_empleado);
+            if (empleado != null)
+            {
+                empleado.Contratos = empleadoDAO.obtenerContratos(empleado.Id_empleado);
+            }
             return empleado;
         }
 
@@ -80,7 +83,7 @@ namespace Capa._2_Aplicacion.Servicios
             gestorAccesoDatos.CerrarConexion();
             return contrato;
         }
-        public void EditarContratos(Contrato contrato,int codigoEmpleado)
+        public void EditarContratos(Contrato contrato, int codigoEmpleado)
         {
             /*GestionarLosContratos gestionarLosContratos = new GestionarLosContratos();
 

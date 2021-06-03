@@ -18,7 +18,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             this.gestorSQL = (GestorSQLServer)gestorSQL;
         }
 
-        public Empleado BuscarEmpleadoPorDNI(int DNI)
+        public Empleado BuscarEmpleadoPorDNI(string DNI)
         {
             Empleado empleado;
             string consultaSQL = "select * from Empleado where dni = '" + DNI + "'";
@@ -66,12 +66,12 @@ namespace Capa._4_Persistencia.ADO_SQLServer
         {
             Empleado empleado = new Empleado();
             empleado.Id_empleado = resultadoSQL.GetInt32(0);
-            empleado.Dni = resultadoSQL.GetInt32(1);
+            empleado.Dni = resultadoSQL.GetString(1);
             empleado.Direccion = resultadoSQL.GetString(2);
             empleado.EstadoCivil = resultadoSQL.GetString(3);
             empleado.FechaNacimiento = resultadoSQL.GetDateTime(4);
             empleado.GradoAcademico = resultadoSQL.GetString(5);
-            empleado.Telefono = resultadoSQL.GetInt32(6);
+            empleado.Telefono = resultadoSQL.GetString(6);
             empleado.Nombre = resultadoSQL.GetString(7);
             return empleado;
         }

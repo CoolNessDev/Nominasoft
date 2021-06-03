@@ -119,7 +119,7 @@ namespace NOMINASOFT
             else
             {
                 GestionarContratos servicio = new GestionarContratos();
-                Empleado empleado = servicio.BuscarEmpleado(int.Parse(dniEmpleado));
+                Empleado empleado = servicio.BuscarEmpleado(dniEmpleado);
                 if (empleado == null)
                 {
                     MessageBox.Show("No existe el Empleado.");
@@ -224,7 +224,7 @@ namespace NOMINASOFT
                 contrato.Afp = afp;
 
                 Empleado empleado = new Empleado();
-                empleado = servicio.BuscarEmpleado(int.Parse(textDniBuscar.Text.Trim()));
+                empleado = servicio.BuscarEmpleado(textDniBuscar.Text.Trim());
                 contrato.Empleado = empleado;
             }
             catch(Exception exce)

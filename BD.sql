@@ -64,6 +64,8 @@ CREATE TABLE Pago(
 );
 go
 alter table Contrato alter column asignacionFamiliar bit
+alter table Empleado alter column dni varchar(8)
+alter table Empleado alter column telefono varchar(15)
 GO
 CREATE PROCEDURE [dbo].[spInsertaPago] 
 (
@@ -118,25 +120,26 @@ values(@asignacionFamiliar ,
 	@ID_EMPLEADO ) 
 end
 --delete from Contrato
-go
-InsertarContrato @asignacionFamiliar = false, @cargo = 'cargo1', @fechaInicial='20210318 10:34:09 AM',@fechaFinal='20210418 10:34:09 AM',@horasContradasPorSemana=16,@valorHora=20,@estado=true,
-@ID_AFP=2,@ID_EMPLEADO=1;
+insert into afp(nombre,porcentajeDeDescuento) values ('Prima',0.18)
+insert into afp(nombre,porcentajeDeDescuento) values ('Integra',0.17)
+select * from afp
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('03789456','address','Soltero','2001-10-29','Grado academico','044531282','Jorge')
+insert into Empleado(dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('01234567','asda','soltero','20120618 10:34:09 AM','asd','989466206','Pedro')
+select * from Empleado
 go
 InsertarContrato @asignacionFamiliar = false, @cargo = 'cargo22', @fechaInicial='20210418 10:34:09 AM',@fechaFinal='20210518 10:34:09 AM',@horasContradasPorSemana=16,@valorHora=20,@estado=true,
-@ID_AFP=2,@ID_EMPLEADO=1;
+@ID_AFP=1,@ID_EMPLEADO=1;
 go
 InsertarContrato @asignacionFamiliar = false, @cargo = 'cargo3', @fechaInicial='20210518 10:34:09 AM',@fechaFinal='20210618 10:34:09 AM',@horasContradasPorSemana=16,@valorHora=20,@estado=true,
-@ID_AFP=2,@ID_EMPLEADO=1;
+@ID_AFP=1,@ID_EMPLEADO=1;
+go
 
-insert into afp(nombre,porcentajeDeDescuento) values ('Prima',0.18)
-select * from afp
-insert into Empleado(dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values (1,'asda','soltero','20120618 10:34:09 AM','asd',1,'Pedro')
-select * from Empleado
 
 select * from contrato
 
-insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values (03789456,'address','Soltero','2001-10-29','Grado academico',044531282,'Jorge')
+
 
 select * from Contrato where ID_EMPLEADO=1 and estado =1 Order by fechaFinal desc
 
-delete from Contrato
+select * from Empleado
+

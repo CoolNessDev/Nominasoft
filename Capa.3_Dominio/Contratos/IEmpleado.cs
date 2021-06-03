@@ -9,7 +9,7 @@ namespace Capa._3_Dominio.Contratos
 {
     public interface IEmpleado
     {
-        Empleado BuscarEmpleadoPorDNI(int DNI);
+        Empleado BuscarEmpleadoPorDNI(string DNI);
         List<Contrato> obtenerContratos(int idEmpleado);
     }
 }
