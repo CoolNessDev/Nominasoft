@@ -19,7 +19,7 @@ namespace Capa._3_Dominio.Entidades
 
         private Afp afp;
         private Empleado empleado;
-        private List<Periodo> periodos;
+        private Periodo periodo;
 
 
         public int Id_contrato { get => id_contrato; set => id_contrato = value; }
@@ -33,7 +33,7 @@ namespace Capa._3_Dominio.Entidades
 
         public Afp Afp { get => afp; set => afp = value; }
         public Empleado Empleado { get => empleado; set => empleado = value; }
-        public List<Periodo> Periodos { get => periodos; set => periodos = value; }
+        public Periodo Periodo { get => periodo; set => periodo = value; }
 
 
         /// <summary>
@@ -122,6 +122,23 @@ namespace Capa._3_Dominio.Entidades
                 return true;
             }
             return false;
+        }
+        /// <summary>
+        /// Los contratos que pueden ser procesados en un
+        /// periodo activo son los que tienen fecha fin mayor a la
+        /// fecha de inicio del periodo y además no están anulados.
+        /// </summary>
+        /// <returns>bool</returns>
+        public bool ValidarContratoProcesar()
+        {
+
+
+                if (FechaFin > Periodo.FechaInicio && Estado)
+                {
+                    return false;
+                }
+            
+            return true;
         }
     }
 }

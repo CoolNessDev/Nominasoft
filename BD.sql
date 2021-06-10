@@ -92,9 +92,9 @@ values(@asignacionFamiliar ,
 	@ID_EMPLEADO ) 
 end
 go
---El sistema busca al empleado por DNI y muestra los siguientes datos: código, nombre, dirección, 
---teléfono, fecha de nacimiento, estado civil (que pueden ser: soltero, casado, conviviente, 
---divorciado, viudo), y grado académico (que pueden ser: primaria, secundaria, bachiller, 
+--El sistema busca al empleado por DNI y muestra los siguientes datos: cï¿½digo, nombre, direcciï¿½n, 
+--telï¿½fono, fecha de nacimiento, estado civil (que pueden ser: soltero, casado, conviviente, 
+--divorciado, viudo), y grado acadï¿½mico (que pueden ser: primaria, secundaria, bachiller, 
 --profesional, magister, doctor).
 insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('01234567','av arequipa','soltero','2001-10-29','primaria','044531282','Jorge');
 insert into Empleado(dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('76543210','calle cascanueces','casado','20120618 10:34:09 AM','secundaria','989466206','Pedro');
@@ -114,12 +114,16 @@ InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInici
 @ID_AFP=2,@ID_EMPLEADO=2;
 go
 insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-04-16','2021-05-15',0);
+--Periodo aÃºn activo antes de tiempo actual 2021-06-10 para pruebas
 insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-05-16','2021-06-15',1);
+insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-03-16','2021-04-15',1);
 go
 insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (1,1);
 insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (1,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (1,3);
 insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,1);
 insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,3);
 go
 select * from Empleado
 select * from AFP
@@ -138,7 +142,7 @@ begin
 where Periodo.idPeriodo = @ID_PERIODO;
 end
 go
-ListarContratosProcesar @ID_PERIODO = 1;
+ListarContratosProcesar @ID_PERIODO = 1 ;
 go
 create procedure InsertarPago
 (
@@ -163,7 +167,7 @@ values(@fechaActual ,
 	@ID_PERIODO) 
 end
 go
-select * from Periodo where estado = 1;
+select * from Periodo where estado = 1 ORDER BY fechaFin;
 go
 create procedure ActualizarPeriodo
 (

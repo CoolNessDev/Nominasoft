@@ -44,12 +44,12 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             catch (Exception er)
             {
-                MessageBox.Show("Ocurrio un problema al intentar guardar,\n verifique si los datos ingresados son correctos."+ er);
+                MessageBox.Show("Ocurrio un problema al intentar guardar,\n verifique si los datos ingresados son correctos." + er);
             }
 
-        } 
+        }
 
-        public void EditarContrato(Contrato contrato,int codigoEmpleado)
+        public void EditarContrato(Contrato contrato, int codigoEmpleado)
         {
             string editarContrato = "update Contrato Set asignacionFamiliar=@asignacionFamiliar, cargo= @cargo, fechaInicial=@fechaInicial, fechaFinal=@fechaFinal, horasContradasPorSemana=@horasContradasPorSemana, valorHora=@valorHora, ID_AFP=@ID_AFP where ID_EMPLEADO = " + codigoEmpleado + "" +
                                      "and fechaInicial = (Select MAX(fechaInicial) from Contrato where ID_EMPLEADO = " + codigoEmpleado + ")" +
@@ -77,7 +77,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
         }
 
-        public void AnularContrato(Contrato contrato,int codigoEmpleado)
+        public void AnularContrato(Contrato contrato, int codigoEmpleado)
         {
             string anularContrato = "update Contrato Set estado = @estado where ID_EMPLEADO = " + codigoEmpleado + "" +
                                      "and fechaInicial = (Select MAX(fechaInicial) from Contrato where ID_EMPLEADO = " + codigoEmpleado + ")" +
@@ -105,13 +105,13 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             string mostrarContrato = "select idContrato, asignacionFamiliar, cargo, fechaInicial, fechaFinal, horasContradasPorSemana, valorHora, estado, ID_AFP from Contrato where ID_EMPLEADO = " + CodigoEmpleado + "" +
                                      "and fechaInicial = (Select MAX(fechaInicial) from Contrato where ID_EMPLEADO = " + CodigoEmpleado + ")" +
                                      "and estado = 1";
-            
+
             try
             {
                 SqlDataReader resultadoSQL = gestorSQL.EjecutarConsulta(mostrarContrato);
                 if (resultadoSQL.Read())
                 {
-                    contrato= ObtenerContrato(resultadoSQL);
+                    contrato = ObtenerContrato(resultadoSQL);
                 }
                 else
                 {
@@ -121,13 +121,13 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             catch (Exception err)
             {
-                MessageBox.Show("No existe el Contrato."+err);
+                MessageBox.Show("No existe el Contrato." + err);
                 return null;
             }
             return contrato;
         }
 
-        public List<Contrato> GetContratosByPeriodo(int idPeriodo)
+        public List<Contrato> GetContratosByPeriodo(Periodo periodo)
         {
             List<Contrato> contratos = new List<Contrato>();
             Contrato contrato;
@@ -136,12 +136,16 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             {
                 cmd = gestorSQL.ObtenerComandoDeProcedimiento("ListarContratosProcesar");
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID_PERIODO", idPeriodo);
+                cmd.Parameters.AddWithValue("@ID_PERIODO", periodo.Id_periodo);
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     contrato = ObtenerContrato(dr);
-                    contratos.Add(contrato);
+                    contrato.Periodo = periodo;
+                    if (contrato.ValidarContratoProcesar())
+                    {
+                        contratos.Add(contrato);
+                    }
                 }
             }
             catch (Exception e)

@@ -32,12 +32,9 @@ namespace NOMINASOFT
                 setDataPeriodo(periodo);
             }
         }
-        private void listContratos(int idPeriodo)
+        private void listContratos(List<Contrato> contratos)
         {
-            List<Contrato> contratos = servicio.GetContratosByPeriodo(idPeriodo);
-
             dgvContratos.DataSource = contratos;
-
         }
         private void setDataPeriodo(Periodo periodo)
         {
@@ -72,8 +69,17 @@ namespace NOMINASOFT
         {
             if (periodo != null)
             {
+                periodo.Contratos = servicio.GetContratosByPeriodo(periodo);
                 //Verificar si periodo puede ser procesado
-                listContratos(periodo.Id_periodo);
+                if (!periodo.ValidarPeriodoActivos())
+                {
+                    MessageBox.Show("No se puede procesar el periodo porque la fecha actual debe" +
+                                    " ser mayor o igual a la fecha fin del periodo de pago");
+                }
+                else
+                {
+                    listContratos(periodo.Contratos);
+                }
             }
         }
     }

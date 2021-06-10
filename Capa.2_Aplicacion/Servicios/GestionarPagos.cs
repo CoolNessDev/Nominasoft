@@ -33,10 +33,10 @@ namespace Capa._2_Aplicacion.Servicios
             gestorAccesoDatos.CerrarConexion();
             return periodo;
         }
-        public List<Contrato> GetContratosByPeriodo(int idPeriodo)
+        public List<Contrato> GetContratosByPeriodo(Periodo periodo)
         {
             gestorAccesoDatos.AbrirConexion();
-            List<Contrato> contratos = contratoDAO.GetContratosByPeriodo(idPeriodo);
+            List<Contrato> contratos = contratoDAO.GetContratosByPeriodo(periodo);
             gestorAccesoDatos.CerrarConexion();
             return contratos;
         }

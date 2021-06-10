@@ -31,33 +31,20 @@ namespace Capa._3_Dominio.Entidades
             return dias / 7;
         }
 
+        /// <summary>
+        /// Para poder procesar un periodo de pago activo, la fecha 
+        /// actual debe ser mayor o igual a la fecha fin del periodo
+        /// de pago
+        /// </summary>
+        /// <returns></returns>
         public bool ValidarPeriodoActivos()
         {
-            if (FechaFin > FechaInicio && Estado)
+            DateTime now = DateTime.Now;
+            if (now>=FechaFin)
             {
                 return true;
             }
             return false;
         }
-
-        /// <summary>
-        /// Los contratos que pueden ser procesados en un
-        /// periodo activo son los que tienen fecha fin mayor a la
-        /// fecha de inicio del periodo y además no están anulados.
-        /// </summary>
-        /// <returns>bool</returns>
-        public bool ValidarContratosProcesar()
-        {
-
-            for (int i = 0; i < Contratos.Count; i++)
-            {
-                if (Contratos[i].FechaFin > FechaInicio && Contratos[i].Estado)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
     }
 }
