@@ -24,7 +24,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             List<Periodo> periodos = new List<Periodo>();
 
             Periodo periodo;
-            string consultaSQL = "select * from Periodo where estado = 1 ORDER BY fechaFin DESC";
+            //string consultaSQL = "select * from Periodo where estado = 1 ORDER BY fechaFin DESC";
+            string consultaSQL = "select * from Periodo where estado = 1 ORDER BY fechaFin";
+
             try
             {
                 SqlDataReader resultadoSQL = gestorSQL.EjecutarConsulta(consultaSQL);

@@ -20,6 +20,8 @@ namespace Capa._4_Persistencia.FabricaDatos
         public abstract IContrato crearContratoDAO(IGestorAccesoDatos gestorAccesoDatos);
         public abstract IEmpleado crearEmpleadoDAO(IGestorAccesoDatos gestorAccesoDatos);
         public abstract IPeriodo crearPeriodoDAO(IGestorAccesoDatos gestorAccesoDatos);
+        public abstract IPago crearPagoDAO(IGestorAccesoDatos gestorAccesoDatos);
+
 
     }
 }

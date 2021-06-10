@@ -28,6 +28,10 @@ namespace Capa._4_Persistencia.FabricaDatos
         {
             return new PeriodoSQLServer(gestorAccesoDatos);
         }
+        public override IPago crearPagoDAO(IGestorAccesoDatos gestorAccesoDatos)
+        {
+            return new PagoSQLServer(gestorAccesoDatos);
+        }
         public override IGestorAccesoDatos crearGestorAccesoDatos()
         {
             return new GestorSQLServer();

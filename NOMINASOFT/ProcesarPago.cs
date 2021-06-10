@@ -82,5 +82,28 @@ namespace NOMINASOFT
                 }
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (periodo != null && periodo.Contratos != null)
+            {
+                for (int i = 0; i < periodo.Contratos.Count; i++)
+                {
+                    Pago pago = new Pago();
+                    pago.Periodo = periodo;
+                    pago.Contrato = periodo.Contratos[i];
+                    pago.FechaActual = DateTime.Now;
+                    pago.TotalHoras = pago.CalcularTotalDeHoras();
+                    pago.SueldoMinimo = pago.CalcularSueldoBasico();
+                    pago.MontoAsignacionFamiliar = pago.CalcularMontoPorAsignacionFamiliar();
+                    pago.PorcentajeDescuento = periodo.Contratos[i].Afp.Porsentaje_descuento;
+                    pago.DescuentAFP = pago.CalcularDescuentoAFP();
+
+                }
+                
+
+            }
+
+        }
     }
 }
