@@ -10,12 +10,12 @@ namespace Capa._3_Dominio.Entidades
     {
         private int id_empleado;
         private string dni;
+        private string direccion;
         private string estadoCivil;
         private DateTime fechaNacimiento;
         private string gradoAcademico;
-        private string nombre;
         private string telefono;
-        private string direccion;
+        private string nombre;
         private List<Contrato> contratos;
 
         public int Id_empleado { get => id_empleado; set => id_empleado = value; }

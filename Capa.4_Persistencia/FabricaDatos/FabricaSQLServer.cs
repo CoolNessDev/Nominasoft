@@ -1,4 +1,6 @@
 ﻿using Capa._3_Dominio.Contratos;
+using Capa._3_Dominio.Pagos;
+using Capa._3_Dominio.Servicios;
 using Capa._4_Persistencia.ADO_SQLServer;
 using System;
 using System.Collections.Generic;
@@ -21,6 +23,10 @@ namespace Capa._4_Persistencia.FabricaDatos
         public override IEmpleado crearEmpleadoDAO(IGestorAccesoDatos gestorAccesoDatos)
         {
             return new EmpleadoSQLServer(gestorAccesoDatos);
+        }
+        public override IPeriodo crearPeriodoDAO(IGestorAccesoDatos gestorAccesoDatos)
+        {
+            return new PeriodoSQLServer(gestorAccesoDatos);
         }
         public override IGestorAccesoDatos crearGestorAccesoDatos()
         {

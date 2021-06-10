@@ -16,3 +16,9 @@ X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.csprojAssembl
 X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.csproj.CoreCompileInputs.cache
 X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.dll
 X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.pdb
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.3_Dominio\bin\Debug\Capa.3_Dominio.dll
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.3_Dominio\bin\Debug\Capa.3_Dominio.pdb
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.csprojAssemblyReference.cache
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.dll
+C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.3_Dominio\obj\Debug\Capa.3_Dominio.pdb

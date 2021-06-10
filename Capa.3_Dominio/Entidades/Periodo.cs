@@ -12,11 +12,17 @@ namespace Capa._3_Dominio.Entidades
         private DateTime fechaInicio;
         private DateTime fechaFin;
         private bool estado;
+        private List<Contrato> contratos;
+        private ConceptoIngresoDeDescuento conceptoIngresoDeDescuento;
+        private Pago pago;
 
         public int Id_periodo { get => id_periodo; set => id_periodo = value; }
         public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
         public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
         public bool Estado { get => estado; set => estado = value; }
+        public List<Contrato> Contratos  { get => contratos; set => contratos = value; }
+        public ConceptoIngresoDeDescuento ConceptoIngresoDeDescuento { get => conceptoIngresoDeDescuento; set => conceptoIngresoDeDescuento = value; }
+        public Pago Pago { get => pago; set => pago = value; }
 
         public int CalcularSemanasPeriodo()
         {

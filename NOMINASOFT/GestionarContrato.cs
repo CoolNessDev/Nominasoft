@@ -140,6 +140,9 @@ namespace NOMINASOFT
 
         private void bCrear_Click(object sender, EventArgs e)
         {
+            EDITAR = false;
+            inavilitarDatosContrato();
+            avilitarDatosContrato();
             configuracionDeDatosContrato();
             bEditar.Enabled = false;
             bAnular.Enabled = false;

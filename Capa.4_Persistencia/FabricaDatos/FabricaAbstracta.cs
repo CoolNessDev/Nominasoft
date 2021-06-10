@@ -1,4 +1,6 @@
 ﻿using Capa._3_Dominio.Contratos;
+using Capa._3_Dominio.Pagos;
+using Capa._3_Dominio.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,7 @@ namespace Capa._4_Persistencia.FabricaDatos
         public abstract IAfp crearAfpDAO(IGestorAccesoDatos gestorAccesoDatos);
         public abstract IContrato crearContratoDAO(IGestorAccesoDatos gestorAccesoDatos);
         public abstract IEmpleado crearEmpleadoDAO(IGestorAccesoDatos gestorAccesoDatos);
+        public abstract IPeriodo crearPeriodoDAO(IGestorAccesoDatos gestorAccesoDatos);
 
     }
 }
