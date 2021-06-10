@@ -127,7 +127,31 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             return contrato;
         }
 
-        
+        public List<Contrato> GetContratosByPeriodo(int idPeriodo)
+        {
+            List<Contrato> contratos = new List<Contrato>();
+            Contrato contrato;
+            SqlCommand cmd = null;
+            try
+            {
+                cmd = gestorSQL.ObtenerComandoDeProcedimiento("ListarContratosProcesar");
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID_PERIODO", idPeriodo);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    contrato = ObtenerContrato(dr);
+                    contratos.Add(contrato);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error update Periodo " + e);
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return contratos;
+        }
 
 
         private Contrato ObtenerContrato(SqlDataReader resultadoSQL)

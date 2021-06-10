@@ -1,5 +1,6 @@
 ﻿
 
+using Capa._3_Dominio.Contratos;
 using Capa._3_Dominio.Entidades;
 using Capa._3_Dominio.Pagos;
 using Capa._3_Dominio.Servicios;
@@ -17,11 +18,13 @@ namespace Capa._2_Aplicacion.Servicios
     {
         private IGestorAccesoDatos gestorAccesoDatos;
         private IPeriodo periodoDAO;
+        private IContrato contratoDAO;
         public GestionarPagos()
         {
             FabricaAbstracta fabricaAbstracta = FabricaAbstracta.crearInstancia();
             gestorAccesoDatos = fabricaAbstracta.crearGestorAccesoDatos();
             periodoDAO = fabricaAbstracta.crearPeriodoDAO(gestorAccesoDatos);
+            contratoDAO = fabricaAbstracta.crearContratoDAO(gestorAccesoDatos);
         }
         public Periodo GetPeriodoActivo()
         {
@@ -29,6 +32,13 @@ namespace Capa._2_Aplicacion.Servicios
             Periodo periodo = periodoDAO.GetPeriodoActivo();
             gestorAccesoDatos.CerrarConexion();
             return periodo;
+        }
+        public List<Contrato> GetContratosByPeriodo(int idPeriodo)
+        {
+            gestorAccesoDatos.AbrirConexion();
+            List<Contrato> contratos = contratoDAO.GetContratosByPeriodo(idPeriodo);
+            gestorAccesoDatos.CerrarConexion();
+            return contratos;
         }
     }
 }

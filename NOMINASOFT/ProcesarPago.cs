@@ -15,12 +15,13 @@ namespace NOMINASOFT
     public partial class ProcesarPago : Form
     {
         GestionarPagos servicio;
+        Periodo periodo;
         public ProcesarPago()
         {
             InitializeComponent();
             disableInputs();
             servicio = new GestionarPagos();
-            Periodo periodo = servicio.GetPeriodoActivo();
+            periodo = servicio.GetPeriodoActivo();
             if (periodo == null)
             {
                 MessageBox.Show("No existe el Empleado.");
@@ -30,6 +31,12 @@ namespace NOMINASOFT
             {
                 setDataPeriodo(periodo);
             }
+        }
+        private void listContratos(int idPeriodo)
+        {
+            List<Contrato> contratos = servicio.GetContratosByPeriodo(idPeriodo);
+
+            dgvContratos.DataSource = contratos;
 
         }
         private void setDataPeriodo(Periodo periodo)
@@ -37,7 +44,7 @@ namespace NOMINASOFT
             inCodigo.Text = periodo.Id_periodo.ToString();
             inFechaInicio.Text = periodo.FechaInicio.ToString();
             inFechaFin.Text = periodo.FechaFin.ToString();
-            inEstado.Text = periodo.Estado?"Activo":"No Activo";
+            inEstado.Text = periodo.Estado ? "Activo" : "No Activo";
 
         }
         private void disableInputs()
@@ -63,7 +70,11 @@ namespace NOMINASOFT
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (periodo != null)
+            {
+                //Verificar si periodo puede ser procesado
+                listContratos(periodo.Id_periodo);
+            }
         }
     }
 }

@@ -13,5 +13,6 @@ namespace Capa._3_Dominio.Contratos
         void EditarContrato(Contrato contrato, int codigoEmpleado);
         void AnularContrato(Contrato contrato, int codigoEmpleado);
         Contrato MostrarDatosContrato(int CodigoEmpleado);
+        List<Contrato> GetContratosByPeriodo(int idPeriodo);
     }
 }

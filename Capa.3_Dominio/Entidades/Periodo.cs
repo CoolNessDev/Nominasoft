@@ -20,7 +20,7 @@ namespace Capa._3_Dominio.Entidades
         public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
         public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
         public bool Estado { get => estado; set => estado = value; }
-        public List<Contrato> Contratos  { get => contratos; set => contratos = value; }
+        public List<Contrato> Contratos { get => contratos; set => contratos = value; }
         public ConceptoIngresoDeDescuento ConceptoIngresoDeDescuento { get => conceptoIngresoDeDescuento; set => conceptoIngresoDeDescuento = value; }
         public Pago Pago { get => pago; set => pago = value; }
 
@@ -39,5 +39,25 @@ namespace Capa._3_Dominio.Entidades
             }
             return false;
         }
+
+        /// <summary>
+        /// Los contratos que pueden ser procesados en un
+        /// periodo activo son los que tienen fecha fin mayor a la
+        /// fecha de inicio del periodo y además no están anulados.
+        /// </summary>
+        /// <returns>bool</returns>
+        public bool ValidarContratosProcesar()
+        {
+
+            for (int i = 0; i < Contratos.Count; i++)
+            {
+                if (Contratos[i].FechaFin > FechaInicio && Contratos[i].Estado)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
     }
 }

@@ -29,7 +29,7 @@ namespace NOMINASOFT
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvContratos = new System.Windows.Forms.DataGridView();
             this.procesar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,24 +40,25 @@ namespace NOMINASOFT
             this.inCodigo = new System.Windows.Forms.TextBox();
             this.inFechaInicio = new System.Windows.Forms.TextBox();
             this.inFechaFin = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContratos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvContratos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 84);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(748, 276);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvContratos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContratos.Location = new System.Drawing.Point(21, 84);
+            this.dgvContratos.Name = "dgvContratos";
+            this.dgvContratos.Size = new System.Drawing.Size(748, 276);
+            this.dgvContratos.TabIndex = 0;
             // 
             // procesar
             // 
-            this.procesar.Location = new System.Drawing.Point(684, 396);
+            this.procesar.Location = new System.Drawing.Point(21, 388);
             this.procesar.Name = "procesar";
-            this.procesar.Size = new System.Drawing.Size(85, 31);
+            this.procesar.Size = new System.Drawing.Size(111, 31);
             this.procesar.TabIndex = 1;
-            this.procesar.Text = "Procesar pago";
+            this.procesar.Text = "Procesar periodo";
             this.procesar.UseVisualStyleBackColor = true;
             this.procesar.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -140,11 +141,21 @@ namespace NOMINASOFT
             this.inFechaFin.Size = new System.Drawing.Size(100, 20);
             this.inFechaFin.TabIndex = 10;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(684, 388);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 31);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Registrar pago";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // ProcesarPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.inFechaFin);
             this.Controls.Add(this.inFechaInicio);
             this.Controls.Add(this.inCodigo);
@@ -155,10 +166,10 @@ namespace NOMINASOFT
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.procesar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvContratos);
             this.Name = "ProcesarPago";
             this.Text = "ProcesarPago";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContratos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,7 +177,7 @@ namespace NOMINASOFT
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvContratos;
         private System.Windows.Forms.Button procesar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -177,5 +188,6 @@ namespace NOMINASOFT
         private System.Windows.Forms.TextBox inCodigo;
         private System.Windows.Forms.TextBox inFechaInicio;
         private System.Windows.Forms.TextBox inFechaFin;
+        private System.Windows.Forms.Button button1;
     }
 }
