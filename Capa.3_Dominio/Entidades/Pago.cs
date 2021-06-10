@@ -16,10 +16,7 @@ namespace Capa._3_Dominio.Entidades
         private float porcentajeDescuento;
         private float valorHora;
         private float totalHoras;
-
-        private ConceptoIngresoDeDescuento conceptoIngresoDeDescuento;
         private Periodo periodo;
-        private Contrato contrato;
         public int Id_pago { get => id_pago; set => id_pago = value; }
         public DateTime FechaActual { get => fechaActual; set => fechaActual = value; }
         public float MontoAsignacionFamiliar { get => montoAsignacionFamiliar; set => montoAsignacionFamiliar = value; }
@@ -28,13 +25,12 @@ namespace Capa._3_Dominio.Entidades
         public float PorcentajeDescuento { get => porcentajeDescuento; set => porcentajeDescuento = value; }
         public float ValorHora { get => valorHora; set => valorHora = value; }
         public float TotalHoras { get => totalHoras; set => totalHoras = value; }
-        public ConceptoIngresoDeDescuento ConceptoIngresoDeDescuento { get => conceptoIngresoDeDescuento; set => conceptoIngresoDeDescuento = value; }
         public Periodo Periodo { get => periodo; set => periodo = value; }
-        public Contrato Contrato { get => contrato; set => contrato = value; }
+
 
         public double CalcularMontoPorAsignacionFamiliar()
         {
-            if (contrato.AsignacionFamiliar)
+            if (Periodo.Contratos[0].AsignacionFamiliar)
             {
                 return SueldoMinimo * 0.1;
             }
@@ -43,7 +39,7 @@ namespace Capa._3_Dominio.Entidades
 
         public double CalcularDescuentoTotal()
         {
-            return ConceptoIngresoDeDescuento.CalcularTotalConceptoDescuento() + CalcularDescuentoAFP();
+            return Periodo.ConceptoIngresoDeDescuento.CalcularTotalConceptoDescuento() + CalcularDescuentoAFP();
         }
 
         public double CalcularDescuentoAFP()

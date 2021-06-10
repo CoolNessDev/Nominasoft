@@ -139,3 +139,27 @@ where Periodo.idPeriodo = @ID_PERIODO;
 end
 go
 ListarContratosProcesar @ID_PERIODO = 1;
+go
+create procedure InsertarPago
+(
+	@fechaActual date,
+	@montoAsignacionAFP decimal(18,2),
+	@descuentoAFP decimal(18,2),
+	@sueldoMinimo decimal(18,2),
+	@porsentajeDescuento decimal(18,2),
+	@valorHora decimal(18,2),
+	@totalHora decimal(18,2),
+	@ID_PERIODO int )
+as
+begin
+insert into Pago (fechaActual, montoAsignacionAFP, descuentoAFP,sueldoMinimo, porsentajeDescuento, valorHora, totalHora,ID_PERIODO)
+values(@fechaActual ,
+	@montoAsignacionAFP ,
+	@descuentoAFP ,
+	@sueldoMinimo ,
+	@porsentajeDescuento ,
+	@valorHora ,
+	@totalHora,
+	@ID_PERIODO) 
+end
+go

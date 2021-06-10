@@ -15,8 +15,6 @@ namespace Capa._3_Dominio.Entidades
         private float montoPorAdelanto;
         private float montoOtrosIngresos;
         private float montoReingreso;
-
-        private Contrato contrato;
         private Periodo periodo;
 
         public int Id_cid { get => id_cid; set => id_cid = value; }
@@ -26,7 +24,6 @@ namespace Capa._3_Dominio.Entidades
         public float MontoPorAdelanto { get => montoPorAdelanto; set => montoPorAdelanto = value; }
         public float MontoOtrosIngresos { get => montoOtrosIngresos; set => montoOtrosIngresos = value; }
         public float MontoReingreso { get => montoReingreso; set => montoReingreso = value; }
-        public Contrato Contrato { get => contrato; set => contrato = value; }
         public Periodo Periodo { get => periodo; set => periodo = value; }
 
         public double CalcularTotalConceptoDescuento()

@@ -19,6 +19,7 @@ namespace Capa._3_Dominio.Entidades
 
         private Afp afp;
         private Empleado empleado;
+        private List<Periodo> periodos;
 
 
         public int Id_contrato { get => id_contrato; set => id_contrato = value; }
@@ -32,7 +33,7 @@ namespace Capa._3_Dominio.Entidades
 
         public Afp Afp { get => afp; set => afp = value; }
         public Empleado Empleado { get => empleado; set => empleado = value; }
-
+        public List<Periodo> Periodos { get => periodos; set => periodos = value; }
 
 
         /// <summary>
