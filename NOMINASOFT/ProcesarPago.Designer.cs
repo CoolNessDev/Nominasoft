@@ -30,7 +30,7 @@ namespace NOMINASOFT
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.procesar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,14 +51,15 @@ namespace NOMINASOFT
             this.dataGridView1.Size = new System.Drawing.Size(748, 276);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button1
+            // procesar
             // 
-            this.button1.Location = new System.Drawing.Point(684, 398);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 31);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Procesar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.procesar.Location = new System.Drawing.Point(684, 396);
+            this.procesar.Name = "procesar";
+            this.procesar.Size = new System.Drawing.Size(85, 31);
+            this.procesar.TabIndex = 1;
+            this.procesar.Text = "Procesar pago";
+            this.procesar.UseVisualStyleBackColor = true;
+            this.procesar.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -153,7 +154,7 @@ namespace NOMINASOFT
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.procesar);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ProcesarPago";
             this.Text = "ProcesarPago";
@@ -166,7 +167,7 @@ namespace NOMINASOFT
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button procesar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

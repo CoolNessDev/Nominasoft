@@ -1,4 +1,5 @@
 ﻿using Capa._3_Dominio.Contratos;
+using Capa._3_Dominio.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -120,10 +121,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
         {
             try
             {
-                SqlCommand comandoSQL = conexion.CreateCommand();
+                SqlCommand comandoSQL = new SqlCommand(procedimientoAlmacenado, conexion);
                 if (transaccion != null)
                     comandoSQL.Transaction = transaccion;
-                comandoSQL.CommandText = procedimientoAlmacenado;
                 comandoSQL.CommandType = CommandType.StoredProcedure;
                 return comandoSQL;
             }

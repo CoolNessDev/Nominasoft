@@ -45,8 +45,9 @@
     <Compile Include="Contratos\IAfp.cs" />
     <Compile Include="Contratos\IContrato.cs" />
     <Compile Include="Contratos\IEmpleado.cs" />
-    <Compile Include="Contratos\IGestorAccesoDatos.cs" />
+    <Compile Include="Servicios\IGestorAccesoDatos.cs" />
     <Compile Include="Contratos\IPago.cs" />
+    <Compile Include="Pagos\IPeriodo.cs" />
     <Compile Include="Entidades\Afp.cs" />
     <Compile Include="Entidades\ConceptoIngresoDeDescuento.cs" />
     <Compile Include="Entidades\Contrato.cs" />

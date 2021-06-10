@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Capa._3_Dominio.Pagos
+namespace Capa._3_Dominio.Servicios
 {
     public interface IGestorAccesoDatos
     {

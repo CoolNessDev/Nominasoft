@@ -163,3 +163,17 @@ values(@fechaActual ,
 	@ID_PERIODO) 
 end
 go
+select * from Periodo where estado = 1;
+go
+create procedure ActualizarPeriodo
+(
+	@idPeriodo int,
+	@fechaInicio date,
+	@fechaFin date,
+	@estado bit)
+as
+begin
+	update Periodo set fechaInicio = @fechaInicio, fechaFin = @fechaFin, estado = @estado where idPeriodo = @idPeriodo
+end
+go
+--ActualizarPeriodo @idPeriodo =2,@fechaInicio = '2021-05-16', @fechaFin = '2021-06-15', @estado=1

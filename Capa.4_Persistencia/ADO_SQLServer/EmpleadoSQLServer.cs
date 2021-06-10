@@ -1,5 +1,6 @@
 ﻿using Capa._3_Dominio.Contratos;
 using Capa._3_Dominio.Entidades;
+using Capa._3_Dominio.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;

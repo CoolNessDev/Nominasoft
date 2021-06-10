@@ -50,7 +50,7 @@ namespace Capa._3_Dominio.Entidades
 
         public double CalcularIngresoTotal()
         {
-            return CalcularSueldoBasico() + MontoAsignacionFamiliar + ConceptoIngresoDeDescuento.CalcularTotalConceptoIngreso();
+            return CalcularSueldoBasico() + MontoAsignacionFamiliar + Periodo.ConceptoIngresoDeDescuento.CalcularTotalConceptoIngreso();
         }
 
         public double CalcularSueldoBasico()
