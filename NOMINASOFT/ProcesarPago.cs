@@ -89,6 +89,7 @@ namespace NOMINASOFT
         {
             if (periodo != null && periodo.Contratos != null)
             {
+                bool insert = false;
                 for (int i = 0; i < periodo.Contratos.Count; i++)
                 {
                     periodo.Contratos[i].Afp = servicioContratos.BuscarAFPCodigo(periodo.Contratos[i].Afp.Id_afp);
@@ -102,8 +103,14 @@ namespace NOMINASOFT
                     pago.MontoAsignacionFamiliar = pago.CalcularMontoPorAsignacionFamiliar();
                     pago.PorcentajeDescuento = periodo.Contratos[i].Afp.Porsentaje_descuento;
                     pago.DescuentAFP = pago.CalcularDescuentoAFP();
-                    bool insert = servicio.registerPago(pago);
+                    insert = servicio.registerPago(pago);
 
+                }
+                //Agregar cambio de estado del periodo
+                //Agregar Listar pagos (Usar misma tabla)
+                if (insert)
+                {
+                    MessageBox.Show("Se generaron los pagos de los contratos");
                 }
 
 
