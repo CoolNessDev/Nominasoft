@@ -64,7 +64,8 @@ CREATE TABLE Pago(
 	valorHora decimal(18,2),
 	totalHora decimal(18,2),
 	-----------------------------------------------------------------------
-	ID_PERIODO int  constraint FK_PAGO_PERIODO foreign key references Periodo(idPeriodo)
+	ID_PERIODO int  constraint FK_PAGO_PERIODO foreign key references Periodo(idPeriodo),
+	ID_CONTRATO int constraint FK_PAGO_CONTRATO foreign key references Contrato(idContrato)
 );
 go
 create procedure InsertarContrato
