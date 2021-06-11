@@ -96,11 +96,13 @@ namespace NOMINASOFT
                     pago.Periodo = periodo;
                     pago.Contrato = periodo.Contratos[i];
                     pago.FechaActual = DateTime.Now;
+                    pago.ValorHora = periodo.Contratos[i].ValorHora;
                     pago.TotalHoras = pago.CalcularTotalDeHoras();
                     pago.SueldoMinimo = pago.CalcularSueldoBasico();
                     pago.MontoAsignacionFamiliar = pago.CalcularMontoPorAsignacionFamiliar();
                     pago.PorcentajeDescuento = periodo.Contratos[i].Afp.Porsentaje_descuento;
                     pago.DescuentAFP = pago.CalcularDescuentoAFP();
+                    bool insert = servicio.registerPago(pago);
 
                 }
 

@@ -131,6 +131,7 @@ select * from AFP
 select * from Contrato
 select * from Periodo
 select * from Contrato_periodo
+select * from pago
 --consulta todos los contratos que pueden ser procesados en el periodo activo.@IdPeriodo
 select * from Contrato inner join Contrato_periodo on  Contrato.idContrato = Contrato_periodo.ID_CONTRATO inner join Periodo on Periodo.idPeriodo = Contrato_periodo.ID_PERIODO
 where Periodo.idPeriodo = 1;
@@ -154,10 +155,11 @@ create procedure InsertarPago
 	@porsentajeDescuento decimal(18,2),
 	@valorHora decimal(18,2),
 	@totalHora decimal(18,2),
-	@ID_PERIODO int )
+	@ID_PERIODO int,
+	@ID_CONTRATO int )
 as
 begin
-insert into Pago (fechaActual, montoAsignacionAFP, descuentoAFP,sueldoMinimo, porsentajeDescuento, valorHora, totalHora,ID_PERIODO)
+insert into Pago (fechaActual, montoAsignacionAFP, descuentoAFP,sueldoMinimo, porsentajeDescuento, valorHora, totalHora,ID_PERIODO,ID_CONTRATO)
 values(@fechaActual ,
 	@montoAsignacionAFP ,
 	@descuentoAFP ,
@@ -165,7 +167,8 @@ values(@fechaActual ,
 	@porsentajeDescuento ,
 	@valorHora ,
 	@totalHora,
-	@ID_PERIODO) 
+	@ID_PERIODO,
+	@ID_CONTRATO) 
 end
 go
 select * from Periodo where estado = 1 ORDER BY fechaFin;

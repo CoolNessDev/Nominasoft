@@ -34,6 +34,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 cmd.Parameters.AddWithValue("@valorHora", pago.ValorHora);
                 cmd.Parameters.AddWithValue("@totalHora", pago.TotalHoras);
                 cmd.Parameters.AddWithValue("@ID_PERIODO", pago.Periodo.Id_periodo);
+                cmd.Parameters.AddWithValue("@ID_CONTRATO", pago.Contrato.Id_contrato);
 
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
