@@ -46,6 +46,7 @@
     <Compile Include="ADO_SQLServer\ContratoSQLServer.cs" />
     <Compile Include="ADO_SQLServer\EmpleadoSQLServer.cs" />
     <Compile Include="ADO_SQLServer\GestorSQLServer.cs" />
+    <Compile Include="ADO_SQLServer\PagoSQLServer.cs" />
     <Compile Include="ADO_SQLServer\PeriodoSQLServer.cs" />
     <Compile Include="FabricaDatos\FabricaAbstracta.cs" />
     <Compile Include="FabricaDatos\FabricaSQLServer.cs" />

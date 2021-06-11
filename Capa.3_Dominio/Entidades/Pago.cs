@@ -10,22 +10,25 @@ namespace Capa._3_Dominio.Entidades
     {
         private int id_pago;
         private DateTime fechaActual;
-        private float montoAsignacionFamiliar;
-        private float descuentAFP;
-        private float sueldoMinimo;
-        private float porcentajeDescuento;
-        private float valorHora;
-        private float totalHoras;
+        private double montoAsignacionFamiliar;
+        private double descuentAFP;
+        private double sueldoMinimo;
+        private decimal porcentajeDescuento;
+        private double valorHora;
+        private double totalHoras;
         private Periodo periodo;
+        private Contrato contrato;
         public int Id_pago { get => id_pago; set => id_pago = value; }
         public DateTime FechaActual { get => fechaActual; set => fechaActual = value; }
-        public float MontoAsignacionFamiliar { get => montoAsignacionFamiliar; set => montoAsignacionFamiliar = value; }
-        public float DescuentAFP { get => descuentAFP; set => descuentAFP = value; }
-        public float SueldoMinimo { get => sueldoMinimo; set => sueldoMinimo = value; }
-        public float PorcentajeDescuento { get => porcentajeDescuento; set => porcentajeDescuento = value; }
-        public float ValorHora { get => valorHora; set => valorHora = value; }
-        public float TotalHoras { get => totalHoras; set => totalHoras = value; }
+        public double MontoAsignacionFamiliar { get => montoAsignacionFamiliar; set => montoAsignacionFamiliar = value; }
+        public double DescuentAFP { get => descuentAFP; set => descuentAFP = value; }
+        public double SueldoMinimo { get => sueldoMinimo; set => sueldoMinimo = value; }
+        public decimal PorcentajeDescuento { get => porcentajeDescuento; set => porcentajeDescuento = value; }
+        public double ValorHora { get => valorHora; set => valorHora = value; }
+        public double TotalHoras { get => totalHoras; set => totalHoras = value; }
         public Periodo Periodo { get => periodo; set => periodo = value; }
+        public Contrato Contrato { get => contrato; set => contrato = value; }
+
 
 
         public double CalcularMontoPorAsignacionFamiliar()
@@ -44,7 +47,7 @@ namespace Capa._3_Dominio.Entidades
 
         public double CalcularDescuentoAFP()
         {
-            return CalcularSueldoBasico() * (PorcentajeDescuento / 100);
+            return CalcularSueldoBasico() * Convert.ToDouble((PorcentajeDescuento / 100));
         }
 
 
@@ -65,7 +68,7 @@ namespace Capa._3_Dominio.Entidades
 
         public double CalcularTotalDeHoras()
         {
-            return Periodo.CalcularSemanasPeriodo() * TotalHoras;
+            return Periodo.CalcularSemanasPeriodo() * Contrato.HorasContratadasPorSemana;
         }
     }
 }

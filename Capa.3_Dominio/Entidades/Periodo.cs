@@ -20,7 +20,7 @@ namespace Capa._3_Dominio.Entidades
         public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
         public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
         public bool Estado { get => estado; set => estado = value; }
-        public List<Contrato> Contratos  { get => contratos; set => contratos = value; }
+        public List<Contrato> Contratos { get => contratos; set => contratos = value; }
         public ConceptoIngresoDeDescuento ConceptoIngresoDeDescuento { get => conceptoIngresoDeDescuento; set => conceptoIngresoDeDescuento = value; }
         public Pago Pago { get => pago; set => pago = value; }
 
@@ -31,9 +31,16 @@ namespace Capa._3_Dominio.Entidades
             return dias / 7;
         }
 
+        /// <summary>
+        /// Para poder procesar un periodo de pago activo, la fecha 
+        /// actual debe ser mayor o igual a la fecha fin del periodo
+        /// de pago
+        /// </summary>
+        /// <returns></returns>
         public bool ValidarPeriodoActivos()
         {
-            if (FechaFin > FechaInicio && Estado)
+            DateTime now = DateTime.Now;
+            if (now>=FechaFin)
             {
                 return true;
             }

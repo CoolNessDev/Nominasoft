@@ -15,12 +15,15 @@ namespace NOMINASOFT
     public partial class ProcesarPago : Form
     {
         GestionarPagos servicio;
+        GestionarContratos servicioContratos;
+        Periodo periodo;
         public ProcesarPago()
         {
             InitializeComponent();
             disableInputs();
             servicio = new GestionarPagos();
-            Periodo periodo = servicio.GetPeriodoActivo();
+            servicioContratos = new GestionarContratos();
+            periodo = servicio.GetPeriodoActivo();
             if (periodo == null)
             {
                 MessageBox.Show("No existe el Empleado.");
@@ -30,14 +33,17 @@ namespace NOMINASOFT
             {
                 setDataPeriodo(periodo);
             }
-
+        }
+        private void listContratos(List<Contrato> contratos)
+        {
+            dgvContratos.DataSource = contratos;
         }
         private void setDataPeriodo(Periodo periodo)
         {
             inCodigo.Text = periodo.Id_periodo.ToString();
             inFechaInicio.Text = periodo.FechaInicio.ToString();
             inFechaFin.Text = periodo.FechaFin.ToString();
-            inEstado.Text = periodo.Estado?"Activo":"No Activo";
+            inEstado.Text = periodo.Estado ? "Activo" : "No Activo";
 
         }
         private void disableInputs()
@@ -63,6 +69,52 @@ namespace NOMINASOFT
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (periodo != null)
+            {
+                periodo.Contratos = servicio.GetContratosByPeriodo(periodo);
+                //Verificar si periodo puede ser procesado
+                if (!periodo.ValidarPeriodoActivos())
+                {
+                    MessageBox.Show("No se puede procesar el periodo porque la fecha actual debe" +
+                                    " ser mayor o igual a la fecha fin del periodo de pago");
+                }
+                else
+                {
+                    listContratos(periodo.Contratos);
+                }
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (periodo != null && periodo.Contratos != null)
+            {
+                bool insert = false;
+                for (int i = 0; i < periodo.Contratos.Count; i++)
+                {
+                    periodo.Contratos[i].Afp = servicioContratos.BuscarAFPCodigo(periodo.Contratos[i].Afp.Id_afp);
+                    Pago pago = new Pago();
+                    pago.Periodo = periodo;
+                    pago.Contrato = periodo.Contratos[i];
+                    pago.FechaActual = DateTime.Now;
+                    pago.ValorHora = periodo.Contratos[i].ValorHora;
+                    pago.TotalHoras = pago.CalcularTotalDeHoras();
+                    pago.SueldoMinimo = pago.CalcularSueldoBasico();
+                    pago.MontoAsignacionFamiliar = pago.CalcularMontoPorAsignacionFamiliar();
+                    pago.PorcentajeDescuento = periodo.Contratos[i].Afp.Porsentaje_descuento;
+                    pago.DescuentAFP = pago.CalcularDescuentoAFP();
+                    insert = servicio.registerPago(pago);
+
+                }
+                //Agregar cambio de estado del periodo
+                //Agregar Listar pagos (Usar misma tabla)
+                if (insert)
+                {
+                    MessageBox.Show("Se generaron los pagos de los contratos");
+                }
+
+
+            }
 
         }
     }
