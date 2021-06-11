@@ -15,12 +15,14 @@ namespace NOMINASOFT
     public partial class ProcesarPago : Form
     {
         GestionarPagos servicio;
+        GestionarContratos servicioContratos;
         Periodo periodo;
         public ProcesarPago()
         {
             InitializeComponent();
             disableInputs();
             servicio = new GestionarPagos();
+            servicioContratos = new GestionarContratos();
             periodo = servicio.GetPeriodoActivo();
             if (periodo == null)
             {
@@ -89,6 +91,7 @@ namespace NOMINASOFT
             {
                 for (int i = 0; i < periodo.Contratos.Count; i++)
                 {
+                    periodo.Contratos[i].Afp = servicioContratos.BuscarAFPCodigo(periodo.Contratos[i].Afp.Id_afp);
                     Pago pago = new Pago();
                     pago.Periodo = periodo;
                     pago.Contrato = periodo.Contratos[i];
@@ -100,7 +103,7 @@ namespace NOMINASOFT
                     pago.DescuentAFP = pago.CalcularDescuentoAFP();
 
                 }
-                
+
 
             }
 

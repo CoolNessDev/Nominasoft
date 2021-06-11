@@ -91,7 +91,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             Afp afp = new Afp();
             afp.Id_afp = resultadoSQL.GetInt32(0);
             afp.Nombre = resultadoSQL.GetString(1);
-            afp.Porsentaje_descuento = resultadoSQL.GetDouble(2);
+            afp.Porsentaje_descuento = resultadoSQL.GetDecimal(2);
 
             return afp;
         }

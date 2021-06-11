@@ -13,7 +13,7 @@ namespace Capa._3_Dominio.Entidades
         private double montoAsignacionFamiliar;
         private double descuentAFP;
         private double sueldoMinimo;
-        private double porcentajeDescuento;
+        private decimal porcentajeDescuento;
         private double valorHora;
         private double totalHoras;
         private Periodo periodo;
@@ -23,7 +23,7 @@ namespace Capa._3_Dominio.Entidades
         public double MontoAsignacionFamiliar { get => montoAsignacionFamiliar; set => montoAsignacionFamiliar = value; }
         public double DescuentAFP { get => descuentAFP; set => descuentAFP = value; }
         public double SueldoMinimo { get => sueldoMinimo; set => sueldoMinimo = value; }
-        public double PorcentajeDescuento { get => porcentajeDescuento; set => porcentajeDescuento = value; }
+        public decimal PorcentajeDescuento { get => porcentajeDescuento; set => porcentajeDescuento = value; }
         public double ValorHora { get => valorHora; set => valorHora = value; }
         public double TotalHoras { get => totalHoras; set => totalHoras = value; }
         public Periodo Periodo { get => periodo; set => periodo = value; }
@@ -47,7 +47,7 @@ namespace Capa._3_Dominio.Entidades
 
         public double CalcularDescuentoAFP()
         {
-            return CalcularSueldoBasico() * (PorcentajeDescuento / 100);
+            return CalcularSueldoBasico() * Convert.ToDouble((PorcentajeDescuento / 100));
         }
 
 
