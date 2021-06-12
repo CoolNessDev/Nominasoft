@@ -50,5 +50,55 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             finally { cmd.Connection.Close(); }
             return insert;
         }
+        public List<Pago> GetPagosByPeriodo(Periodo periodo)
+        {
+            List<Pago> pagos=new List<Pago>();
+            Pago pago;
+            string consulta = "SELECT * from Pago where ID_PERIODO = " + periodo.Id_periodo;
+
+            try
+            {
+                SqlDataReader resultadoSQL = gestorSQL.EjecutarConsulta(consulta);
+                if (resultadoSQL.Read())
+                {
+                    pago = ObtenerPago(resultadoSQL);
+                    pagos.Add(pago);
+                }
+                else
+                {
+                    MessageBox.Show("No existen Pagos.");
+                    return null;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("No existen Pagos." + err);
+                return null;
+            }
+            return pagos;
+        }
+        private Pago ObtenerPago(SqlDataReader resultadoSQL)
+        {
+            Pago pago = new Pago();
+            pago.Id_pago = resultadoSQL.GetInt32(0);
+            pago.FechaActual = resultadoSQL.GetDateTime(1);
+            pago.MontoAsignacionFamiliar = resultadoSQL.GetDecimal(2);
+            pago.DescuentAFP = resultadoSQL.GetDecimal(3);
+            pago.SueldoMinimo = resultadoSQL.GetDecimal(4);
+            pago.PorcentajeDescuento = resultadoSQL.GetDecimal(5);
+            pago.ValorHora = resultadoSQL.GetDecimal(6);
+            pago.TotalHoras = resultadoSQL.GetDecimal(7);
+            Periodo periodo = new Periodo();
+            Contrato contrato = new Contrato();
+            periodo.Id_periodo = resultadoSQL.GetInt32(8);
+            contrato.Id_contrato = resultadoSQL.GetInt32(9);
+
+            pago.Periodo = periodo;
+            pago.Contrato = contrato;
+
+            return pago;
+
+        }
     }
+   
 }
