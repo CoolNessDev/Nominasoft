@@ -10,63 +10,63 @@ namespace Capa._3_Dominio.Entidades
     {
         private int id_pago;
         private DateTime fechaActual;
-        private double montoAsignacionFamiliar;
-        private double descuentAFP;
-        private double sueldoMinimo;
+        private decimal montoAsignacionFamiliar;
+        private decimal descuentAFP;
+        private decimal sueldoMinimo;
         private decimal porcentajeDescuento;
-        private double valorHora;
-        private double totalHoras;
+        private decimal valorHora;
+        private decimal totalHoras;
         private Periodo periodo;
         private Contrato contrato;
         public int Id_pago { get => id_pago; set => id_pago = value; }
         public DateTime FechaActual { get => fechaActual; set => fechaActual = value; }
-        public double MontoAsignacionFamiliar { get => montoAsignacionFamiliar; set => montoAsignacionFamiliar = value; }
-        public double DescuentAFP { get => descuentAFP; set => descuentAFP = value; }
-        public double SueldoMinimo { get => sueldoMinimo; set => sueldoMinimo = value; }
+        public decimal MontoAsignacionFamiliar { get => montoAsignacionFamiliar; set => montoAsignacionFamiliar = value; }
+        public decimal DescuentAFP { get => descuentAFP; set => descuentAFP = value; }
+        public decimal SueldoMinimo { get => sueldoMinimo; set => sueldoMinimo = value; }
         public decimal PorcentajeDescuento { get => porcentajeDescuento; set => porcentajeDescuento = value; }
-        public double ValorHora { get => valorHora; set => valorHora = value; }
-        public double TotalHoras { get => totalHoras; set => totalHoras = value; }
+        public decimal ValorHora { get => valorHora; set => valorHora = value; }
+        public decimal TotalHoras { get => totalHoras; set => totalHoras = value; }
         public Periodo Periodo { get => periodo; set => periodo = value; }
         public Contrato Contrato { get => contrato; set => contrato = value; }
 
 
 
-        public double CalcularMontoPorAsignacionFamiliar()
+        public decimal CalcularMontoPorAsignacionFamiliar()
         {
             if (Periodo.Contratos[0].AsignacionFamiliar)
             {
-                return SueldoMinimo * 0.1;
+                return SueldoMinimo * 0.10M;
             }
             return 0;
         }
 
-        public double CalcularDescuentoTotal()
+        public decimal CalcularDescuentoTotal()
         {
-            return Periodo.ConceptoIngresoDeDescuento.CalcularTotalConceptoDescuento() + CalcularDescuentoAFP();
+            return Convert.ToDecimal(Periodo.ConceptoIngresoDeDescuento.CalcularTotalConceptoDescuento()) + CalcularDescuentoAFP();
         }
 
-        public double CalcularDescuentoAFP()
+        public decimal CalcularDescuentoAFP()
         {
-            return CalcularSueldoBasico() * Convert.ToDouble((PorcentajeDescuento / 100));
+            return CalcularSueldoBasico() * (PorcentajeDescuento / 100);
         }
 
 
-        public double CalcularIngresoTotal()
+        public decimal CalcularIngresoTotal()
         {
-            return CalcularSueldoBasico() + MontoAsignacionFamiliar + Periodo.ConceptoIngresoDeDescuento.CalcularTotalConceptoIngreso();
+            return CalcularSueldoBasico() + MontoAsignacionFamiliar + Convert.ToDecimal(Periodo.ConceptoIngresoDeDescuento.CalcularTotalConceptoIngreso());
         }
 
-        public double CalcularSueldoBasico()
+        public decimal CalcularSueldoBasico()
         {
             return TotalHoras * ValorHora;
         }
 
-        public double CalcularSueldoNeto()
+        public decimal CalcularSueldoNeto()
         {
             return CalcularIngresoTotal() - CalcularDescuentoTotal();
         }
 
-        public double CalcularTotalDeHoras()
+        public decimal CalcularTotalDeHoras()
         {
             return Periodo.CalcularSemanasPeriodo() * Contrato.HorasContratadasPorSemana;
         }

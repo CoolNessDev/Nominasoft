@@ -36,6 +36,13 @@ namespace Capa._2_Aplicacion.Servicios
             gestorAccesoDatos.CerrarConexion();
             return periodo;
         }
+        public bool updatePeriodo(Periodo periodo)
+        {
+            gestorAccesoDatos.AbrirConexion();
+            bool update = periodoDAO.UpdatePeriodo(periodo);
+            gestorAccesoDatos.CerrarConexion();
+            return update;
+        }
         public List<Contrato> GetContratosByPeriodo(Periodo periodo)
         {
             gestorAccesoDatos.AbrirConexion();
@@ -49,6 +56,13 @@ namespace Capa._2_Aplicacion.Servicios
             bool registrar = pagoDAO.registerPago(pago);
             gestorAccesoDatos.CerrarConexion();
             return registrar;
+        }
+        public List<Pago> GetPagpsByPeriodo(Periodo periodo)
+        {
+            gestorAccesoDatos.AbrirConexion();
+            List<Pago> pagos = pagoDAO.GetPagosByPeriodo(periodo);
+            gestorAccesoDatos.CerrarConexion();
+            return pagos;
         }
     }
 }

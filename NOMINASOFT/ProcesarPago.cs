@@ -26,7 +26,8 @@ namespace NOMINASOFT
             periodo = servicio.GetPeriodoActivo();
             if (periodo == null)
             {
-                MessageBox.Show("No existe el Empleado.");
+                MessageBox.Show("No se puede procesar porque no existe un periodo de" +
+                                "pago activo.");
                 limpiarPantalla();
             }
             else
@@ -37,6 +38,10 @@ namespace NOMINASOFT
         private void listContratos(List<Contrato> contratos)
         {
             dgvContratos.DataSource = contratos;
+        }
+        private void listPagos(List<Pago> pagos)
+        {
+            dgvContratos.DataSource = pagos;
         }
         private void setDataPeriodo(Periodo periodo)
         {
@@ -72,16 +77,24 @@ namespace NOMINASOFT
             if (periodo != null)
             {
                 periodo.Contratos = servicio.GetContratosByPeriodo(periodo);
-                //Verificar si periodo puede ser procesado
-                if (!periodo.ValidarPeriodoActivos())
+                if (periodo.Contratos.Count <= 0)
                 {
-                    MessageBox.Show("No se puede procesar el periodo porque la fecha actual debe" +
-                                    " ser mayor o igual a la fecha fin del periodo de pago");
+                    MessageBox.Show("No se puede procesar porque no existen contratos.");
                 }
                 else
                 {
-                    listContratos(periodo.Contratos);
+                    //Verificar si periodo puede ser procesado
+                    if (!periodo.ValidarPeriodoActivos())
+                    {
+                        MessageBox.Show("No se puede procesar el periodo porque la fecha actual debe" +
+                                        " ser mayor o igual a la fecha fin del periodo de pago");
+                    }
+                    else
+                    {
+                        listContratos(periodo.Contratos);
+                    }
                 }
+
             }
         }
 
@@ -106,8 +119,26 @@ namespace NOMINASOFT
                     insert = servicio.registerPago(pago);
 
                 }
-                //Agregar cambio de estado del periodo
-                //Agregar Listar pagos (Usar misma tabla)
+                //Cambio de estado del periodo
+                periodo.Estado = false;
+                bool update = servicio.updatePeriodo(periodo);
+                if (update)
+                {
+                    setDataPeriodo(periodo);
+
+                }
+
+
+                //FAltA FORMATEAR TABLA PARA QUE SALGAN EXACTAMENTE LOS SIGUIENTES DATOS DEL PAGO:
+                //código del empleado, nombre del empleado, dni del empleado, el total de horas, el valor
+                //hora, el sueldo básico, el total de ingresos, el total de descuento y el sueldo neto.
+                //(El contrato en la clase Pago debe traer son datos del empleado en Contrato.Empleado.
+                //Actualmente solo guarda su codigo en Contrato.Empleado.IdEmpleado)
+
+
+                //Listar pagos (Usar misma tabla)
+                List<Pago> pagos = servicio.GetPagpsByPeriodo(periodo);
+                listPagos(pagos);
                 if (insert)
                 {
                     MessageBox.Show("Se generaron los pagos de los contratos");
