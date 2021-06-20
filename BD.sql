@@ -67,6 +67,7 @@ CREATE TABLE Pago(
 	ID_PERIODO int  constraint FK_PAGO_PERIODO foreign key references Periodo(idPeriodo),
 	ID_CONTRATO int constraint FK_PAGO_CONTRATO foreign key references Contrato(idContrato)
 );
+--PROCEDURES
 go
 create procedure InsertarContrato
 (
@@ -93,6 +94,74 @@ values(@asignacionFamiliar ,
 	@ID_EMPLEADO ) 
 end
 go
+create procedure ListarContratosProcesar
+(@ID_PERIODO int)
+as
+begin
+	select * from Contrato inner join Contrato_periodo on  Contrato.idContrato = Contrato_periodo.ID_CONTRATO inner join Periodo on Periodo.idPeriodo = Contrato_periodo.ID_PERIODO
+where Periodo.idPeriodo = @ID_PERIODO;
+end
+go
+ListarContratosProcesar @ID_PERIODO = 1 ;
+go
+create procedure InsertarPago
+(
+	@fechaActual date,
+	@montoAsignacionAFP decimal(18,2),
+	@descuentoAFP decimal(18,2),
+	@sueldoMinimo decimal(18,2),
+	@porsentajeDescuento decimal(18,2),
+	@valorHora decimal(18,2),
+	@totalHora decimal(18,2),
+	@ID_PERIODO int,
+	@ID_CONTRATO int )
+as
+begin
+insert into Pago (fechaActual, montoAsignacionAFP, descuentoAFP,sueldoMinimo, porsentajeDescuento, valorHora, totalHora,ID_PERIODO,ID_CONTRATO)
+values(@fechaActual ,
+	@montoAsignacionAFP ,
+	@descuentoAFP ,
+	@sueldoMinimo ,
+	@porsentajeDescuento ,
+	@valorHora ,
+	@totalHora,
+	@ID_PERIODO,
+	@ID_CONTRATO) 
+end
+go
+create procedure ActualizarPeriodo
+(
+	@idPeriodo int,
+	@fechaInicio date,
+	@fechaFin date,
+	@estado bit)
+as
+begin
+	update Periodo set fechaInicio = @fechaInicio, fechaFin = @fechaFin, estado = @estado where idPeriodo = @idPeriodo
+end
+go
+create procedure ActualizarContrato
+(
+	@idContrato int,
+	@asignacionFamiliar bit,
+	@cargo varchar(30),
+	@fechaInicial date,
+	@fechaFinal date,
+	@horasContradasPorSemana int,
+	@valorHora int,
+	@estado bit,
+	@ID_AFP int,
+	@ID_EMPLEADO int
+)
+as
+begin
+	update Contrato set asignacionFamiliar = @asignacionFamiliar, cargo = @cargo, fechaInicial = @fechaInicial,
+	fechaFinal = @fechaFinal, horasContradasPorSemana = @horasContradasPorSemana, valorHora = @valorHora, estado = @estado,
+	ID_AFP = @ID_AFP, ID_EMPLEADO = @ID_EMPLEADO where idContrato = @idContrato
+end
+go
+--------------------------------------------------------------------------------------------------------
+
 --El sistema busca al empleado por DNI y muestra los siguientes datos: c�digo, nombre, direcci�n, 
 --tel�fono, fecha de nacimiento, estado civil (que pueden ser: soltero, casado, conviviente, 
 --divorciado, viudo), y grado acad�mico (que pueden ser: primaria, secundaria, bachiller, 
@@ -135,54 +204,10 @@ select * from pago
 --consulta todos los contratos que pueden ser procesados en el periodo activo.@IdPeriodo
 select * from Contrato inner join Contrato_periodo on  Contrato.idContrato = Contrato_periodo.ID_CONTRATO inner join Periodo on Periodo.idPeriodo = Contrato_periodo.ID_PERIODO
 where Periodo.idPeriodo = 1;
-go
-create procedure ListarContratosProcesar
-(@ID_PERIODO int)
-as
-begin
-	select * from Contrato inner join Contrato_periodo on  Contrato.idContrato = Contrato_periodo.ID_CONTRATO inner join Periodo on Periodo.idPeriodo = Contrato_periodo.ID_PERIODO
-where Periodo.idPeriodo = @ID_PERIODO;
-end
-go
-ListarContratosProcesar @ID_PERIODO = 1 ;
-go
-create procedure InsertarPago
-(
-	@fechaActual date,
-	@montoAsignacionAFP decimal(18,2),
-	@descuentoAFP decimal(18,2),
-	@sueldoMinimo decimal(18,2),
-	@porsentajeDescuento decimal(18,2),
-	@valorHora decimal(18,2),
-	@totalHora decimal(18,2),
-	@ID_PERIODO int,
-	@ID_CONTRATO int )
-as
-begin
-insert into Pago (fechaActual, montoAsignacionAFP, descuentoAFP,sueldoMinimo, porsentajeDescuento, valorHora, totalHora,ID_PERIODO,ID_CONTRATO)
-values(@fechaActual ,
-	@montoAsignacionAFP ,
-	@descuentoAFP ,
-	@sueldoMinimo ,
-	@porsentajeDescuento ,
-	@valorHora ,
-	@totalHora,
-	@ID_PERIODO,
-	@ID_CONTRATO) 
-end
-go
+
 select * from Periodo where estado = 1 ORDER BY fechaFin;
-go
-create procedure ActualizarPeriodo
-(
-	@idPeriodo int,
-	@fechaInicio date,
-	@fechaFin date,
-	@estado bit)
-as
-begin
-	update Periodo set fechaInicio = @fechaInicio, fechaFin = @fechaFin, estado = @estado where idPeriodo = @idPeriodo
-end
-go
 select * from Periodo
+select * from Empleado
 --ActualizarPeriodo @idPeriodo =3,@fechaInicio = '2021-03-16', @fechaFin = '2021-04-15', @estado=1
+SELECT * FROM Contrato where ID_EMPLEADO=1
+

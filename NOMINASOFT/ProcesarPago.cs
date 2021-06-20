@@ -139,6 +139,9 @@ namespace NOMINASOFT
                 //Listar pagos (Usar misma tabla)
                 List<Pago> pagos = servicio.GetPagpsByPeriodo(periodo);
                 listPagos(pagos);
+                //foreach(Pago pago in pagos){
+                //    pago.Contrato.Empleado.Id_empleado
+                //}
                 if (insert)
                 {
                     MessageBox.Show("Se generaron los pagos de los contratos");

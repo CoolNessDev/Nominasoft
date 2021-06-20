@@ -60,21 +60,23 @@ namespace NOMINASOFT
             textValorHora.Text = "";
 
         } 
-        private void mostrarContrato()
+        private bool mostrarContrato()
         {
 
                 GestionarContratos servicio = new GestionarContratos();
                 Contrato contrato = servicio.MostrarContratos(int.Parse(textIDResultado.Text.Trim()));
-            auxIdContrato = contrato.Id_contrato;
-            /*if(contrato.AsignacionFamiliar == true)
+            if (contrato != null)
             {
-                AsignacionSI.Checked = true;
-            }
-            if(contrato.AsignacionFamiliar == false)
-            {
-                AsignacionNO.Checked = true;
-            }*/
-            Afp afp = servicio.BuscarAFPCodigo(contrato.Afp.Id_afp);
+                auxIdContrato = contrato.Id_contrato;
+                /*if(contrato.AsignacionFamiliar == true)
+                {
+                    AsignacionSI.Checked = true;
+                }
+                if(contrato.AsignacionFamiliar == false)
+                {
+                    AsignacionNO.Checked = true;
+                }*/
+                Afp afp = servicio.BuscarAFPCodigo(contrato.Afp.Id_afp);
                 cbAFP.Text = afp.Nombre;
                 TextCargo.Text = contrato.Cargo;
                 fechaInicio.Value = contrato.FechaInicio;
@@ -83,8 +85,9 @@ namespace NOMINASOFT
                 textValorHora.Text = contrato.ValorHora.ToString();
                 AsignacionSI.Checked = contrato.AsignacionFamiliar;
                 AsignacionNO.Checked = !contrato.AsignacionFamiliar;
-
-
+                return true;
+            }
+            return false;
         }
         private void inavilitarDatosContrato()
         {
@@ -159,14 +162,17 @@ namespace NOMINASOFT
             }
             else
             {
-                mostrarContrato();
-                EDITAR = true;
-                configuracionDeDatosContrato();
-                bCrear.Enabled = false;
-                bAnular.Enabled = false;
-                button5.Enabled = true;
-                banularInterno.Enabled = false;
-                avilitarDatosContrato();
+                bool contratoObtenido=mostrarContrato();
+                if (contratoObtenido)
+                {
+                    EDITAR = true;
+                    configuracionDeDatosContrato();
+                    bCrear.Enabled = false;
+                    bAnular.Enabled = false;
+                    button5.Enabled = true;
+                    banularInterno.Enabled = false;
+                    avilitarDatosContrato();
+                }
             }
         }
 
