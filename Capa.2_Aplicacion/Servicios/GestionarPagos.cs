@@ -20,6 +20,7 @@ namespace Capa._2_Aplicacion.Servicios
         private IPeriodo periodoDAO;
         private IContrato contratoDAO;
         private IPago pagoDAO;
+        private IEmpleado empleadoDAO;
 
         public GestionarPagos()
         {
@@ -28,6 +29,7 @@ namespace Capa._2_Aplicacion.Servicios
             periodoDAO = fabricaAbstracta.crearPeriodoDAO(gestorAccesoDatos);
             contratoDAO = fabricaAbstracta.crearContratoDAO(gestorAccesoDatos);
             pagoDAO = fabricaAbstracta.crearPagoDAO(gestorAccesoDatos);
+            empleadoDAO = fabricaAbstracta.crearEmpleadoDAO(gestorAccesoDatos);
         }
         public Periodo GetPeriodoActivo()
         {
@@ -63,6 +65,13 @@ namespace Capa._2_Aplicacion.Servicios
             List<Pago> pagos = pagoDAO.GetPagosByPeriodo(periodo);
             gestorAccesoDatos.CerrarConexion();
             return pagos;
+        }
+        public Empleado BuscarEmpleado(int id)
+        {
+            gestorAccesoDatos.AbrirConexion();
+            Empleado empleado = empleadoDAO.BuscarEmpleado(id);
+            gestorAccesoDatos.CerrarConexion();
+            return empleado;
         }
     }
 }
