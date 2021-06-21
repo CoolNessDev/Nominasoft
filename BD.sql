@@ -213,7 +213,7 @@ where Contrato_periodo.ID_CONTRATO = 1 AND Contrato_periodo.ID_PERIODO = 3;
 --consulta todos los contratos que pueden ser procesados en el periodo activo.@IdPeriodo
 select * from Contrato inner join Contrato_periodo on  Contrato.idContrato = Contrato_periodo.ID_CONTRATO inner join Periodo on Periodo.idPeriodo = Contrato_periodo.ID_PERIODO
 where Periodo.idPeriodo = 3;
-update Periodo set estado = 1 where idPeriodo = 3
+-- update Periodo set estado = 1 where idPeriodo = 3
 select * from Periodo where estado = 1 ORDER BY fechaFin;
 select * from Periodo
 select * from Empleado where idEmpleado = 1
