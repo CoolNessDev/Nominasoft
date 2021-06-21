@@ -51,7 +51,7 @@ CREATE TABLE CID(
     montoOtrosIngresos decimal(18,2),
     montoReingreso decimal(18,2),
 	-----------------------------------------------------------------------
-	ID_PERIODO int  constraint FK_CID_PERIODO foreign key references Periodo(idPeriodo)
+	ID_CONTRATO_PERIODO int  constraint FK_CID_CP foreign key references Contrato_periodo(id)
 );
 
 CREATE TABLE Pago(
@@ -67,6 +67,7 @@ CREATE TABLE Pago(
 	ID_PERIODO int  constraint FK_PAGO_PERIODO foreign key references Periodo(idPeriodo),
 	ID_CONTRATO int constraint FK_PAGO_CONTRATO foreign key references Contrato(idContrato)
 );
+--PROCEDURES
 go
 create procedure InsertarContrato
 (
@@ -92,49 +93,6 @@ values(@asignacionFamiliar ,
 	@ID_AFP  ,
 	@ID_EMPLEADO ) 
 end
-go
---El sistema busca al empleado por DNI y muestra los siguientes datos: c�digo, nombre, direcci�n, 
---tel�fono, fecha de nacimiento, estado civil (que pueden ser: soltero, casado, conviviente, 
---divorciado, viudo), y grado acad�mico (que pueden ser: primaria, secundaria, bachiller, 
---profesional, magister, doctor).
-insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('01234567','av arequipa','soltero','2001-10-29','primaria','044531282','Jorge');
-insert into Empleado(dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('76543210','calle cascanueces','casado','20120618 10:34:09 AM','secundaria','989466206','Pedro');
-insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('76543211','urb. pedigree','conviviente','2001-10-29','bachiller','044531282','Juan');
-insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('76543212','calle los olivos','viudo','2001-10-29','profesional','044531282','Roberto');
-go
-insert into afp(nombre,porcentajeDeDescuento) values ('HABITAT',13.21);
-insert into afp(nombre,porcentajeDeDescuento) values ('INTEGRA',13.29);
-insert into afp(nombre,porcentajeDeDescuento) values ('PRIMA',13.34);
-insert into afp(nombre,porcentajeDeDescuento) values ('PROFUTURO',13.43);
-insert into afp(nombre,porcentajeDeDescuento) values ('PROMEDIO',13.34);
-go
-InsertarContrato @asignacionFamiliar = true, @cargo = 'Trabajador', @fechaInicial='2021-01-21',@fechaFinal='2021-05-21',@horasContradasPorSemana=16,@valorHora=20,@estado=false,
-@ID_AFP=3,@ID_EMPLEADO=1;
-go
-InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial='2021-02-02',@fechaFinal='2021-07-02',@horasContradasPorSemana=16,@valorHora=20,@estado=true,
-@ID_AFP=2,@ID_EMPLEADO=2;
-go
-insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-04-16','2021-05-15',0);
---Periodo aún activo antes de tiempo actual 2021-06-10 para pruebas
-insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-05-16','2021-06-15',1);
-insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-03-16','2021-04-15',1);
-go
-insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (1,1);
-insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (1,2);
-insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (1,3);
-insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,1);
-insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,2);
-insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,3);
-go
-select * from Empleado
-select * from AFP
-select * from Contrato
-select * from Periodo
-select * from Contrato_periodo
-select * from pago
---consulta todos los contratos que pueden ser procesados en el periodo activo.@IdPeriodo
-select * from Contrato inner join Contrato_periodo on  Contrato.idContrato = Contrato_periodo.ID_CONTRATO inner join Periodo on Periodo.idPeriodo = Contrato_periodo.ID_PERIODO
-where Periodo.idPeriodo = 1;
 go
 create procedure ListarContratosProcesar
 (@ID_PERIODO int)
@@ -171,8 +129,6 @@ values(@fechaActual ,
 	@ID_CONTRATO) 
 end
 go
-select * from Periodo where estado = 1 ORDER BY fechaFin;
-go
 create procedure ActualizarPeriodo
 (
 	@idPeriodo int,
@@ -184,5 +140,88 @@ begin
 	update Periodo set fechaInicio = @fechaInicio, fechaFin = @fechaFin, estado = @estado where idPeriodo = @idPeriodo
 end
 go
+create procedure ActualizarContrato
+(
+	@idContrato int,
+	@asignacionFamiliar bit,
+	@cargo varchar(30),
+	@fechaInicial date,
+	@fechaFinal date,
+	@horasContradasPorSemana int,
+	@valorHora int,
+	@estado bit,
+	@ID_AFP int,
+	@ID_EMPLEADO int
+)
+as
+begin
+	update Contrato set asignacionFamiliar = @asignacionFamiliar, cargo = @cargo, fechaInicial = @fechaInicial,
+	fechaFinal = @fechaFinal, horasContradasPorSemana = @horasContradasPorSemana, valorHora = @valorHora, estado = @estado,
+	ID_AFP = @ID_AFP, ID_EMPLEADO = @ID_EMPLEADO where idContrato = @idContrato
+end
+go
+--------------------------------------------------------------------------------------------------------
+
+--El sistema busca al empleado por DNI y muestra los siguientes datos: c�digo, nombre, direcci�n, 
+--tel�fono, fecha de nacimiento, estado civil (que pueden ser: soltero, casado, conviviente, 
+--divorciado, viudo), y grado acad�mico (que pueden ser: primaria, secundaria, bachiller, 
+--profesional, magister, doctor).
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('01234567','av arequipa','soltero','2001-10-29','primaria','044531282','Jorge');
+insert into Empleado(dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('76543210','calle cascanueces','casado','20120618 10:34:09 AM','secundaria','989466206','Pedro');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('76543211','urb. pedigree','conviviente','2001-10-29','bachiller','044531282','Juan');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('76543212','calle los olivos','viudo','2001-10-29','profesional','044531282','Roberto');
+go
+insert into afp(nombre,porcentajeDeDescuento) values ('HABITAT',13.21);
+insert into afp(nombre,porcentajeDeDescuento) values ('INTEGRA',13.29);
+insert into afp(nombre,porcentajeDeDescuento) values ('PRIMA',13.34);
+insert into afp(nombre,porcentajeDeDescuento) values ('PROFUTURO',13.43);
+insert into afp(nombre,porcentajeDeDescuento) values ('PROMEDIO',13.34);
+go
+InsertarContrato @asignacionFamiliar = true, @cargo = 'Trabajador', @fechaInicial='2021-01-21',@fechaFinal='2021-05-21',@horasContradasPorSemana=16,@valorHora=20,@estado=false,
+@ID_AFP=3,@ID_EMPLEADO=1;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial='2021-02-02',@fechaFinal='2021-07-02',@horasContradasPorSemana=16,@valorHora=20,@estado=true,
+@ID_AFP=2,@ID_EMPLEADO=2;
+go
+insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-04-16','2021-05-15',0);
+--Periodo aún activo antes de tiempo actual 2021-06-10 para pruebas
+insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-05-16','2021-06-15',1);
+insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-03-16','2021-04-15',1);
+go
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (1,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (1,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (1,3);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,3);
+go
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values
+(12,10,13,34,23,56,3);
+go
+select * from Empleado
+select * from AFP
+select * from Contrato
 select * from Periodo
+select * from Contrato_periodo
+select * from pago
+select * from CID
+
+--consulta los CID relacionados con el contrato y periodo
+SELECT * from CID INNER join Contrato_periodo on Contrato_periodo.id = CID.ID_CONTRATO_PERIODO 
+where Contrato_periodo.ID_CONTRATO = 1 AND Contrato_periodo.ID_PERIODO = 3;
+--consulta todos los contratos que pueden ser procesados en el periodo activo.@IdPeriodo
+select * from Contrato inner join Contrato_periodo on  Contrato.idContrato = Contrato_periodo.ID_CONTRATO inner join Periodo on Periodo.idPeriodo = Contrato_periodo.ID_PERIODO
+where Periodo.idPeriodo = 3;
+-- update Periodo set estado = 1 where idPeriodo = 3
+select * from Periodo where estado = 1 ORDER BY fechaFin;
+select * from Periodo
+select * from Empleado where idEmpleado = 1
 --ActualizarPeriodo @idPeriodo =3,@fechaInicio = '2021-03-16', @fechaFin = '2021-04-15', @estado=1
+SELECT * FROM Contrato where ID_EMPLEADO=3 ORDER BY fechaFinal desc
+SELECT * FROM Contrato where idContrato=3 ORDER BY fechaFinal desc
+
+update Contrato set estado = 1 where idContrato = 1
+
+--01234567
+--76543211

@@ -20,6 +20,7 @@ namespace Capa._2_Aplicacion.Servicios
         private IPeriodo periodoDAO;
         private IContrato contratoDAO;
         private IPago pagoDAO;
+        private IEmpleado empleadoDAO;
 
         public GestionarPagos()
         {
@@ -28,6 +29,7 @@ namespace Capa._2_Aplicacion.Servicios
             periodoDAO = fabricaAbstracta.crearPeriodoDAO(gestorAccesoDatos);
             contratoDAO = fabricaAbstracta.crearContratoDAO(gestorAccesoDatos);
             pagoDAO = fabricaAbstracta.crearPagoDAO(gestorAccesoDatos);
+            empleadoDAO = fabricaAbstracta.crearEmpleadoDAO(gestorAccesoDatos);
         }
         public Periodo GetPeriodoActivo()
         {
@@ -63,6 +65,27 @@ namespace Capa._2_Aplicacion.Servicios
             List<Pago> pagos = pagoDAO.GetPagosByPeriodo(periodo);
             gestorAccesoDatos.CerrarConexion();
             return pagos;
+        }
+        public Contrato GetContrato(int id)
+        {
+            gestorAccesoDatos.AbrirConexion();
+            Contrato contrato = contratoDAO.GetContrato(id);
+            gestorAccesoDatos.CerrarConexion();
+            return contrato;
+        }
+        public Empleado BuscarEmpleado(int id)
+        {
+            gestorAccesoDatos.AbrirConexion();
+            Empleado empleado = empleadoDAO.BuscarEmpleado(id);
+            gestorAccesoDatos.CerrarConexion();
+            return empleado;
+        }
+        public ConceptoIngresoDeDescuento GetCIDByContrato_Periodo(int idContrato, int idPeriodo)
+        {
+            gestorAccesoDatos.AbrirConexion();
+            ConceptoIngresoDeDescuento cid = contratoDAO.GetCIDByContrato_Periodo(idContrato, idPeriodo);
+            gestorAccesoDatos.CerrarConexion();
+            return cid;
         }
     }
 }

@@ -51,24 +51,29 @@ namespace Capa._4_Persistencia.ADO_SQLServer
 
         public void EditarContrato(Contrato contrato, int codigoEmpleado)
         {
-            string editarContrato = "update Contrato Set asignacionFamiliar=@asignacionFamiliar, cargo= @cargo, fechaInicial=@fechaInicial, fechaFinal=@fechaFinal, horasContradasPorSemana=@horasContradasPorSemana, valorHora=@valorHora, ID_AFP=@ID_AFP where ID_EMPLEADO = " + codigoEmpleado + "" +
-                                     "and fechaInicial = (Select MAX(fechaInicial) from Contrato where ID_EMPLEADO = " + codigoEmpleado + ")" +
-                                     "and estado = 1";
+            bool edit = false;
 
             try
             {
-                SqlCommand comando;
+                SqlCommand cmd;
 
-                comando = gestorSQL.ObtenerComandoSQL(editarContrato);
-                comando.Parameters.AddWithValue("@asignacionFamiliar", contrato.AsignacionFamiliar);
-                comando.Parameters.AddWithValue("@cargo", contrato.Cargo);
-                comando.Parameters.AddWithValue("@fechaInicial", contrato.FechaInicio.Date);
-                comando.Parameters.AddWithValue("@fechaFinal", contrato.FechaFin.Date);
-                comando.Parameters.AddWithValue("@horasContradasPorSemana", contrato.HorasContratadasPorSemana);
-                comando.Parameters.AddWithValue("@valorHora", contrato.ValorHora);
-                comando.Parameters.AddWithValue("@ID_AFP", contrato.Afp.Id_afp);
+                cmd = gestorSQL.ObtenerComandoDeProcedimiento("ActualizarContrato");
+                cmd.Parameters.AddWithValue("@idContrato", contrato.Id_contrato);
+                cmd.Parameters.AddWithValue("@asignacionFamiliar", contrato.AsignacionFamiliar);
+                cmd.Parameters.AddWithValue("@cargo", contrato.Cargo);
+                cmd.Parameters.AddWithValue("@fechaInicial", contrato.FechaInicio);
+                cmd.Parameters.AddWithValue("@fechaFinal", contrato.FechaFin);
+                cmd.Parameters.AddWithValue("@horasContradasPorSemana", contrato.HorasContratadasPorSemana);
+                cmd.Parameters.AddWithValue("@valorHora", contrato.ValorHora);
+                cmd.Parameters.AddWithValue("@estado", contrato.Estado);
+                cmd.Parameters.AddWithValue("@ID_AFP", contrato.Afp.Id_afp);
+                cmd.Parameters.AddWithValue("@ID_EMPLEADO", contrato.Empleado.Id_empleado);
 
-                comando.ExecuteNonQuery();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    edit = true;
+                }
                 MessageBox.Show("Se guardó las modificaciones del contrato");
             }
             catch (Exception er)
@@ -102,9 +107,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
         public Contrato MostrarDatosContrato(int CodigoEmpleado)
         {
             Contrato contrato;
-            string mostrarContrato = "select idContrato, asignacionFamiliar, cargo, fechaInicial, fechaFinal, horasContradasPorSemana, valorHora, estado, ID_AFP from Contrato where ID_EMPLEADO = " + CodigoEmpleado + "" +
+            string mostrarContrato = "select idContrato, asignacionFamiliar, cargo, fechaInicial, fechaFinal, horasContradasPorSemana, valorHora, estado, ID_AFP, ID_EMPLEADO from Contrato where ID_EMPLEADO = " + CodigoEmpleado + "" +
                                      "and fechaInicial = (Select MAX(fechaInicial) from Contrato where ID_EMPLEADO = " + CodigoEmpleado + ")" +
-                                     "and estado = 1";
+                                     "and estado = 1 ORDER BY fechaFinal desc";
 
             try
             {
@@ -115,7 +120,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 }
                 else
                 {
-                    MessageBox.Show("No existe el Contrato.");
+                    MessageBox.Show("No existe un Contrato activo.");
                     return null;
                 }
             }
@@ -125,6 +130,57 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 return null;
             }
             return contrato;
+        }
+        public Contrato GetContrato(int id)
+        {
+            Contrato contrato;
+            string mostrarContrato = "select idContrato, asignacionFamiliar, cargo, fechaInicial, fechaFinal, horasContradasPorSemana, valorHora, estado, ID_AFP, ID_EMPLEADO from Contrato where idContrato = " + id;
+
+            try
+            {
+                SqlDataReader resultadoSQL = gestorSQL.EjecutarConsulta(mostrarContrato);
+                if (resultadoSQL.Read())
+                {
+                    contrato = ObtenerContrato(resultadoSQL);
+                }
+                else
+                {
+                    MessageBox.Show("Contrato no encontrado.");
+                    return null;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("No existe el Contrato." + err);
+                return null;
+            }
+            return contrato;
+        }
+        //Mover a CIDSQLServer.cs
+        public ConceptoIngresoDeDescuento GetCIDByContrato_Periodo(int idContrato, int idPeriodo)
+        {
+            ConceptoIngresoDeDescuento cid;
+            string consulta = "SELECT * from CID INNER join Contrato_periodo on Contrato_periodo.id = CID.ID_CONTRATO_PERIODO "+
+            "where Contrato_periodo.ID_CONTRATO = "+ idContrato + " AND Contrato_periodo.ID_PERIODO = "+ idPeriodo;
+
+            try
+            {
+                SqlDataReader resultadoSQL = gestorSQL.EjecutarConsulta(consulta);
+                if (resultadoSQL.Read())
+                {
+                    cid = ObtenerCID(resultadoSQL);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("CID no encontrado" + err);
+                return null;
+            }
+            return cid;
         }
 
         public List<Contrato> GetContratosByPeriodo(Periodo periodo)
@@ -157,7 +213,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             return contratos;
         }
 
-
+        
         private Contrato ObtenerContrato(SqlDataReader resultadoSQL)
         {
             Contrato contrato = new Contrato();
@@ -169,15 +225,50 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             contrato.HorasContratadasPorSemana = resultadoSQL.GetInt32(5);
             contrato.ValorHora = resultadoSQL.GetInt32(6);
             contrato.Estado = resultadoSQL.GetBoolean(7);
-            Afp afp = new Afp();
-            afp.Id_afp = resultadoSQL.GetInt32(8);
+            Afp afp = new Afp
+            {
+                Id_afp = resultadoSQL.GetInt32(8)
+            };
             contrato.Afp = afp;
-            if (!contrato.ValidarVigenciaContrato())
+            Empleado empleado = new Empleado
+            {
+                Id_empleado = resultadoSQL.GetInt32(9)
+            };
+            contrato.Empleado = empleado;
+            if (!contrato.ValidarVigenciaContrato()) 
             {
                 contrato.Estado = false;
             }
             return contrato;
 
         }
+        //Mover a CIDSQLServer.cs
+        private ConceptoIngresoDeDescuento ObtenerCID(SqlDataReader resultadoSQL)
+        {
+            ConceptoIngresoDeDescuento cid = new ConceptoIngresoDeDescuento();
+            cid.Id_cid = resultadoSQL.GetInt32(0);
+            cid.MontoHorasExtras = resultadoSQL.GetDecimal(1);
+            cid.MontoHorasAusente = resultadoSQL.GetDecimal(2);
+            cid.MontoOtrosDescuentos = resultadoSQL.GetDecimal(3);
+            cid.MontoPorAdelanto = resultadoSQL.GetDecimal(4);
+            cid.MontoOtrosIngresos = resultadoSQL.GetDecimal(5);
+            cid.MontoReingreso = resultadoSQL.GetDecimal(6);
+            //resultadoSQL.GetDecimal(7); id contrato_periodo
+            //resultadoSQL.GetDecimal(8); id contrato_periodo
+            Periodo periodo = new Periodo
+            {
+                Id_periodo = resultadoSQL.GetInt32(9)
+            };
+            cid.Periodo = periodo;
+            Contrato contrato = new Contrato
+            {
+                Id_contrato = resultadoSQL.GetInt32(10)
+            };
+            cid.Contrato = contrato;
+            return cid;
+
+        }
+
+
     }
 }

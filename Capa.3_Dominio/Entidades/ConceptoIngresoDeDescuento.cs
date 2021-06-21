@@ -9,29 +9,31 @@ namespace Capa._3_Dominio.Entidades
     public class ConceptoIngresoDeDescuento
     {
         private int id_cid;
-        private float montoHorasExtras;
-        private float montoHorasAusente;
-        private float montoOtrosDescuentos;
-        private float montoPorAdelanto;
-        private float montoOtrosIngresos;
-        private float montoReingreso;
+        private decimal montoHorasExtras;
+        private decimal montoHorasAusente;
+        private decimal montoOtrosDescuentos;
+        private decimal montoPorAdelanto;
+        private decimal montoOtrosIngresos;
+        private decimal montoReingreso;
         private Periodo periodo;
+        private Contrato contrato;
 
         public int Id_cid { get => id_cid; set => id_cid = value; }
-        public float MontoHorasExtras { get => montoHorasExtras; set => montoHorasExtras = value; }
-        public float MontoHorasAusente { get => montoHorasAusente; set => montoHorasAusente = value; }
-        public float MontoOtrosDescuentos { get => montoOtrosDescuentos; set => montoOtrosDescuentos = value; }
-        public float MontoPorAdelanto { get => montoPorAdelanto; set => montoPorAdelanto = value; }
-        public float MontoOtrosIngresos { get => montoOtrosIngresos; set => montoOtrosIngresos = value; }
-        public float MontoReingreso { get => montoReingreso; set => montoReingreso = value; }
+        public decimal MontoHorasExtras { get => montoHorasExtras; set => montoHorasExtras = value; }
+        public decimal MontoHorasAusente { get => montoHorasAusente; set => montoHorasAusente = value; }
+        public decimal MontoOtrosDescuentos { get => montoOtrosDescuentos; set => montoOtrosDescuentos = value; }
+        public decimal MontoPorAdelanto { get => montoPorAdelanto; set => montoPorAdelanto = value; }
+        public decimal MontoOtrosIngresos { get => montoOtrosIngresos; set => montoOtrosIngresos = value; }
+        public decimal MontoReingreso { get => montoReingreso; set => montoReingreso = value; }
         public Periodo Periodo { get => periodo; set => periodo = value; }
+        public Contrato Contrato { get => contrato; set => contrato = value; }
 
-        public double CalcularTotalConceptoDescuento()
+        public decimal CalcularTotalConceptoDescuento()
         {
             return MontoHorasAusente + MontoPorAdelanto + MontoOtrosDescuentos;
         }
 
-        public double CalcularTotalConceptoIngreso()
+        public decimal CalcularTotalConceptoIngreso()
         {
             return MontoHorasExtras + MontoReingreso + MontoOtrosIngresos;
         }

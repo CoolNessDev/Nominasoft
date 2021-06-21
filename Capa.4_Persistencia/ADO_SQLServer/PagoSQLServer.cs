@@ -59,15 +59,10 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             try
             {
                 SqlDataReader resultadoSQL = gestorSQL.EjecutarConsulta(consulta);
-                if (resultadoSQL.Read())
+                while (resultadoSQL.Read())
                 {
                     pago = ObtenerPago(resultadoSQL);
                     pagos.Add(pago);
-                }
-                else
-                {
-                    MessageBox.Show("No existen Pagos.");
-                    return null;
                 }
             }
             catch (Exception err)

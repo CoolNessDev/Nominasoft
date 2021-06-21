@@ -63,6 +63,29 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             return contratos;
         }
+        public Empleado BuscarEmpleado(int id)
+        {
+            Empleado empleado;
+            string consultaSQL = "select * from Empleado where idEmpleado = '" + id + "'";
+            try
+            {
+                SqlDataReader resultadoSQL = gestorSQL.EjecutarConsulta(consultaSQL);
+                if (resultadoSQL.Read())
+                {
+                    empleado = ObtenerDatosEmpleaods(resultadoSQL);
+                }
+                else
+                {
+                    return null;
+                }
+                resultadoSQL.Close();
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+            return empleado;
+        }
         private Empleado ObtenerDatosEmpleaods(SqlDataReader resultadoSQL)
         {
             Empleado empleado = new Empleado();
