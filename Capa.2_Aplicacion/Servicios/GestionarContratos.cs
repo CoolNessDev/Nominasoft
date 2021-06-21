@@ -1,12 +1,13 @@
 ﻿using Capa._3_Dominio.Contratos;
 using Capa._3_Dominio.Entidades;
+using Capa._3_Dominio.Pagos;
 using Capa._3_Dominio.Servicios;
 using Capa._4_Persistencia.FabricaDatos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks; 
 
 namespace Capa._2_Aplicacion.Servicios
 {
@@ -16,6 +17,7 @@ namespace Capa._2_Aplicacion.Servicios
         private IEmpleado empleadoDAO;
         private IAfp afpDAO;
         private IContrato contratoDAO;
+        private IPeriodo periodoDAO;
 
         public GestionarContratos()
         {
@@ -24,6 +26,21 @@ namespace Capa._2_Aplicacion.Servicios
             empleadoDAO = fabricaAbstracta.crearEmpleadoDAO(gestorAccesoDatos);
             afpDAO = fabricaAbstracta.crearAfpDAO(gestorAccesoDatos);
             contratoDAO = fabricaAbstracta.crearContratoDAO(gestorAccesoDatos);
+            periodoDAO = fabricaAbstracta.crearPeriodoDAO(gestorAccesoDatos);
+        }
+        public Periodo GetPeriodoActivo()
+        {
+            gestorAccesoDatos.AbrirConexion();
+            Periodo periodo = periodoDAO.GetPeriodoActivo();
+            gestorAccesoDatos.CerrarConexion();
+            return periodo;
+        }
+        public bool InsertarContratoPeriodo(int idContrato, int idPeriodo)
+        {
+            gestorAccesoDatos.AbrirConexion();
+            bool insert = periodoDAO.InsertarContratoPeriodo(idContrato, idPeriodo);
+            gestorAccesoDatos.CerrarConexion();
+            return insert;
         }
 
         public Empleado BuscarEmpleado(string dni)
