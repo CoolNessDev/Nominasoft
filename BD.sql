@@ -51,7 +51,7 @@ CREATE TABLE CID(
     montoOtrosIngresos decimal(18,2),
     montoReingreso decimal(18,2),
 	-----------------------------------------------------------------------
-	ID_PERIODO int  constraint FK_CID_PERIODO foreign key references Periodo(idPeriodo)
+	ID_CONTRATO_PERIODO int  constraint FK_CID_CP foreign key references Contrato_periodo(id)
 );
 
 CREATE TABLE Pago(
@@ -195,19 +195,33 @@ insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,1);
 insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,2);
 insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,3);
 go
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values
+(12,10,13,34,23,56,3);
+go
 select * from Empleado
 select * from AFP
 select * from Contrato
 select * from Periodo
 select * from Contrato_periodo
 select * from pago
+select * from CID
+
+--consulta los CID relacionados con el contrato y periodo
+SELECT * from CID INNER join Contrato_periodo on Contrato_periodo.id = CID.ID_CONTRATO_PERIODO 
+where Contrato_periodo.ID_CONTRATO = 1 AND Contrato_periodo.ID_PERIODO = 3;
 --consulta todos los contratos que pueden ser procesados en el periodo activo.@IdPeriodo
 select * from Contrato inner join Contrato_periodo on  Contrato.idContrato = Contrato_periodo.ID_CONTRATO inner join Periodo on Periodo.idPeriodo = Contrato_periodo.ID_PERIODO
-where Periodo.idPeriodo = 1;
-
+where Periodo.idPeriodo = 3;
+update Periodo set estado = 1 where idPeriodo = 3
 select * from Periodo where estado = 1 ORDER BY fechaFin;
 select * from Periodo
-select * from Empleado
+select * from Empleado where idEmpleado = 1
 --ActualizarPeriodo @idPeriodo =3,@fechaInicio = '2021-03-16', @fechaFin = '2021-04-15', @estado=1
-SELECT * FROM Contrato where ID_EMPLEADO=1
+SELECT * FROM Contrato where ID_EMPLEADO=3 ORDER BY fechaFinal desc
+SELECT * FROM Contrato where idContrato=3 ORDER BY fechaFinal desc
 
+update Contrato set estado = 1 where idContrato = 1
+
+--01234567
+--76543211

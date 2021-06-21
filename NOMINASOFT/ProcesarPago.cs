@@ -1,4 +1,5 @@
 ﻿using Capa._2_Aplicacion.Servicios;
+using Capa._3_Dominio.Dto;
 using Capa._3_Dominio.Entidades;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,7 @@ namespace NOMINASOFT
         {
             dgvContratos.DataSource = contratos;
         }
-        private void listPagos(List<Pago> pagos)
+        private void listPagos(List<CustomPagoDto> pagos)
         {
             dgvContratos.DataSource = pagos;
         }
@@ -100,7 +101,7 @@ namespace NOMINASOFT
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (periodo != null && periodo.Contratos != null)
+            if (periodo != null && periodo.Contratos != null && periodo.Estado)
             {
                 bool insert = false;
                 for (int i = 0; i < periodo.Contratos.Count; i++)
@@ -136,9 +137,32 @@ namespace NOMINASOFT
                 //Actualmente solo guarda su codigo en Contrato.Empleado.IdEmpleado)
 
 
-                //Listar pagos (Usar misma tabla)
-                List<Pago> pagos = servicio.GetPagpsByPeriodo(periodo);
-                listPagos(pagos);
+                //Listar CustomPagosDto (Usar misma tabla)
+                List <Pago> pagos = servicio.GetPagpsByPeriodo(periodo);
+                List<CustomPagoDto> customPagos = new List<CustomPagoDto>();
+
+                for (int i = 0; i < pagos.Count; i++)
+                {
+                    Contrato contrato = servicio.GetContrato(pagos[i].Contrato.Id_contrato);
+                    contrato.Periodo = periodo;
+                    contrato.ConceptoIngresoDeDescuento = servicio.GetCIDByContrato_Periodo(contrato.Id_contrato, periodo.Id_periodo);
+                    Empleado empleado = servicio.BuscarEmpleado(contrato.Empleado.Id_empleado);
+                    pagos[i].Contrato = contrato;
+                    CustomPagoDto pagoDto = new CustomPagoDto();
+                    pagoDto.Id_empleado = empleado.Id_empleado;
+                    pagoDto.NombreEmpleado = empleado.Nombre;
+                    pagoDto.DniEmpleado = empleado.Dni;
+                    pagoDto.TotalHoras = pagos[i].TotalHoras;
+                    pagoDto.ValorHora = pagos[i].ValorHora;
+                    pagoDto.SueldoMinimo = pagos[i].SueldoMinimo;
+                    pagoDto.TotalIngresos = pagos[i].CalcularIngresoTotal();
+                    pagoDto.TotalDescuentos = pagos[i].CalcularDescuentoTotal();
+                    pagoDto.SueldoNeto = pagos[i].CalcularSueldoNeto();
+
+                    customPagos.Add(pagoDto);
+                }
+
+                listPagos(customPagos);
                 //foreach(Pago pago in pagos){
                 //    pago.Contrato.Empleado.Id_empleado
                 //}
@@ -148,6 +172,10 @@ namespace NOMINASOFT
                 }
 
 
+            }
+            if (!periodo.Estado)
+            {
+                MessageBox.Show("Periodo Inactivo");
             }
 
         }

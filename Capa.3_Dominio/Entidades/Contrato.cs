@@ -20,6 +20,7 @@ namespace Capa._3_Dominio.Entidades
         private Afp afp;
         private Empleado empleado;
         private Periodo periodo;
+        private ConceptoIngresoDeDescuento conceptoIngresoDeDescuento;
 
 
         public int Id_contrato { get => id_contrato; set => id_contrato = value; }
@@ -34,6 +35,7 @@ namespace Capa._3_Dominio.Entidades
         public Afp Afp { get => afp; set => afp = value; }
         public Empleado Empleado { get => empleado; set => empleado = value; }
         public Periodo Periodo { get => periodo; set => periodo = value; }
+        public ConceptoIngresoDeDescuento ConceptoIngresoDeDescuento { get => conceptoIngresoDeDescuento; set => conceptoIngresoDeDescuento = value; }
 
 
         /// <summary>
@@ -135,10 +137,10 @@ namespace Capa._3_Dominio.Entidades
 
                 if (FechaFin > Periodo.FechaInicio && Estado)
                 {
-                    return false;
+                    return true;
                 }
             
-            return true;
+            return false;
         }
     }
 }

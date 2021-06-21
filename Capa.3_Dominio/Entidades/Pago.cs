@@ -42,7 +42,11 @@ namespace Capa._3_Dominio.Entidades
 
         public decimal CalcularDescuentoTotal()
         {
-            return Convert.ToDecimal(Periodo.ConceptoIngresoDeDescuento.CalcularTotalConceptoDescuento()) + CalcularDescuentoAFP();
+            if (Contrato.ConceptoIngresoDeDescuento != null)
+            {
+                return Convert.ToDecimal(Contrato.ConceptoIngresoDeDescuento.CalcularTotalConceptoDescuento()) + CalcularDescuentoAFP();
+            }
+            return CalcularDescuentoAFP();
         }
 
         public decimal CalcularDescuentoAFP()
@@ -53,7 +57,11 @@ namespace Capa._3_Dominio.Entidades
 
         public decimal CalcularIngresoTotal()
         {
-            return CalcularSueldoBasico() + MontoAsignacionFamiliar + Convert.ToDecimal(Periodo.ConceptoIngresoDeDescuento.CalcularTotalConceptoIngreso());
+            if (Contrato.ConceptoIngresoDeDescuento != null)
+            {
+                return CalcularSueldoBasico() + MontoAsignacionFamiliar + Convert.ToDecimal(Contrato.ConceptoIngresoDeDescuento.CalcularTotalConceptoIngreso());
+            }
+            return CalcularSueldoBasico() + MontoAsignacionFamiliar;
         }
 
         public decimal CalcularSueldoBasico()

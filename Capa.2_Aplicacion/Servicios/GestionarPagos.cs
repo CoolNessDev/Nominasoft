@@ -66,12 +66,26 @@ namespace Capa._2_Aplicacion.Servicios
             gestorAccesoDatos.CerrarConexion();
             return pagos;
         }
+        public Contrato GetContrato(int id)
+        {
+            gestorAccesoDatos.AbrirConexion();
+            Contrato contrato = contratoDAO.GetContrato(id);
+            gestorAccesoDatos.CerrarConexion();
+            return contrato;
+        }
         public Empleado BuscarEmpleado(int id)
         {
             gestorAccesoDatos.AbrirConexion();
             Empleado empleado = empleadoDAO.BuscarEmpleado(id);
             gestorAccesoDatos.CerrarConexion();
             return empleado;
+        }
+        public ConceptoIngresoDeDescuento GetCIDByContrato_Periodo(int idContrato, int idPeriodo)
+        {
+            gestorAccesoDatos.AbrirConexion();
+            ConceptoIngresoDeDescuento cid = contratoDAO.GetCIDByContrato_Periodo(idContrato, idPeriodo);
+            gestorAccesoDatos.CerrarConexion();
+            return cid;
         }
     }
 }

@@ -131,6 +131,57 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             return contrato;
         }
+        public Contrato GetContrato(int id)
+        {
+            Contrato contrato;
+            string mostrarContrato = "select idContrato, asignacionFamiliar, cargo, fechaInicial, fechaFinal, horasContradasPorSemana, valorHora, estado, ID_AFP, ID_EMPLEADO from Contrato where idContrato = " + id;
+
+            try
+            {
+                SqlDataReader resultadoSQL = gestorSQL.EjecutarConsulta(mostrarContrato);
+                if (resultadoSQL.Read())
+                {
+                    contrato = ObtenerContrato(resultadoSQL);
+                }
+                else
+                {
+                    MessageBox.Show("Contrato no encontrado.");
+                    return null;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("No existe el Contrato." + err);
+                return null;
+            }
+            return contrato;
+        }
+        //Mover a CIDSQLServer.cs
+        public ConceptoIngresoDeDescuento GetCIDByContrato_Periodo(int idContrato, int idPeriodo)
+        {
+            ConceptoIngresoDeDescuento cid;
+            string consulta = "SELECT * from CID INNER join Contrato_periodo on Contrato_periodo.id = CID.ID_CONTRATO_PERIODO "+
+            "where Contrato_periodo.ID_CONTRATO = "+ idContrato + " AND Contrato_periodo.ID_PERIODO = "+ idPeriodo;
+
+            try
+            {
+                SqlDataReader resultadoSQL = gestorSQL.EjecutarConsulta(consulta);
+                if (resultadoSQL.Read())
+                {
+                    cid = ObtenerCID(resultadoSQL);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("CID no encontrado" + err);
+                return null;
+            }
+            return cid;
+        }
 
         public List<Contrato> GetContratosByPeriodo(Periodo periodo)
         {
@@ -162,7 +213,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             return contratos;
         }
 
-
+        
         private Contrato ObtenerContrato(SqlDataReader resultadoSQL)
         {
             Contrato contrato = new Contrato();
@@ -191,5 +242,33 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             return contrato;
 
         }
+        //Mover a CIDSQLServer.cs
+        private ConceptoIngresoDeDescuento ObtenerCID(SqlDataReader resultadoSQL)
+        {
+            ConceptoIngresoDeDescuento cid = new ConceptoIngresoDeDescuento();
+            cid.Id_cid = resultadoSQL.GetInt32(0);
+            cid.MontoHorasExtras = resultadoSQL.GetDecimal(1);
+            cid.MontoHorasAusente = resultadoSQL.GetDecimal(2);
+            cid.MontoOtrosDescuentos = resultadoSQL.GetDecimal(3);
+            cid.MontoPorAdelanto = resultadoSQL.GetDecimal(4);
+            cid.MontoOtrosIngresos = resultadoSQL.GetDecimal(5);
+            cid.MontoReingreso = resultadoSQL.GetDecimal(6);
+            //resultadoSQL.GetDecimal(7); id contrato_periodo
+            //resultadoSQL.GetDecimal(8); id contrato_periodo
+            Periodo periodo = new Periodo
+            {
+                Id_periodo = resultadoSQL.GetInt32(9)
+            };
+            cid.Periodo = periodo;
+            Contrato contrato = new Contrato
+            {
+                Id_contrato = resultadoSQL.GetInt32(10)
+            };
+            cid.Contrato = contrato;
+            return cid;
+
+        }
+
+
     }
 }
