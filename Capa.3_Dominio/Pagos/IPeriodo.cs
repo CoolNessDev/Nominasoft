@@ -11,5 +11,6 @@ namespace Capa._3_Dominio.Pagos
     {
         Periodo GetPeriodoActivo();
         bool UpdatePeriodo(Periodo periodo);
+        bool InsertarContratoPeriodo(int idContrato, int idPeriodo);
     }
 }

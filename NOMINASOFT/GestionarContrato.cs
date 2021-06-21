@@ -275,6 +275,12 @@ namespace NOMINASOFT
                 }
                 else
                 {
+                    Periodo periodo = servicio.GetPeriodoActivo();
+                    bool insertPeriodoContrato = servicio.InsertarContratoPeriodo(contrato.Id_contrato, periodo.Id_periodo);
+                    if (insertPeriodoContrato)
+                    {
+                        MessageBox.Show("Periodo_Contrato Insertado");
+                    }
                     servicio.GuardarContratos(nuevoContrato);
                 }
             }

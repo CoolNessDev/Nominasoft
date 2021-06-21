@@ -19,6 +19,27 @@ namespace Capa._4_Persistencia.ADO_SQLServer
         {
             this.gestorSQL = (GestorSQLServer)gestorSQL;
         }
+        public bool InsertarContratoPeriodo(int idContrato, int idPeriodo)
+        {
+            string consulta = "insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (@ID_CONTRATO,@ID_PERIODO)";
+
+            try
+            {
+                SqlCommand comando;
+
+                comando = gestorSQL.ObtenerComandoSQL(consulta);
+                comando.Parameters.AddWithValue("@ID_CONTRATO", idContrato);
+                comando.Parameters.AddWithValue("@ID_PERIODO", idPeriodo);
+                comando.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show("Ocurrio un problema al intentar guardar,\n verifique si los datos ingresados son correctos." + er);
+                return false;
+            }
+
+        }
         public Periodo GetPeriodoActivo()
         {
             List<Periodo> periodos = new List<Periodo>();
