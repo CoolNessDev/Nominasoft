@@ -1,7 +1,7 @@
 ﻿
 namespace NOMINASOFT
 {
-    partial class Form1
+    partial class Nominasoft
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -53,15 +53,15 @@ namespace NOMINASOFT
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // Nominasoft
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(269, 242);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Nominasoft";
+            this.Text = "Nominasoft";
             this.ResumeLayout(false);
 
         }

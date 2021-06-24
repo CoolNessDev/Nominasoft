@@ -33,7 +33,7 @@ namespace NOMINASOFT
             this.panel5 = new System.Windows.Forms.Panel();
             this.PanelDatosContrato = new System.Windows.Forms.GroupBox();
             this.banularInterno = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnGuardarContrato = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
             this.cbAFP = new System.Windows.Forms.ComboBox();
@@ -50,7 +50,7 @@ namespace NOMINASOFT
             this.label14 = new System.Windows.Forms.Label();
             this.fechaFinal = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
-            this.bAnular = new System.Windows.Forms.Button();
+            this.btnAnularContrato = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textGradoResultado = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -68,10 +68,10 @@ namespace NOMINASOFT
             this.textIDResultado = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.bEditar = new System.Windows.Forms.Button();
+            this.btnEditarContrato = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.bBuscar = new System.Windows.Forms.Button();
-            this.bCrear = new System.Windows.Forms.Button();
+            this.btnBuscarEmpleado = new System.Windows.Forms.Button();
+            this.btnCrearContrato = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.textDniBuscar = new System.Windows.Forms.TextBox();
@@ -95,7 +95,7 @@ namespace NOMINASOFT
             // PanelDatosContrato
             // 
             this.PanelDatosContrato.Controls.Add(this.banularInterno);
-            this.PanelDatosContrato.Controls.Add(this.button5);
+            this.PanelDatosContrato.Controls.Add(this.btnGuardarContrato);
             this.PanelDatosContrato.Controls.Add(this.groupBox5);
             this.PanelDatosContrato.Controls.Add(this.groupBox4);
             this.PanelDatosContrato.Controls.Add(this.textValorHora);
@@ -126,15 +126,15 @@ namespace NOMINASOFT
             this.banularInterno.UseVisualStyleBackColor = true;
             this.banularInterno.Click += new System.EventHandler(this.banularInterno_Click);
             // 
-            // button5
+            // btnGuardarContrato
             // 
-            this.button5.Location = new System.Drawing.Point(551, 152);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(78, 31);
-            this.button5.TabIndex = 40;
-            this.button5.Text = "Guardar";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnGuardarContrato.Location = new System.Drawing.Point(551, 152);
+            this.btnGuardarContrato.Name = "btnGuardarContrato";
+            this.btnGuardarContrato.Size = new System.Drawing.Size(78, 31);
+            this.btnGuardarContrato.TabIndex = 40;
+            this.btnGuardarContrato.Text = "Guardar";
+            this.btnGuardarContrato.UseVisualStyleBackColor = true;
+            this.btnGuardarContrato.Click += new System.EventHandler(this.btnGuardarContrato_Click);
             // 
             // groupBox5
             // 
@@ -284,15 +284,15 @@ namespace NOMINASOFT
             this.label15.TabIndex = 30;
             this.label15.Text = "Fecha Final";
             // 
-            // bAnular
+            // btnAnularContrato
             // 
-            this.bAnular.Location = new System.Drawing.Point(441, 389);
-            this.bAnular.Name = "bAnular";
-            this.bAnular.Size = new System.Drawing.Size(75, 23);
-            this.bAnular.TabIndex = 51;
-            this.bAnular.Text = "Anular";
-            this.bAnular.UseVisualStyleBackColor = true;
-            this.bAnular.Click += new System.EventHandler(this.bAnular_Click);
+            this.btnAnularContrato.Location = new System.Drawing.Point(441, 389);
+            this.btnAnularContrato.Name = "btnAnularContrato";
+            this.btnAnularContrato.Size = new System.Drawing.Size(75, 23);
+            this.btnAnularContrato.TabIndex = 51;
+            this.btnAnularContrato.Text = "Anular";
+            this.btnAnularContrato.UseVisualStyleBackColor = true;
+            this.btnAnularContrato.Click += new System.EventHandler(this.btnAnularContrato_Click);
             // 
             // panel4
             // 
@@ -466,15 +466,15 @@ namespace NOMINASOFT
             this.panel2.Size = new System.Drawing.Size(650, 3);
             this.panel2.TabIndex = 46;
             // 
-            // bEditar
+            // btnEditarContrato
             // 
-            this.bEditar.Location = new System.Drawing.Point(316, 389);
-            this.bEditar.Name = "bEditar";
-            this.bEditar.Size = new System.Drawing.Size(75, 23);
-            this.bEditar.TabIndex = 50;
-            this.bEditar.Text = "Editar";
-            this.bEditar.UseVisualStyleBackColor = true;
-            this.bEditar.Click += new System.EventHandler(this.bEditar_Click);
+            this.btnEditarContrato.Location = new System.Drawing.Point(316, 389);
+            this.btnEditarContrato.Name = "btnEditarContrato";
+            this.btnEditarContrato.Size = new System.Drawing.Size(75, 23);
+            this.btnEditarContrato.TabIndex = 50;
+            this.btnEditarContrato.Text = "Editar";
+            this.btnEditarContrato.UseVisualStyleBackColor = true;
+            this.btnEditarContrato.Click += new System.EventHandler(this.btnEditarContrato_Click);
             // 
             // label3
             // 
@@ -485,25 +485,25 @@ namespace NOMINASOFT
             this.label3.TabIndex = 45;
             this.label3.Text = "DATOS DEL EMPLEADO";
             // 
-            // bBuscar
+            // btnBuscarEmpleado
             // 
-            this.bBuscar.Location = new System.Drawing.Point(236, 80);
-            this.bBuscar.Name = "bBuscar";
-            this.bBuscar.Size = new System.Drawing.Size(75, 23);
-            this.bBuscar.TabIndex = 44;
-            this.bBuscar.Text = "Buscar";
-            this.bBuscar.UseVisualStyleBackColor = true;
-            this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
+            this.btnBuscarEmpleado.Location = new System.Drawing.Point(236, 80);
+            this.btnBuscarEmpleado.Name = "btnBuscarEmpleado";
+            this.btnBuscarEmpleado.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarEmpleado.TabIndex = 44;
+            this.btnBuscarEmpleado.Text = "Buscar";
+            this.btnBuscarEmpleado.UseVisualStyleBackColor = true;
+            this.btnBuscarEmpleado.Click += new System.EventHandler(this.btnBuscarEmpleado_Click);
             // 
-            // bCrear
+            // btnCrearContrato
             // 
-            this.bCrear.Location = new System.Drawing.Point(189, 389);
-            this.bCrear.Name = "bCrear";
-            this.bCrear.Size = new System.Drawing.Size(75, 23);
-            this.bCrear.TabIndex = 49;
-            this.bCrear.Text = "Crear";
-            this.bCrear.UseVisualStyleBackColor = true;
-            this.bCrear.Click += new System.EventHandler(this.bCrear_Click);
+            this.btnCrearContrato.Location = new System.Drawing.Point(189, 389);
+            this.btnCrearContrato.Name = "btnCrearContrato";
+            this.btnCrearContrato.Size = new System.Drawing.Size(75, 23);
+            this.btnCrearContrato.TabIndex = 49;
+            this.btnCrearContrato.Text = "Crear";
+            this.btnCrearContrato.UseVisualStyleBackColor = true;
+            this.btnCrearContrato.Click += new System.EventHandler(this.btnCrearContrato_Click);
             // 
             // panel1
             // 
@@ -557,13 +557,13 @@ namespace NOMINASOFT
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.PanelDatosContrato);
-            this.Controls.Add(this.bAnular);
+            this.Controls.Add(this.btnAnularContrato);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.bEditar);
+            this.Controls.Add(this.btnEditarContrato);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.bBuscar);
-            this.Controls.Add(this.bCrear);
+            this.Controls.Add(this.btnBuscarEmpleado);
+            this.Controls.Add(this.btnCrearContrato);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textDniBuscar);
@@ -590,7 +590,7 @@ namespace NOMINASOFT
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.GroupBox PanelDatosContrato;
         private System.Windows.Forms.Button banularInterno;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnGuardarContrato;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ComboBox cbAFP;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -606,7 +606,7 @@ namespace NOMINASOFT
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker fechaFinal;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button bAnular;
+        private System.Windows.Forms.Button btnAnularContrato;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox textGradoResultado;
         private System.Windows.Forms.Label label10;
@@ -624,10 +624,10 @@ namespace NOMINASOFT
         private System.Windows.Forms.TextBox textIDResultado;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button bEditar;
+        private System.Windows.Forms.Button btnEditarContrato;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button bBuscar;
-        private System.Windows.Forms.Button bCrear;
+        private System.Windows.Forms.Button btnBuscarEmpleado;
+        private System.Windows.Forms.Button btnCrearContrato;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textDniBuscar;

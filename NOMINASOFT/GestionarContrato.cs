@@ -23,7 +23,7 @@ namespace NOMINASOFT
         {
             contrato = new Contrato();
             InitializeComponent();
-            button5.Enabled = false;
+            btnGuardarContrato.Enabled = false;
             banularInterno.Enabled = false;
         }
         private void configuracionDeDatosContrato()
@@ -31,18 +31,18 @@ namespace NOMINASOFT
             PanelDatosContrato.Visible = true;
             Size = new System.Drawing.Size(715, 715);
             panel5.Visible = true;
-            bCrear.Location = new Point(187, 641);
-            bEditar.Location = new Point(314, 641);
-            bAnular.Location = new Point(439, 641);
+            btnCrearContrato.Location = new Point(187, 641);
+            btnEditarContrato.Location = new Point(314, 641);
+            btnAnularContrato.Location = new Point(439, 641);
         }
         private void configuracionInternaDeDatosContrato()
         {
             Size = new System.Drawing.Size(715, 455);
             panel5.Visible = false;
             PanelDatosContrato.Visible = false;
-            bCrear.Location = new Point(187, 381);
-            bEditar.Location = new Point(314, 381);
-            bAnular.Location = new Point(439, 381);
+            btnCrearContrato.Location = new Point(187, 381);
+            btnEditarContrato.Location = new Point(314, 381);
+            btnAnularContrato.Location = new Point(439, 381);
         }
         private void limpiarPantalla()
         {
@@ -115,7 +115,7 @@ namespace NOMINASOFT
             textTotalDeHoras.Enabled = true;
             textValorHora.Enabled = true;
         }
-        private void bBuscar_Click(object sender, EventArgs e)
+        private void btnBuscarEmpleado_Click(object sender, EventArgs e)
         {
             string dniEmpleado = textDniBuscar.Text.Trim();
             if(textDniBuscar.Text.Trim() == "")
@@ -144,7 +144,7 @@ namespace NOMINASOFT
             }
         }
 
-        private void bCrear_Click(object sender, EventArgs e)
+        private void btnCrearContrato_Click(object sender, EventArgs e)
         {
             if (empleado != null)
             {
@@ -156,9 +156,9 @@ namespace NOMINASOFT
                     inavilitarDatosContrato();
                     avilitarDatosContrato();
                     configuracionDeDatosContrato();
-                    bEditar.Enabled = false;
-                    bAnular.Enabled = false;
-                    button5.Enabled = true;
+                    btnEditarContrato.Enabled = false;
+                    btnAnularContrato.Enabled = false;
+                    btnGuardarContrato.Enabled = true;
                     banularInterno.Enabled = false;
                     avilitarDatosContrato();
                 }
@@ -171,7 +171,7 @@ namespace NOMINASOFT
            
         }
         
-        private void bEditar_Click(object sender, EventArgs e)
+        private void btnEditarContrato_Click(object sender, EventArgs e)
         {
             if (textIDResultado.Text.Trim() == "")
             {
@@ -184,9 +184,9 @@ namespace NOMINASOFT
                 {
                     EDITAR = true;
                     configuracionDeDatosContrato();
-                    bCrear.Enabled = false;
-                    bAnular.Enabled = false;
-                    button5.Enabled = true;
+                    btnCrearContrato.Enabled = false;
+                    btnAnularContrato.Enabled = false;
+                    btnGuardarContrato.Enabled = true;
                     banularInterno.Enabled = false;
                     avilitarDatosContrato();
                 }
@@ -227,7 +227,7 @@ namespace NOMINASOFT
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnGuardarContrato_Click(object sender, EventArgs e)
         {
             GestionarContratos servicio = new GestionarContratos();
 
@@ -311,9 +311,9 @@ namespace NOMINASOFT
             }
             //limpiarPantalla();
             configuracionInternaDeDatosContrato();
-            bCrear.Enabled = true;
-            bAnular.Enabled = true;
-            bEditar.Enabled = true;
+            btnCrearContrato.Enabled = true;
+            btnAnularContrato.Enabled = true;
+            btnEditarContrato.Enabled = true;
 
         }
 
@@ -327,21 +327,21 @@ namespace NOMINASOFT
             fechaFinal.Value = DateTime.Now;
             textTotalDeHoras.Text = "";
             textValorHora.Text = "";
-            button5.Enabled = false;
+            btnGuardarContrato.Enabled = false;
             banularInterno.Enabled = false;
-            bCrear.Enabled = true;
-            bAnular.Enabled = true;
-            bEditar.Enabled = true;
+            btnCrearContrato.Enabled = true;
+            btnAnularContrato.Enabled = true;
+            btnEditarContrato.Enabled = true;
         }
         
-        private void bAnular_Click(object sender, EventArgs e)
+        private void btnAnularContrato_Click(object sender, EventArgs e)
         {
             bool contratoEncontrado = mostrarContrato();
             if (contratoEncontrado)
             {
-                bCrear.Enabled = false;
-                bEditar.Enabled = false;
-                button5.Enabled = false;
+                btnCrearContrato.Enabled = false;
+                btnEditarContrato.Enabled = false;
+                btnGuardarContrato.Enabled = false;
                 banularInterno.Enabled = true;
                 inavilitarDatosContrato();
                 configuracionDeDatosContrato();
@@ -355,9 +355,9 @@ namespace NOMINASOFT
             servicio.EditarContratos(contrato, int.Parse(textIDResultado.Text.Trim()));
             //limpiarPantalla();
             configuracionInternaDeDatosContrato();
-            bCrear.Enabled = true;
-            bAnular.Enabled = true;
-            bEditar.Enabled = true;
+            btnCrearContrato.Enabled = true;
+            btnAnularContrato.Enabled = true;
+            btnEditarContrato.Enabled = true;
         }
         private void showError(string message)
         {
