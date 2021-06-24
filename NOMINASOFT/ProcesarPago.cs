@@ -173,11 +173,11 @@ namespace NOMINASOFT
 
 
             }
-            if (!periodo.Estado)
+            if (periodo != null && !periodo.Estado)
             {
                 MessageBox.Show("Periodo Inactivo");
             }
-            if (!contratosListados)
+            if (periodo != null && !contratosListados)
             {
                 MessageBox.Show("No ha seleccionado contratos para realizar el pago");
             }

@@ -364,5 +364,10 @@ namespace NOMINASOFT
             Exception err = new Exception(message);
             MessageBox.Show(this, err.Message, message, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
