@@ -75,27 +75,34 @@ namespace NOMINASOFT
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             if (periodo != null)
             {
-                periodo.Contratos = servicio.GetContratosByPeriodo(periodo);
-                if (periodo.Contratos.Count <= 0)
+                if (!periodo.Estado)
                 {
-                    MessageBox.Show("No se puede procesar porque no existen contratos.");
+                    MessageBox.Show("Periodo Inactivo");
                 }
                 else
                 {
-                    //Verificar si periodo puede ser procesado
-                    if (!periodo.ValidarPeriodoActivos())
+                    periodo.Contratos = servicio.GetContratosByPeriodo(periodo);
+                    if (periodo.Contratos.Count <= 0)
                     {
-                        MessageBox.Show("No se puede procesar el periodo porque la fecha actual debe" +
-                                        " ser mayor o igual a la fecha fin del periodo de pago");
+                        MessageBox.Show("No se puede procesar porque no existen contratos.");
                     }
                     else
                     {
-                        listContratos(periodo.Contratos);
+                        //Verificar si periodo puede ser procesado
+                        if (!periodo.ValidarPeriodoActivos())
+                        {
+                            MessageBox.Show("No se puede procesar el periodo porque la fecha actual debe" +
+                                            " ser mayor o igual a la fecha fin del periodo de pago");
+                        }
+                        else
+                        {
+                            listContratos(periodo.Contratos);
+                        }
                     }
                 }
-
             }
         }
 

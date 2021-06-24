@@ -107,9 +107,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
         public Contrato MostrarDatosContrato(int CodigoEmpleado)
         {
             Contrato contrato;
-            string mostrarContrato = "select idContrato, asignacionFamiliar, cargo, fechaInicial, fechaFinal, horasContradasPorSemana, valorHora, estado, ID_AFP, ID_EMPLEADO from Contrato where ID_EMPLEADO = " + CodigoEmpleado + "" +
-                                     "and fechaInicial = (Select MAX(fechaInicial) from Contrato where ID_EMPLEADO = " + CodigoEmpleado + ")" +
-                                     "and estado = 1 ORDER BY fechaFinal desc";
+            string mostrarContrato = "select idContrato, asignacionFamiliar, cargo, fechaInicial, fechaFinal, horasContradasPorSemana, valorHora, estado, ID_AFP, ID_EMPLEADO from Contrato where ID_EMPLEADO = " + CodigoEmpleado + "and estado = 1 ORDER BY fechaFinal desc";
 
             try
             {
@@ -120,7 +118,6 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 }
                 else
                 {
-                    MessageBox.Show("No existe un Contrato activo.");
                     return null;
                 }
             }

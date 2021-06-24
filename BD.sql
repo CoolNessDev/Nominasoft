@@ -216,12 +216,15 @@ where Periodo.idPeriodo = 3;
 -- update Periodo set estado = 1 where idPeriodo = 3
 select * from Periodo where estado = 1 ORDER BY fechaFin;
 select * from Periodo
-select * from Empleado where idEmpleado = 1
+select * from Empleado where idEmpleado = 5
+select * from Contrato
 --ActualizarPeriodo @idPeriodo =3,@fechaInicio = '2021-03-16', @fechaFin = '2021-04-15', @estado=1
-SELECT * FROM Contrato where ID_EMPLEADO=3 ORDER BY fechaFinal desc
+SELECT * FROM Contrato where ID_EMPLEADO=5 ORDER BY fechaFinal desc
 SELECT * FROM Contrato where idContrato=3 ORDER BY fechaFinal desc
 
 update Contrato set estado = 1 where idContrato = 1
 
---01234567
---76543211
+--01234567 1
+--76543211 3
+--76543212 4
+--01234567 5

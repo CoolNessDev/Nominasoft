@@ -16,7 +16,8 @@ namespace NOMINASOFT
     {
 
         Boolean EDITAR = false;
-        int auxIdContrato = 0;
+        Empleado empleado = null;
+        int auxIdContrato = 0; //guarda el id del ultimo contrato
         Contrato contrato;
         public GestionarContrato()
         {
@@ -124,7 +125,7 @@ namespace NOMINASOFT
             else
             {
                 GestionarContratos servicio = new GestionarContratos();
-                Empleado empleado = servicio.BuscarEmpleado(dniEmpleado);
+                empleado = servicio.BuscarEmpleado(dniEmpleado);
                 if (empleado == null)
                 {
                     MessageBox.Show("No existe el Empleado.");
@@ -145,15 +146,29 @@ namespace NOMINASOFT
 
         private void bCrear_Click(object sender, EventArgs e)
         {
-            EDITAR = false;
-            inavilitarDatosContrato();
-            avilitarDatosContrato();
-            configuracionDeDatosContrato();
-            bEditar.Enabled = false;
-            bAnular.Enabled = false;
-            button5.Enabled = true;
-            banularInterno.Enabled = false;
-            avilitarDatosContrato();
+            if (empleado != null)
+            {
+                GestionarContratos servicio = new GestionarContratos();
+                Contrato contratoEmpleado = servicio.MostrarContratos(empleado.Id_empleado);
+                if (contratoEmpleado == null)
+                {
+                    EDITAR = false;
+                    inavilitarDatosContrato();
+                    avilitarDatosContrato();
+                    configuracionDeDatosContrato();
+                    bEditar.Enabled = false;
+                    bAnular.Enabled = false;
+                    button5.Enabled = true;
+                    banularInterno.Enabled = false;
+                    avilitarDatosContrato();
+                }
+                else
+                {
+                    MessageBox.Show("ya tiene un contrato vigente");
+                }
+               
+            }
+           
         }
         
         private void bEditar_Click(object sender, EventArgs e)
@@ -174,6 +189,10 @@ namespace NOMINASOFT
                     button5.Enabled = true;
                     banularInterno.Enabled = false;
                     avilitarDatosContrato();
+                }
+                else
+                {
+                    MessageBox.Show("No existe un contrato vigente");
                 }
             }
         }
@@ -275,13 +294,14 @@ namespace NOMINASOFT
                 }
                 else
                 {
+                    servicio.GuardarContratos(nuevoContrato);
+                    Contrato contratoInsertado = servicio.MostrarContratos(empleado.Id_empleado);
                     Periodo periodo = servicio.GetPeriodoActivo();
-                    bool insertPeriodoContrato = servicio.InsertarContratoPeriodo(contrato.Id_contrato, periodo.Id_periodo);
+                    bool insertPeriodoContrato = servicio.InsertarContratoPeriodo(contratoInsertado.Id_contrato, periodo.Id_periodo);
                     if (insertPeriodoContrato)
                     {
                         MessageBox.Show("Periodo_Contrato Insertado");
                     }
-                    servicio.GuardarContratos(nuevoContrato);
                 }
             }
             catch (Exception err)
@@ -289,7 +309,7 @@ namespace NOMINASOFT
                 MessageBox.Show(this, err.Message, "Sistema NominaSoft", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            limpiarPantalla();
+            //limpiarPantalla();
             configuracionInternaDeDatosContrato();
             bCrear.Enabled = true;
             bAnular.Enabled = true;
@@ -333,7 +353,7 @@ namespace NOMINASOFT
             GestionarContratos servicio = new GestionarContratos();
             contrato.Estado = false;
             servicio.EditarContratos(contrato, int.Parse(textIDResultado.Text.Trim()));
-            limpiarPantalla();
+            //limpiarPantalla();
             configuracionInternaDeDatosContrato();
             bCrear.Enabled = true;
             bAnular.Enabled = true;
