@@ -73,7 +73,7 @@ namespace NOMINASOFT
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnProcesar_Click(object sender, EventArgs e)
         {
 
             if (periodo != null)
@@ -106,7 +106,7 @@ namespace NOMINASOFT
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnRegistrarPago_Click(object sender, EventArgs e)
         {
             if (periodo != null && periodo.Contratos != null && periodo.Estado)
             {

@@ -29,37 +29,37 @@ namespace NOMINASOFT
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnProcesarPagos = new System.Windows.Forms.Button();
+            this.btnGestionarContrato = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button2
+            // btnProcesarPagos
             // 
-            this.button2.Location = new System.Drawing.Point(80, 131);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 37);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Procesar Pagos";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnProcesarPagos.Location = new System.Drawing.Point(80, 131);
+            this.btnProcesarPagos.Name = "btnProcesarPagos";
+            this.btnProcesarPagos.Size = new System.Drawing.Size(109, 37);
+            this.btnProcesarPagos.TabIndex = 3;
+            this.btnProcesarPagos.Text = "Procesar Pagos";
+            this.btnProcesarPagos.UseVisualStyleBackColor = true;
+            this.btnProcesarPagos.Click += new System.EventHandler(this.btnProcesarPagos_Click);
             // 
-            // button1
+            // btnGestionarContrato
             // 
-            this.button1.Location = new System.Drawing.Point(80, 74);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 37);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Gestionar Contrato";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGestionarContrato.Location = new System.Drawing.Point(80, 74);
+            this.btnGestionarContrato.Name = "btnGestionarContrato";
+            this.btnGestionarContrato.Size = new System.Drawing.Size(109, 37);
+            this.btnGestionarContrato.TabIndex = 2;
+            this.btnGestionarContrato.Text = "Gestionar Contrato";
+            this.btnGestionarContrato.UseVisualStyleBackColor = true;
+            this.btnGestionarContrato.Click += new System.EventHandler(this.btnGestionarContrato_Click);
             // 
             // Nominasoft
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(269, 242);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnProcesarPagos);
+            this.Controls.Add(this.btnGestionarContrato);
             this.Name = "Nominasoft";
             this.Text = "Nominasoft";
             this.ResumeLayout(false);
@@ -68,8 +68,8 @@ namespace NOMINASOFT
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnProcesarPagos;
+        private System.Windows.Forms.Button btnGestionarContrato;
     }
 }
 

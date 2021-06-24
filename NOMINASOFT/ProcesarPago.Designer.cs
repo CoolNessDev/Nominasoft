@@ -30,7 +30,7 @@ namespace NOMINASOFT
         private void InitializeComponent()
         {
             this.dgvContratos = new System.Windows.Forms.DataGridView();
-            this.procesar = new System.Windows.Forms.Button();
+            this.btnProcesar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,7 +40,7 @@ namespace NOMINASOFT
             this.inCodigo = new System.Windows.Forms.TextBox();
             this.inFechaInicio = new System.Windows.Forms.TextBox();
             this.inFechaFin = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRegistrarPago = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContratos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,15 +52,15 @@ namespace NOMINASOFT
             this.dgvContratos.Size = new System.Drawing.Size(748, 276);
             this.dgvContratos.TabIndex = 0;
             // 
-            // procesar
+            // btnProcesar
             // 
-            this.procesar.Location = new System.Drawing.Point(21, 388);
-            this.procesar.Name = "procesar";
-            this.procesar.Size = new System.Drawing.Size(111, 31);
-            this.procesar.TabIndex = 1;
-            this.procesar.Text = "Procesar periodo";
-            this.procesar.UseVisualStyleBackColor = true;
-            this.procesar.Click += new System.EventHandler(this.button1_Click);
+            this.btnProcesar.Location = new System.Drawing.Point(21, 388);
+            this.btnProcesar.Name = "btnProcesar";
+            this.btnProcesar.Size = new System.Drawing.Size(111, 31);
+            this.btnProcesar.TabIndex = 1;
+            this.btnProcesar.Text = "Procesar periodo";
+            this.btnProcesar.UseVisualStyleBackColor = true;
+            this.btnProcesar.Click += new System.EventHandler(this.btnProcesar_Click);
             // 
             // label1
             // 
@@ -141,22 +141,22 @@ namespace NOMINASOFT
             this.inFechaFin.Size = new System.Drawing.Size(100, 20);
             this.inFechaFin.TabIndex = 10;
             // 
-            // button1
+            // btnRegistrarPago
             // 
-            this.button1.Location = new System.Drawing.Point(684, 388);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 31);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Registrar pago";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnRegistrarPago.Location = new System.Drawing.Point(684, 388);
+            this.btnRegistrarPago.Name = "btnRegistrarPago";
+            this.btnRegistrarPago.Size = new System.Drawing.Size(85, 31);
+            this.btnRegistrarPago.TabIndex = 11;
+            this.btnRegistrarPago.Text = "Registrar pago";
+            this.btnRegistrarPago.UseVisualStyleBackColor = true;
+            this.btnRegistrarPago.Click += new System.EventHandler(this.btnRegistrarPago_Click);
             // 
             // ProcesarPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRegistrarPago);
             this.Controls.Add(this.inFechaFin);
             this.Controls.Add(this.inFechaInicio);
             this.Controls.Add(this.inCodigo);
@@ -166,7 +166,7 @@ namespace NOMINASOFT
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.procesar);
+            this.Controls.Add(this.btnProcesar);
             this.Controls.Add(this.dgvContratos);
             this.Name = "ProcesarPago";
             this.Text = "ProcesarPago";
@@ -179,7 +179,7 @@ namespace NOMINASOFT
         #endregion
 
         private System.Windows.Forms.DataGridView dgvContratos;
-        private System.Windows.Forms.Button procesar;
+        private System.Windows.Forms.Button btnProcesar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -189,6 +189,6 @@ namespace NOMINASOFT
         private System.Windows.Forms.TextBox inCodigo;
         private System.Windows.Forms.TextBox inFechaInicio;
         private System.Windows.Forms.TextBox inFechaFin;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRegistrarPago;
     }
 }

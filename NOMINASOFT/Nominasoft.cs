@@ -17,13 +17,13 @@ namespace NOMINASOFT
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnGestionarContrato_Click(object sender, EventArgs e)
         {
             GestionarContrato gestionarContrato = new GestionarContrato();
             gestionarContrato.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnProcesarPagos_Click(object sender, EventArgs e)
         {
             ProcesarPago procesarPago = new ProcesarPago();
             procesarPago.ShowDialog();
