@@ -18,6 +18,7 @@ namespace NOMINASOFT
         GestionarPagos servicio;
         GestionarContratos servicioContratos;
         Periodo periodo;
+        bool contratosListados;
         public ProcesarPago()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace NOMINASOFT
             else
             {
                 setDataPeriodo(periodo);
+                contratosListados = false;
             }
         }
         private void listContratos(List<Contrato> contratos)
@@ -100,6 +102,7 @@ namespace NOMINASOFT
                         else
                         {
                             listContratos(periodo.Contratos);
+                            contratosListados = true;
                         }
                     }
                 }
@@ -108,7 +111,7 @@ namespace NOMINASOFT
 
         private void btnRegistrarPago_Click(object sender, EventArgs e)
         {
-            if (periodo != null && periodo.Contratos != null && periodo.Estado)
+            if (periodo != null && periodo.Contratos != null && periodo.Estado && periodo.ValidarPeriodoActivos())
             {
                 bool insert = false;
                 for (int i = 0; i < periodo.Contratos.Count; i++)
@@ -173,6 +176,10 @@ namespace NOMINASOFT
             if (!periodo.Estado)
             {
                 MessageBox.Show("Periodo Inactivo");
+            }
+            if (!contratosListados)
+            {
+                MessageBox.Show("No ha seleccionado contratos para realizar el pago");
             }
 
         }
