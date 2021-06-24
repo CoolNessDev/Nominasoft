@@ -16,11 +16,11 @@ namespace Capa._2_Aplicacion.Servicios
 
     public class GestionarPagos
     {
-        private IGestorAccesoDatos gestorAccesoDatos;
-        private IPeriodo periodoDAO;
-        private IContrato contratoDAO;
-        private IPago pagoDAO;
-        private IEmpleado empleadoDAO;
+        private readonly IGestorAccesoDatos gestorAccesoDatos;
+        private readonly IPeriodo periodoDAO;
+        private readonly IContrato contratoDAO;
+        private readonly IPago pagoDAO;
+        private readonly IEmpleado empleadoDAO;
 
         public GestionarPagos()
         {

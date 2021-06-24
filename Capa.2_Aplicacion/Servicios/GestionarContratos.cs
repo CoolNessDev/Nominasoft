@@ -13,15 +13,15 @@ namespace Capa._2_Aplicacion.Servicios
 {
     public class GestionarContratos
     {
-        private IGestorAccesoDatos gestorAccesoDatos;
-        private IEmpleado empleadoDAO;
-        private IAfp afpDAO;
-        private IContrato contratoDAO;
-        private IPeriodo periodoDAO;
+        private readonly IGestorAccesoDatos gestorAccesoDatos;
+        private readonly IEmpleado empleadoDAO;
+        private readonly IAfp afpDAO;
+        private readonly IContrato contratoDAO;
+        private readonly IPeriodo periodoDAO;
 
         public GestionarContratos()
         {
-            FabricaAbstracta fabricaAbstracta = FabricaAbstracta.crearInstancia();
+            FabricaAbstracta  fabricaAbstracta = FabricaAbstracta.crearInstancia();
             gestorAccesoDatos = fabricaAbstracta.crearGestorAccesoDatos();
             empleadoDAO = fabricaAbstracta.crearEmpleadoDAO(gestorAccesoDatos);
             afpDAO = fabricaAbstracta.crearAfpDAO(gestorAccesoDatos);
