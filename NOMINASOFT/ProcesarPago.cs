@@ -136,14 +136,6 @@ namespace NOMINASOFT
 
                 }
 
-
-                //FAltA FORMATEAR TABLA PARA QUE SALGAN EXACTAMENTE LOS SIGUIENTES DATOS DEL PAGO:
-                //código del empleado, nombre del empleado, dni del empleado, el total de horas, el valor
-                //hora, el sueldo básico, el total de ingresos, el total de descuento y el sueldo neto.
-                //(El contrato en la clase Pago debe traer son datos del empleado en Contrato.Empleado.
-                //Actualmente solo guarda su codigo en Contrato.Empleado.IdEmpleado)
-
-
                 //Listar CustomPagosDto (Usar misma tabla)
                 List <Pago> pagos = servicio.GetPagpsByPeriodo(periodo);
                 List<CustomPagoDto> customPagos = new List<CustomPagoDto>();
@@ -170,9 +162,7 @@ namespace NOMINASOFT
                 }
 
                 listPagos(customPagos);
-                //foreach(Pago pago in pagos){
-                //    pago.Contrato.Empleado.Id_empleado
-                //}
+
                 if (insert)
                 {
                     MessageBox.Show("Se generaron los pagos de los contratos");
