@@ -114,7 +114,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 SqlDataReader resultadoSQL = gestorSQL.EjecutarConsulta(mostrarContrato);
                 if (resultadoSQL.Read())
                 {
-                    contrato = ObtenerContrato(resultadoSQL);
+                    contrato = gestorSQL.ObtenerContrato(resultadoSQL);
                 }
                 else
                 {
@@ -138,7 +138,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 SqlDataReader resultadoSQL = gestorSQL.EjecutarConsulta(mostrarContrato);
                 if (resultadoSQL.Read())
                 {
-                    contrato = ObtenerContrato(resultadoSQL);
+                    contrato = gestorSQL.ObtenerContrato(resultadoSQL);
                 }
                 else
                 {
@@ -193,7 +193,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    contrato = ObtenerContrato(dr);
+                    contrato = gestorSQL.ObtenerContrato(dr);
                     contrato.Periodo = periodo;
                     if (contrato.ValidarContratoProcesar())
                     {
@@ -210,35 +210,6 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             return contratos;
         }
 
-        
-        private Contrato ObtenerContrato(SqlDataReader resultadoSQL)
-        {
-            Contrato contrato = new Contrato();
-            contrato.Id_contrato = resultadoSQL.GetInt32(0);
-            contrato.AsignacionFamiliar = resultadoSQL.GetBoolean(1);
-            contrato.Cargo = resultadoSQL.GetString(2);
-            contrato.FechaInicio = resultadoSQL.GetDateTime(3);
-            contrato.FechaFin = resultadoSQL.GetDateTime(4);
-            contrato.HorasContratadasPorSemana = resultadoSQL.GetInt32(5);
-            contrato.ValorHora = resultadoSQL.GetInt32(6);
-            contrato.Estado = resultadoSQL.GetBoolean(7);
-            Afp afp = new Afp
-            {
-                Id_afp = resultadoSQL.GetInt32(8)
-            };
-            contrato.Afp = afp;
-            Empleado empleado = new Empleado
-            {
-                Id_empleado = resultadoSQL.GetInt32(9)
-            };
-            contrato.Empleado = empleado;
-            if (!contrato.ValidarVigenciaContrato()) 
-            {
-                contrato.Estado = false;
-            }
-            return contrato;
-
-        }
         //Mover a CIDSQLServer.cs
         private ConceptoIngresoDeDescuento ObtenerCID(SqlDataReader resultadoSQL)
         {

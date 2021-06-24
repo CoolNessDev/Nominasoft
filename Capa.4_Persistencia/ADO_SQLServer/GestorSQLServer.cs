@@ -1,4 +1,5 @@
 ﻿using Capa._3_Dominio.Contratos;
+using Capa._3_Dominio.Entidades;
 using Capa._3_Dominio.Servicios;
 using System;
 using System.Collections.Generic;
@@ -131,6 +132,27 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             {
                 throw new Exception("Error de comando en la Base de Datos.", err);
             }
+        }
+        public Contrato ObtenerContrato(SqlDataReader resultadoSQL)
+        {
+            Contrato contrato = new Contrato();
+            contrato.Id_contrato = resultadoSQL.GetInt32(0);
+            contrato.AsignacionFamiliar = resultadoSQL.GetBoolean(1);
+            contrato.Cargo = resultadoSQL.GetString(2);
+            contrato.FechaInicio = resultadoSQL.GetDateTime(3);
+            contrato.FechaFin = resultadoSQL.GetDateTime(4);
+            contrato.HorasContratadasPorSemana = resultadoSQL.GetInt32(5);
+            contrato.ValorHora = resultadoSQL.GetInt32(6);
+            contrato.Estado = resultadoSQL.GetBoolean(7);
+            Afp afp = new Afp();
+            afp.Id_afp = resultadoSQL.GetInt32(8);
+            contrato.Afp = afp;
+            if (!contrato.ValidarVigenciaContrato())
+            {
+                contrato.Estado = false;
+            }
+            return contrato;
+
         }
     }
 }
