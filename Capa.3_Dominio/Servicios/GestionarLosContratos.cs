@@ -19,11 +19,6 @@ namespace Capa._3_Dominio.Servicios
                 MessageBox.Show("La Fecha Final Es incorrecta");
                 estadito = false;
             }
-            /*if(!contrato.ValidarFechaInicioContrato())
-            {
-                MessageBox.Show("La Fecha Inicio es Incorrecta");
-                estadito = false;
-            }*/
             if (!contrato.ValidarHoras())
             {
                 MessageBox.Show("La Hora contratadas por semana es Incorrecta");
@@ -34,11 +29,6 @@ namespace Capa._3_Dominio.Servicios
                 MessageBox.Show("El Valor Hora es Incorrecto");
                 estadito = false;
             }
-            /*if(!contrato.ValidarVigenciaContrato())
-            {
-                MessageBox.Show("La Vigencia Del Contrato Es Incorrecto");
-                estadito = false;
-            }*/
             return estadito;
         }
     }

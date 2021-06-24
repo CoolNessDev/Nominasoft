@@ -65,7 +65,7 @@ namespace Capa._3_Dominio.Entidades
             {
                 anterior = Empleado.Contratos[0];
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 anterior = null;
             }
@@ -117,7 +117,6 @@ namespace Capa._3_Dominio.Entidades
         {
             DateTime today = DateTime.Now;
             
-            //Console.WriteLine(DateTime.Compare(today, FechaFin));
             if (today <= FechaFin && Estado == true)
             {
                 return true;
