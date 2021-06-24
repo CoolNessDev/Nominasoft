@@ -67,7 +67,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 cmd.Parameters.AddWithValue("@valorHora", contrato.ValorHora);
                 cmd.Parameters.AddWithValue("@estado", contrato.Estado);
                 cmd.Parameters.AddWithValue("@ID_AFP", contrato.Afp.Id_afp);
-                cmd.Parameters.AddWithValue("@ID_EMPLEADO", contrato.Empleado.Id_empleado);
+                cmd.Parameters.AddWithValue("@ID_EMPLEADO", codigoEmpleado);
 
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)

@@ -81,13 +81,6 @@ namespace Capa._2_Aplicacion.Servicios
 
         public void GuardarContratos(Contrato contrato)
         {
-            /*GestionarLosContratos gestionarLosContratos = new GestionarLosContratos();
-            if (gestionarLosContratos.ValidarContrato(contrato) == true)
-            {
-                gestorAccesoDatos.AbrirConexion();
-                contratoDAO.CrearContrato(contrato);
-                gestorAccesoDatos.CerrarConexion();
-            }*/
             gestorAccesoDatos.AbrirConexion();
             contratoDAO.CrearContrato(contrato);
             gestorAccesoDatos.CerrarConexion();
@@ -102,14 +95,6 @@ namespace Capa._2_Aplicacion.Servicios
         }
         public void EditarContratos(Contrato contrato, int codigoEmpleado)
         {
-            /*GestionarLosContratos gestionarLosContratos = new GestionarLosContratos();
-
-            if(gestionarLosContratos.ValidarContrato(contrato) == true)
-            {
-                gestorAccesoDatos.AbrirConexion();
-                contratoDAO.EditarContrato(contrato, codigoEmpleado);
-                gestorAccesoDatos.CerrarConexion();
-            }*/
             gestorAccesoDatos.AbrirConexion();
             contratoDAO.EditarContrato(contrato, codigoEmpleado);
             gestorAccesoDatos.CerrarConexion();
