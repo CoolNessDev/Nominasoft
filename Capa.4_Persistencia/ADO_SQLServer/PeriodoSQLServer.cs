@@ -47,7 +47,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             Periodo periodo;
             //string consultaSQL = "select * from Periodo where estado = 1 ORDER BY fechaFin DESC";
             string consultaSQL = "select * from Periodo where estado = 1 ORDER BY fechaFin";
-
+            bool periodoObtenido = false;
             try
             {
                 SqlDataReader resultadoSQL = gestorSQL.EjecutarConsulta(consultaSQL);
@@ -55,7 +55,11 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 {
                     periodo = ObtenerDatosPeriodo(resultadoSQL);
                     periodos.Add(periodo);
-
+                    periodoObtenido = true;
+                }
+                if (!resultadoSQL.Read() && !periodoObtenido)
+                {
+                    return null;
                 }
             }
             catch (Exception er)

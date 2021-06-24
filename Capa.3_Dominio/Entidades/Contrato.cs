@@ -69,12 +69,11 @@ namespace Capa._3_Dominio.Entidades
             {
                 anterior = null;
             }
-            //Error
-            if (anterior != null && Id_contrato == anterior.id_contrato)
+            if (anterior != null && Id_contrato == anterior.id_contrato) //al editar
             {
                 return true;
             }
-            if (anterior == null || FechaInicio > anterior.FechaFin)
+            if (anterior == null || FechaInicio > anterior.FechaFin || !anterior.estado)
             {
                 return true;
             }

@@ -73,33 +73,40 @@ namespace NOMINASOFT
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnProcesar_Click(object sender, EventArgs e)
         {
+
             if (periodo != null)
             {
-                periodo.Contratos = servicio.GetContratosByPeriodo(periodo);
-                if (periodo.Contratos.Count <= 0)
+                if (!periodo.Estado)
                 {
-                    MessageBox.Show("No se puede procesar porque no existen contratos.");
+                    MessageBox.Show("Periodo Inactivo");
                 }
                 else
                 {
-                    //Verificar si periodo puede ser procesado
-                    if (!periodo.ValidarPeriodoActivos())
+                    periodo.Contratos = servicio.GetContratosByPeriodo(periodo);
+                    if (periodo.Contratos.Count <= 0)
                     {
-                        MessageBox.Show("No se puede procesar el periodo porque la fecha actual debe" +
-                                        " ser mayor o igual a la fecha fin del periodo de pago");
+                        MessageBox.Show("No se puede procesar porque no existen contratos.");
                     }
                     else
                     {
-                        listContratos(periodo.Contratos);
+                        //Verificar si periodo puede ser procesado
+                        if (!periodo.ValidarPeriodoActivos())
+                        {
+                            MessageBox.Show("No se puede procesar el periodo porque la fecha actual debe" +
+                                            " ser mayor o igual a la fecha fin del periodo de pago");
+                        }
+                        else
+                        {
+                            listContratos(periodo.Contratos);
+                        }
                     }
                 }
-
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnRegistrarPago_Click(object sender, EventArgs e)
         {
             if (periodo != null && periodo.Contratos != null && periodo.Estado)
             {
@@ -129,14 +136,6 @@ namespace NOMINASOFT
 
                 }
 
-
-                //FAltA FORMATEAR TABLA PARA QUE SALGAN EXACTAMENTE LOS SIGUIENTES DATOS DEL PAGO:
-                //código del empleado, nombre del empleado, dni del empleado, el total de horas, el valor
-                //hora, el sueldo básico, el total de ingresos, el total de descuento y el sueldo neto.
-                //(El contrato en la clase Pago debe traer son datos del empleado en Contrato.Empleado.
-                //Actualmente solo guarda su codigo en Contrato.Empleado.IdEmpleado)
-
-
                 //Listar CustomPagosDto (Usar misma tabla)
                 List <Pago> pagos = servicio.GetPagpsByPeriodo(periodo);
                 List<CustomPagoDto> customPagos = new List<CustomPagoDto>();
@@ -163,9 +162,7 @@ namespace NOMINASOFT
                 }
 
                 listPagos(customPagos);
-                //foreach(Pago pago in pagos){
-                //    pago.Contrato.Empleado.Id_empleado
-                //}
+
                 if (insert)
                 {
                     MessageBox.Show("Se generaron los pagos de los contratos");

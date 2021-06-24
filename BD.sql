@@ -1,6 +1,9 @@
 CREATE DATABASE nominasoft;
 Use nominasoft;
+
+
 CREATE TABLE Empleado(
+
 	idEmpleado int IDENTITY(1,1) constraint PK_IDEMPLEADO primary key,
 	dni varchar(8),
 	direccion varchar(50),
@@ -67,7 +70,8 @@ CREATE TABLE Pago(
 	ID_PERIODO int  constraint FK_PAGO_PERIODO foreign key references Periodo(idPeriodo),
 	ID_CONTRATO int constraint FK_PAGO_CONTRATO foreign key references Contrato(idContrato)
 );
---PROCEDURES
+
+--      PROCEDURES
 go
 create procedure InsertarContrato
 (
@@ -161,44 +165,263 @@ begin
 end
 go
 --------------------------------------------------------------------------------------------------------
+--         FIN  PROCEDURES 
 
---El sistema busca al empleado por DNI y muestra los siguientes datos: c�digo, nombre, direcci�n, 
---tel�fono, fecha de nacimiento, estado civil (que pueden ser: soltero, casado, conviviente, 
---divorciado, viudo), y grado acad�mico (que pueden ser: primaria, secundaria, bachiller, 
---profesional, magister, doctor).
-insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('01234567','av arequipa','soltero','2001-10-29','primaria','044531282','Jorge');
-insert into Empleado(dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('76543210','calle cascanueces','casado','20120618 10:34:09 AM','secundaria','989466206','Pedro');
-insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('76543211','urb. pedigree','conviviente','2001-10-29','bachiller','044531282','Juan');
-insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('76543212','calle los olivos','viudo','2001-10-29','profesional','044531282','Roberto');
+
+
+--    EMPLEADOS
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('01234567','Avenida Arequipa 545 ','CASADO','2001-10-29','Universitario','044531282','Jorge Chavez');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('12345678','Avenida Brazil 656   ','CASADO','2001-10-29','Universitario','044123456','Pedro Castillo');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('23456789','Avenida Cesar 334    ','Soltero','2001-10-29','Universitario','044567893','Juan Perez');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('34567890','Avenida Sandoval 223 ','Soltero','2001-10-29','Universitario','044332434','Alberto Cuadro');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('45678901','Avenida America 432  ','CASADO','2001-10-29','Universitario','044456754','Paolo Guerrero');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('56789012','Avenida Larco 1223   ','Soltero','2001-10-29','Universitario','044763564','Gianluca Lapadula');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('67890123','Avenida Brazil 696   ','CASADO','2001-10-29','Universitario','044234523','Cristian Cueva');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('78901234','Avenida Arequipa 599 ','Soltero','2001-10-29','Universitario','044435555','Cristiano Ronaldo');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('89012345','Avenida Cesar 874    ','CASADO','2001-10-29','Universitario','044907097','Renzo Gonzales');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('90123456','Avenida Cesar 345    ','CASADO','2001-10-29','Universitario','044789870','Ricardo Armendia');
+
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('00112233','Avenida Arequipa 599 ','CASADO','2001-10-29','Universitario','044435555','Carlos Ronaldo');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('11223344','Avenida Larco 332    ','Soltero','2001-10-29','Universitario','044879790','Rafael Carrazco');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('22334455','Avenida Sandoval 765 ','Soltero','2001-10-29','Universitario','044098709','Pedro Quinteros');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('33445566','Avenida America 555  ','CASADO','2001-10-29','Universitario','044543223','Toño Sneyder');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('44556677','Avenida Brazil 686   ','Soltero','2001-10-29','Universitario','044344323','Brayan Villalobos');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('55667788','Avenida Arequipa 876 ','Soltero','2001-10-29','Universitario','044634565','Federico Peña');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('66778899','Avenida Sandoval 223 ','CASADO','2001-10-29','Universitario','044332434','Coco Cuadro');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('77889900','Avenida America 432  ','Soltero','2001-10-29','Universitario','044456754','Kevin Guerrero');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('88990011','Avenida Larco 1223   ','Soltero','2001-10-29','Universitario','044763564','Jaime Rosas');
+insert into Empleado (dni,direccion,estadoCivil,fechaNacimiento,GradoAcademico,telefono,nombre) values ('99001122','Avenida Brazil 696   ','Soltero','2001-10-29','Universitario','044234523','Julio Cruz');
+
 go
+
+--    AFP
 insert into afp(nombre,porcentajeDeDescuento) values ('HABITAT',13.21);
 insert into afp(nombre,porcentajeDeDescuento) values ('INTEGRA',13.29);
 insert into afp(nombre,porcentajeDeDescuento) values ('PRIMA',13.34);
 insert into afp(nombre,porcentajeDeDescuento) values ('PROFUTURO',13.43);
 insert into afp(nombre,porcentajeDeDescuento) values ('PROMEDIO',13.34);
 go
-InsertarContrato @asignacionFamiliar = true, @cargo = 'Trabajador', @fechaInicial='2021-01-21',@fechaFinal='2021-05-21',@horasContradasPorSemana=16,@valorHora=20,@estado=false,
-@ID_AFP=3,@ID_EMPLEADO=1;
+
+--    CONTRATOS ANEXO 1 
+InsertarContrato @asignacionFamiliar = true, @cargo = 'Trabajador', @fechaInicial='	2021-04-21 ',@fechaFinal=' 2021-09-21 ',@horasContradasPorSemana=	20	,@valorHora= 30	,@estado=true,@ID_AFP=	5 ,@ID_EMPLEADO= 1;
 go
-InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial='2021-02-02',@fechaFinal='2021-07-02',@horasContradasPorSemana=16,@valorHora=20,@estado=true,
-@ID_AFP=2,@ID_EMPLEADO=2;
+InsertarContrato @asignacionFamiliar = true, @cargo = 'Trabajador', @fechaInicial='	2021-04-21 ',@fechaFinal=' 2021-09-21 ',@horasContradasPorSemana=	20	,@valorHora= 30	,@estado=true,@ID_AFP=	4 ,@ID_EMPLEADO= 2;
 go
-insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-04-16','2021-05-15',0);
---Periodo aún activo antes de tiempo actual 2021-06-10 para pruebas
-insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-05-16','2021-06-15',1);
-insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-03-16','2021-04-15',1);
+InsertarContrato @asignacionFamiliar = true, @cargo = 'Trabajador', @fechaInicial='	2021-04-21 ',@fechaFinal=' 2021-09-21 ',@horasContradasPorSemana=	20	,@valorHora= 30	,@estado=true,@ID_AFP=	3 ,@ID_EMPLEADO= 3;
 go
+InsertarContrato @asignacionFamiliar = true, @cargo = 'Trabajador', @fechaInicial='	2021-04-21 ',@fechaFinal=' 2021-09-21 ',@horasContradasPorSemana=	20	,@valorHora= 30	,@estado=true,@ID_AFP=	2 ,@ID_EMPLEADO= 4;
+go
+InsertarContrato @asignacionFamiliar = true, @cargo = 'Trabajador', @fechaInicial='	2021-04-21 ',@fechaFinal=' 2021-09-21 ',@horasContradasPorSemana=	20	,@valorHora= 30	,@estado=true,@ID_AFP=	1 ,@ID_EMPLEADO= 5;
+go
+InsertarContrato @asignacionFamiliar = true, @cargo = 'Trabajador', @fechaInicial='	2021-04-21 ',@fechaFinal=' 2021-09-21 ',@horasContradasPorSemana=	20	,@valorHora= 30	,@estado=true,@ID_AFP=	5 ,@ID_EMPLEADO= 6;
+go
+InsertarContrato @asignacionFamiliar = true, @cargo = 'Trabajador', @fechaInicial='	2021-04-21 ',@fechaFinal=' 2021-09-21 ',@horasContradasPorSemana=	20	,@valorHora= 30	,@estado=true,@ID_AFP=	4 ,@ID_EMPLEADO= 7;
+go
+InsertarContrato @asignacionFamiliar = true, @cargo = 'Trabajador', @fechaInicial='	2021-04-21 ',@fechaFinal=' 2021-09-21 ',@horasContradasPorSemana=	20	,@valorHora= 30	,@estado=true,@ID_AFP=	3 ,@ID_EMPLEADO= 8;
+go
+InsertarContrato @asignacionFamiliar = true, @cargo = 'Gerente	 ', @fechaInicial=' 2021-04-21 ',@fechaFinal=' 2021-12-21 ',@horasContradasPorSemana=	16	,@valorHora= 50	,@estado=true,@ID_AFP=	2 ,@ID_EMPLEADO= 9;
+go
+InsertarContrato @asignacionFamiliar = true, @cargo = 'Logística ', @fechaInicial='	2021-04-21 ',@fechaFinal=' 2021-12-21 ',@horasContradasPorSemana=	28	,@valorHora= 40	,@estado=true,@ID_AFP=	1 ,@ID_EMPLEADO= 10;
+go
+
+
+--   CONTRATOS ANEXO 2
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial=' 2021-04-21 ',@fechaFinal=' 2021-09-21 ',@horasContradasPorSemana=	20	,@valorHora= 30	,@estado=true,@ID_AFP=	5 ,@ID_EMPLEADO= 11;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial=' 2021-04-21 ',@fechaFinal=' 2021-09-21 ',@horasContradasPorSemana=	20	,@valorHora= 30	,@estado=true,@ID_AFP=	4 ,@ID_EMPLEADO= 12;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial=' 2021-04-21 ',@fechaFinal=' 2021-09-21 ',@horasContradasPorSemana=	20	,@valorHora= 30	,@estado=true,@ID_AFP=	3 ,@ID_EMPLEADO= 13;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial=' 2021-04-21 ',@fechaFinal=' 2021-09-21 ',@horasContradasPorSemana=	20	,@valorHora= 30	,@estado=true,@ID_AFP=	2 ,@ID_EMPLEADO= 14;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Trabajador', @fechaInicial=' 2021-04-21 ',@fechaFinal=' 2021-09-21 ',@horasContradasPorSemana=	20	,@valorHora= 30	,@estado=true,@ID_AFP=	1 ,@ID_EMPLEADO= 15;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Logística ', @fechaInicial=' 2021-04-21 ',@fechaFinal=' 2021-12-21 ',@horasContradasPorSemana=	28	,@valorHora= 40	,@estado=true,@ID_AFP=	5 ,@ID_EMPLEADO= 16;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Logística ', @fechaInicial=' 2021-04-21 ',@fechaFinal=' 2021-12-21 ',@horasContradasPorSemana=	28	,@valorHora= 40	,@estado=true,@ID_AFP=	4 ,@ID_EMPLEADO= 17;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Logística ', @fechaInicial=' 2021-04-21 ',@fechaFinal=' 2021-12-21 ',@horasContradasPorSemana=	28	,@valorHora= 40	,@estado=true,@ID_AFP=	3 ,@ID_EMPLEADO= 18;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Logística ', @fechaInicial=' 2021-04-21 ',@fechaFinal=' 2021-12-21 ',@horasContradasPorSemana=	28	,@valorHora= 40	,@estado=true,@ID_AFP=	2 ,@ID_EMPLEADO= 19;
+go
+InsertarContrato @asignacionFamiliar = false, @cargo = 'Logística ', @fechaInicial=' 2021-04-21 ',@fechaFinal=' 2021-12-21 ',@horasContradasPorSemana=	28	,@valorHora= 40	,@estado=true,@ID_AFP=	1 ,@ID_EMPLEADO= 20;
+go
+
+
+
+--   PERIODOS
+insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-04-21','2021-05-21',1);
+
+insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-05-21','2021-06-21',1);
+
+insert into Periodo(fechaInicio,fechaFin,estado) values ('2021-06-21','2021-07-21',1);
+
+go
+
+
+
+--     CONTRATO <-> PERIODO
+-- CP ANEXO 1
 insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (1,1);
 insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (1,2);
 insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (1,3);
+
 insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,1);
 insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,2);
 insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (2,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (3,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (3,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (3,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (4,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (4,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (4,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (5,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (5,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (5,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (6,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (6,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (6,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (7,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (7,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (7,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (8,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (8,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (8,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (9,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (9,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (9,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (10,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (10,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (10,3);
 go
+
+-- CP ANEXO 2
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (11,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (11,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (11,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (12,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (12,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (12,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (13,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (13,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (13,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (14,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (14,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (14,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (15,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (15,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (15,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (16,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (16,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (16,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (17,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (17,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (17,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (18,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (18,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (18,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (19,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (19,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (19,3);
+
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (20,1);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (20,2);
+insert into Contrato_periodo(ID_CONTRATO,ID_PERIODO) values (20,3);
+go
+
+
+--              CONCEPTO INGRESOS
+-- CI ANEXO 1 PERIODO 1
 insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
-values
-(12,10,13,34,23,56,3);
-go
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	1);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	4);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	7);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	10);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	13);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	16);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	29);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	22);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	25);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	28);
+go 
+-- CI ANEXO 1 PERIODO 2
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	2);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	5);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	8);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	11);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	14);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	17);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	20);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	23);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	26);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	29);
+go 
+-- CI ANEXO 1 PERIODO 3
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	3);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	6);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	9);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	12);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	15);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	18);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	21);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	24);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	27);
+insert into CID(montoHorasExtras, montoHorasAusente, montoOtrosDescuentos, montoPorAdelanto, montoOtrosIngresos, montoReingreso,ID_CONTRATO_PERIODO)
+values (20 ,	12 ,	14 ,	28 ,	24 ,	44 ,	30);
+go 
+
+--   CONSULTAS
+
+--El sistema busca al empleado por DNI y muestra los siguientes datos: c�digo, nombre, direcci�n, 
+--tel�fono, fecha de nacimiento, estado civil (que pueden ser: soltero, casado, conviviente, 
+--divorciado, viudo), y grado acad�mico (que pueden ser: primaria, secundaria, bachiller, 
+--profesional, magister, doctor).
+
+
 select * from Empleado
 select * from AFP
 select * from Contrato
@@ -206,6 +429,9 @@ select * from Periodo
 select * from Contrato_periodo
 select * from pago
 select * from CID
+
+--delete pago
+
 
 --consulta los CID relacionados con el contrato y periodo
 SELECT * from CID INNER join Contrato_periodo on Contrato_periodo.id = CID.ID_CONTRATO_PERIODO 
@@ -221,7 +447,7 @@ select * from Empleado where idEmpleado = 1
 SELECT * FROM Contrato where ID_EMPLEADO=3 ORDER BY fechaFinal desc
 SELECT * FROM Contrato where idContrato=3 ORDER BY fechaFinal desc
 
-update Contrato set estado = 1 where idContrato = 1
+update Contrato set  estado= 0 where idContrato = 10
+update Periodo set estado = 1 where idPeriodo = 1
 
---01234567
---76543211
+--FIN CONSULTAS

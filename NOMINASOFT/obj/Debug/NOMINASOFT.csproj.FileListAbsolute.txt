@@ -46,7 +46,6 @@ X:\Virtuales\Calidad\SOWAD\NOMINASOFT\bin\Debug\Capa.2_Aplicacion.pdb
 X:\Virtuales\Calidad\SOWAD\NOMINASOFT\bin\Debug\Capa.3_Dominio.pdb
 X:\Virtuales\Calidad\SOWAD\NOMINASOFT\bin\Debug\Capa.4_Persistencia.pdb
 X:\Virtuales\Calidad\SOWAD\NOMINASOFT\obj\Debug\NOMINASOFT.csprojAssemblyReference.cache
-X:\Virtuales\Calidad\SOWAD\NOMINASOFT\obj\Debug\NOMINASOFT.Form1.resources
 X:\Virtuales\Calidad\SOWAD\NOMINASOFT\obj\Debug\NOMINASOFT.GestionarContrato.resources
 X:\Virtuales\Calidad\SOWAD\NOMINASOFT\obj\Debug\NOMINASOFT.ProcesarPago.resources
 X:\Virtuales\Calidad\SOWAD\NOMINASOFT\obj\Debug\NOMINASOFT.Properties.Resources.resources
@@ -74,3 +73,4 @@ C:\Users\Samsung\Desktop\GITHUD\NominaSoft\NOMINASOFT\obj\Debug\NOMINASOFT.cspro
 C:\Users\Samsung\Desktop\GITHUD\NominaSoft\NOMINASOFT\obj\Debug\NOMINASOFT.csproj.CopyComplete
 C:\Users\Samsung\Desktop\GITHUD\NominaSoft\NOMINASOFT\obj\Debug\NOMINASOFT.exe
 C:\Users\Samsung\Desktop\GITHUD\NominaSoft\NOMINASOFT\obj\Debug\NOMINASOFT.pdb
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT\obj\Debug\NOMINASOFT.Nominasoft.resources
