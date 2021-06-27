@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
 {
-    public class ContratoSQLServer : IContrato
+    public class ContratoSqlServer : IContrato
     {
-        private readonly GestorSQLServer gestorSQL;
-        public ContratoSQLServer(IGestorAccesoDatos gestorSQL)
+        private readonly GestorSqlServer gestorSQL;
+        public ContratoSqlServer(IGestorAccesoDatos gestorSQL)
         {
-            this.gestorSQL = (GestorSQLServer)gestorSQL;
+            this.gestorSQL = (GestorSqlServer)gestorSQL;
         }
 
         public void CrearContrato(Contrato contrato)

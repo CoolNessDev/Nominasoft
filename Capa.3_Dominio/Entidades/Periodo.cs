@@ -8,21 +8,13 @@ namespace Capa._3_Dominio.Entidades
 {
     public class Periodo
     {
-        private int id_periodo;
-        private DateTime fechaInicio;
-        private DateTime fechaFin;
-        private bool estado;
-        private List<Contrato> contratos;
-        private ConceptoIngresoDeDescuento conceptoIngresoDeDescuento;
-        private Pago pago;
-
-        public int Id_periodo { get => id_periodo; set => id_periodo = value; }
-        public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
-        public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
-        public bool Estado { get => estado; set => estado = value; }
-        public List<Contrato> Contratos { get => contratos; set => contratos = value; }
-        public ConceptoIngresoDeDescuento ConceptoIngresoDeDescuento { get => conceptoIngresoDeDescuento; set => conceptoIngresoDeDescuento = value; }
-        public Pago Pago { get => pago; set => pago = value; }
+        public int Id_periodo { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
+        public bool Estado { get; set; }
+        public List<Contrato> Contratos { get; set; }
+        public ConceptoIngresoDeDescuento ConceptoIngresoDeDescuento { get; set; }
+        public Pago Pago { get; set; }
 
         public int CalcularSemanasPeriodo()
         {

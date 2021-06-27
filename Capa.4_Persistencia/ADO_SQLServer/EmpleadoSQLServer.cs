@@ -11,17 +11,17 @@ using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
 {
-    public class EmpleadoSQLServer : IEmpleado
+    public class EmpleadoSqlServer : IEmpleado
     {
-        private readonly GestorSQLServer gestorSQL;
-        public EmpleadoSQLServer(IGestorAccesoDatos gestorSQL)
+        private readonly GestorSqlServer gestorSQL;
+        public EmpleadoSqlServer(IGestorAccesoDatos gestorSQL)
         {
-            this.gestorSQL = (GestorSQLServer)gestorSQL;
+            this.gestorSQL = (GestorSqlServer)gestorSQL;
         }
 
         public Empleado BuscarEmpleadoPorDNI(string DNI)
         {
-            Empleado empleado;
+            Empleado empleado=null;
             string consultaSQL = "select * from Empleado where dni = '" + DNI + "'";
             try
             {
@@ -36,8 +36,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 }
                 resultadoSQL.Close();
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show("Error al buscar el empleadon por DNI: " + e);
                 throw;
             }
             return empleado;
@@ -59,13 +60,13 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             catch (Exception er)
             {
-                MessageBox.Show("Error: "+er);
+                MessageBox.Show("Error al obtener contratos: "+er);
             }
             return contratos;
         }
         public Empleado BuscarEmpleado(int id)
         {
-            Empleado empleado;
+            Empleado empleado=null;
             string consultaSQL = "select * from Empleado where idEmpleado = '" + id + "'";
             try
             {
@@ -80,8 +81,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 }
                 resultadoSQL.Close();
             }
-            catch (Exception)
+            catch (Exception er)
             {
+                MessageBox.Show("Error al buscar el empleado: " + er);
                 throw;
             }
             return empleado;

@@ -237,14 +237,8 @@ namespace NOMINASOFT
 
             Contrato nuevoContrato = new Contrato();
             nuevoContrato.Id_contrato = auxIdContrato;
-            if (AsignacionSI.Checked == true )
-            {
-                nuevoContrato.AsignacionFamiliar = true;
-            }
-            if(AsignacionNO.Checked == true)
-            {
-                nuevoContrato.AsignacionFamiliar =false;
-            }
+            nuevoContrato.AsignacionFamiliar = AsignacionSI.Checked;
+  
 
             try{
                 nuevoContrato.Cargo = TextCargo.Text.Trim();
@@ -259,7 +253,10 @@ namespace NOMINASOFT
                     nuevoContrato.Afp = afp;
 
                     Empleado empleadoContrato = servicio.BuscarEmpleado(textDniBuscar.Text.Trim());
-                    nuevoContrato.Empleado = empleadoContrato;
+                    if(empleadoContrato != null)
+                    {
+                        nuevoContrato.Empleado = empleadoContrato;
+                    }
                 }
             }
             catch(Exception)
@@ -296,7 +293,7 @@ namespace NOMINASOFT
 
             try
             {
-                if (EDITAR == true)
+                if (EDITAR)
                 {
                     servicio.EditarContratos(nuevoContrato, int.Parse(textIDResultado.Text.Trim()));
                 }

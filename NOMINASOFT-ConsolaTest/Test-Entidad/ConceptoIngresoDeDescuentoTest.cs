@@ -15,8 +15,8 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
             conceptoIngresoDeDescuento.MontoPorAdelanto = 3;
             conceptoIngresoDeDescuento.MontoOtrosDescuentos = 3;
 
-            double TotalConceptoDescuento_esperado = 9;
-            double TotalConceptoDescuento_obtenido = conceptoIngresoDeDescuento.CalcularTotalConceptoDescuento();
+            decimal TotalConceptoDescuento_esperado = 9;
+            decimal TotalConceptoDescuento_obtenido = conceptoIngresoDeDescuento.CalcularTotalConceptoDescuento();
             Assert.AreEqual(TotalConceptoDescuento_esperado, TotalConceptoDescuento_obtenido);
         }
         [TestMethod]
@@ -28,8 +28,8 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
             conceptoIngresoDeDescuento.MontoReingreso = 2;
             conceptoIngresoDeDescuento.MontoOtrosIngresos = 2;
 
-            double TotalConceptoIngreso_esperado = 6;
-            double TotalConceptoIngreso_obtenido = conceptoIngresoDeDescuento.CalcularTotalConceptoIngreso();
+            decimal TotalConceptoIngreso_esperado = 6;
+            decimal TotalConceptoIngreso_obtenido = conceptoIngresoDeDescuento.CalcularTotalConceptoIngreso();
             Assert.AreEqual(TotalConceptoIngreso_esperado, TotalConceptoIngreso_obtenido);
         }
     }

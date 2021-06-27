@@ -13,9 +13,9 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
             Pago pagos = new Pago();
             pagos.TotalHoras = 52;
             pagos.ValorHora = 30;
-  
-            double SueldoBasico_esperado = 1560;
-            double SueldoBasico_obtenido = pagos.CalcularSueldoBasico();
+
+            decimal SueldoBasico_esperado = 1560;
+            decimal SueldoBasico_obtenido = pagos.CalcularSueldoBasico();
             Assert.AreEqual(SueldoBasico_esperado, SueldoBasico_obtenido);
         }
 
@@ -24,7 +24,6 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
         {
             Pago pagos = new Pago();
             ConceptoIngresoDeDescuento conceptoIngresoDeDescuento = new ConceptoIngresoDeDescuento();
-            pagos.ConceptoIngresoDeDescuento = conceptoIngresoDeDescuento;
 
             pagos.TotalHoras = 52;
             pagos.ValorHora = 30;
@@ -37,8 +36,8 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
 
 
 
-            double IngresoTotal_esperado = 1696;
-            double IngresoTotal_obtenido = pagos.CalcularIngresoTotal();
+            decimal IngresoTotal_esperado = 1696;
+            decimal IngresoTotal_obtenido = pagos.CalcularIngresoTotal();
             Assert.AreEqual(IngresoTotal_esperado, IngresoTotal_obtenido);
         }
 
@@ -53,9 +52,8 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
 
 
 
-            double DescuentoAFP_esperado = 280.8;
-            double DescuentoAFP_obtenido = pagos.CalcularDescuentoAFP();
-            Assert.AreEqual(DescuentoAFP_esperado, DescuentoAFP_obtenido);
+            decimal DescuentoAFP_obtenido = pagos.CalcularDescuentoAFP();
+            Assert.AreEqual((decimal)280.8, DescuentoAFP_obtenido);
         }
 
         [TestMethod]
@@ -63,7 +61,6 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
         {
             Pago pagos = new Pago();
             ConceptoIngresoDeDescuento conceptoIngresoDeDescuento = new ConceptoIngresoDeDescuento();
-            pagos.ConceptoIngresoDeDescuento = conceptoIngresoDeDescuento;
 
             pagos.TotalHoras = 52;
             pagos.ValorHora = 30;
@@ -74,9 +71,8 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
             conceptoIngresoDeDescuento.MontoPorAdelanto = 34;
             conceptoIngresoDeDescuento.MontoOtrosDescuentos = 34;
 
-            double DescuentoTotal_esperado = 382.8;
-            double DescuentoTotal_obtenido = pagos.CalcularDescuentoTotal();
-            Assert.AreEqual(DescuentoTotal_esperado, DescuentoTotal_obtenido);
+            decimal DescuentoTotal_obtenido = pagos.CalcularDescuentoTotal();
+            Assert.AreEqual((decimal)382.8, DescuentoTotal_obtenido);
         }
 
         [TestMethod]
@@ -84,7 +80,6 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
         {
             Pago pagos = new Pago();
             ConceptoIngresoDeDescuento conceptoIngresoDeDescuento = new ConceptoIngresoDeDescuento();
-            pagos.ConceptoIngresoDeDescuento = conceptoIngresoDeDescuento;
 
             pagos.TotalHoras = 52;
             pagos.ValorHora = 30;
@@ -104,9 +99,8 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
             conceptoIngresoDeDescuento.MontoPorAdelanto = 34;
             conceptoIngresoDeDescuento.MontoOtrosDescuentos = 34;
 
-            double SueldoNeto_esperado = 1313.2;
-            double SueldoNeto_obtenido = pagos.CalcularSueldoNeto();
-            Assert.AreEqual(SueldoNeto_esperado, SueldoNeto_obtenido);
+            decimal SueldoNeto_obtenido = pagos.CalcularSueldoNeto();
+            Assert.AreEqual((decimal)1313.2, SueldoNeto_obtenido);
         }
 
         [TestMethod]
@@ -121,9 +115,8 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
 
             pagos.TotalHoras = 48;
 
-            double TotalDeHoras_esperado = 192;
-            double TotalDeHoras_obtenido = pagos.CalcularTotalDeHoras();
-            Assert.AreEqual(TotalDeHoras_esperado, TotalDeHoras_obtenido);
+            decimal TotalDeHoras_obtenido = pagos.CalcularTotalDeHoras();
+            Assert.AreEqual(192, TotalDeHoras_obtenido);
         }
 
         [TestMethod]
@@ -138,9 +131,8 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
             pagos.SueldoMinimo = 930;
 
 
-            double MontoPorAsignacionFamiliar_esperado = 93;
-            double MontoPorAsignacionFamiliar_obtenido = pagos.CalcularMontoPorAsignacionFamiliar();
-            Assert.AreEqual(MontoPorAsignacionFamiliar_esperado, MontoPorAsignacionFamiliar_obtenido);
+            decimal MontoPorAsignacionFamiliar_obtenido = pagos.CalcularMontoPorAsignacionFamiliar();
+            Assert.AreEqual(192, MontoPorAsignacionFamiliar_obtenido);
 
         }
 
@@ -157,9 +149,8 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
 
 
 
-            double MontoPorAsignacionFamiliar_esperado = 0;
-            double MontoPorAsignacionFamiliar_obtenido = pagos.CalcularMontoPorAsignacionFamiliar();
-            Assert.AreEqual(MontoPorAsignacionFamiliar_esperado, MontoPorAsignacionFamiliar_obtenido);
+            decimal MontoPorAsignacionFamiliar_obtenido = pagos.CalcularMontoPorAsignacionFamiliar();
+            Assert.AreEqual(0, MontoPorAsignacionFamiliar_obtenido);
 
         }
     }

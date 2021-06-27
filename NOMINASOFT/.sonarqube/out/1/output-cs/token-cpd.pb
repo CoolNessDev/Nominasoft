@@ -1,4 +1,4 @@
-­-
+œ1
 LX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\AfpSQLServer.cs
 	namespace 	
 Capa
@@ -11,17 +11,17 @@ LX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\AfpSQLServer.cs
 public 
 
 class 
-AfpSQLServer 
+AfpSqlServer 
 : 
 IAfp  $
 { 
 private 
 readonly 
-GestorSQLServer (
+GestorSqlServer (
 	gestorSQL) 2
 ;2 3
 public 
-AfpSQLServer 
+AfpSqlServer 
 ( 
 IGestorAccesoDatos .
 	gestorSQL/ 8
@@ -32,7 +32,7 @@ LX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\AfpSQLServer.cs
 	gestorSQL 
 = 
 ( 
-GestorSQLServer -
+GestorSqlServer -
 )- .
 	gestorSQL. 7
 ;7 8
@@ -109,221 +109,254 @@ ListarAfps #
 catch%% 
 (%% 
 	Exception%% 
-)%% 
-{&& 
-throw'' 
-;'' 
-}(( 
-return)) 
-listaAfp)) 
-;)) 
-}** 	
-public-- 
-Afp-- '
-BuscarDatosDelAfp_PorNombre-- .
-(--. /
-string--/ 5
-nombre--6 <
-)--< =
-{.. 	
-Afp// 
-afp// 
-=// 
-null// 
-;// 
-string00 
-consultaSQL00 
-=00  
-$str00! E
-+00F G
-nombre00H N
-+00O P
-$str00Q T
-;00T U
-try11 
-{22 
-SqlDataReader33 
-resultadoSQL33 *
-=33+ ,
-	gestorSQL33- 6
-.336 7
-EjecutarConsulta337 G
-(33G H
-consultaSQL33H S
-)33S T
-;33T U
-if44 
-(44 
-resultadoSQL44  
-.44  !
-Read44! %
-(44% &
-)44& '
-)44' (
-{55 
-afp66 
-=66 
-ObtenerDatosAfp66 )
-(66) *
-resultadoSQL66* 6
-)666 7
-;667 8
-}77 
-else88 
-{99 
+e%% 
+)%% 
+{&& 
 
-MessageBox:: 
-.:: 
-Show:: #
-(::# $
-$str::$ 7
-)::7 8
-;::8 9
-};; 
-}<< 
-catch== 
-(== 
-	Exception== 
-)== 
-{>> 
-throw?? 
-;?? 
-}@@ 
-returnAA 
-afpAA 
-;AA 
-}BB 	
-publicDD 
-AfpDD '
-BuscarDatosDelAfp_PorCodigoDD .
-(DD. /
-intDD/ 2
-codigoDD3 9
-)DD9 :
-{EE 	
-AfpFF 
-afpFF 
-=FF 
-nullFF 
-;FF 
-stringGG 
-consultaSQLGG 
-=GG  
-$strGG! D
-+GGE F
-codigoGGG M
-+GGN O
-$strGGP S
-;GGS T
-tryHH 
-{II 
-SqlDataReaderJJ 
-resultadoSQLJJ *
-=JJ+ ,
-	gestorSQLJJ- 6
-.JJ6 7
-EjecutarConsultaJJ7 G
-(JJG H
-consultaSQLJJH S
-)JJS T
-;JJT U
-ifKK 
-(KK 
-resultadoSQLKK  
-.KK  !
-ReadKK! %
-(KK% &
-)KK& '
-)KK' (
-{LL 
-afpMM 
-=MM 
-ObtenerDatosAfpMM )
-(MM) *
-resultadoSQLMM* 6
-)MM6 7
-;MM7 8
-}NN 
-elseOO 
-{PP 
+MessageBox'' 
+.'' 
+Show'' 
+(''  
+$str''  6
++''7 8
+e''9 :
+)'': ;
+;''; <
+throw(( 
+;(( 
+})) 
+return** 
+listaAfp** 
+;** 
+}++ 	
+public.. 
+Afp.. '
+BuscarDatosDelAfp_PorNombre.. .
+(... /
+string../ 5
+nombre..6 <
+)..< =
+{// 	
+Afp00 
+afp00 
+=00 
+null00 
+;00 
+string11 
+consultaSQL11 
+=11  
+$str11! E
++11F G
+nombre11H N
++11O P
+$str11Q T
+;11T U
+try22 
+{33 
+SqlDataReader44 
+resultadoSQL44 *
+=44+ ,
+	gestorSQL44- 6
+.446 7
+EjecutarConsulta447 G
+(44G H
+consultaSQL44H S
+)44S T
+;44T U
+if55 
+(55 
+resultadoSQL55  
+.55  !
+Read55! %
+(55% &
+)55& '
+)55' (
+{66 
+afp77 
+=77 
+ObtenerDatosAfp77 )
+(77) *
+resultadoSQL77* 6
+)776 7
+;777 8
+}88 
+else99 
+{:: 
 
-MessageBoxQQ 
-.QQ 
-ShowQQ #
-(QQ# $
-$strQQ$ 7
-)QQ7 8
-;QQ8 9
-}RR 
-}SS 
-catchTT 
-(TT 
-	ExceptionTT 
-)TT 
-{UU 
-throwVV 
-;VV 
-}WW 
-returnXX 
-afpXX 
-;XX 
-}YY 	
-privateZZ 
-AfpZZ 
-ObtenerDatosAfpZZ #
-(ZZ# $
-SqlDataReaderZZ$ 1
-resultadoSQLZZ2 >
-)ZZ> ?
-{[[ 	
-Afp\\ 
-afp\\ 
-=\\ 
-new\\ 
-Afp\\ 
-(\\ 
-)\\ 
-;\\  
-afp]] 
-.]] 
-Id_afp]] 
-=]] 
-resultadoSQL]] %
-.]]% &
-GetInt32]]& .
-(]]. /
-$num]]/ 0
-)]]0 1
-;]]1 2
-afp^^ 
-.^^ 
-Nombre^^ 
-=^^ 
-resultadoSQL^^ %
-.^^% &
-	GetString^^& /
-(^^/ 0
-$num^^0 1
-)^^1 2
-;^^2 3
-afp__ 
-.__  
-Porsentaje_descuento__ $
-=__% &
-resultadoSQL__' 3
-.__3 4
+MessageBox;; 
+.;; 
+Show;; #
+(;;# $
+$str;;$ 7
+);;7 8
+;;;8 9
+}<< 
+}== 
+catch>> 
+(>> 
+	Exception>> 
+e>> 
+)>> 
+{?? 
 
-GetDecimal__4 >
-(__> ?
-$num__? @
-)__@ A
-;__A B
-returnaa 
-afpaa 
-;aa 
-}bb 	
-}cc 
-}dd Àœ
+MessageBox@@ 
+.@@ 
+Show@@ 
+(@@  
+$str@@  A
++@@B C
+e@@D E
+)@@E F
+;@@F G
+throwAA 
+;AA 
+}BB 
+returnCC 
+afpCC 
+;CC 
+}DD 	
+publicFF 
+AfpFF '
+BuscarDatosDelAfp_PorCodigoFF .
+(FF. /
+intFF/ 2
+codigoFF3 9
+)FF9 :
+{GG 	
+AfpHH 
+afpHH 
+=HH 
+nullHH 
+;HH 
+stringII 
+consultaSQLII 
+=II  
+$strII! D
++IIE F
+codigoIIG M
++IIN O
+$strIIP S
+;IIS T
+tryJJ 
+{KK 
+SqlDataReaderLL 
+resultadoSQLLL *
+=LL+ ,
+	gestorSQLLL- 6
+.LL6 7
+EjecutarConsultaLL7 G
+(LLG H
+consultaSQLLLH S
+)LLS T
+;LLT U
+ifMM 
+(MM 
+resultadoSQLMM  
+.MM  !
+ReadMM! %
+(MM% &
+)MM& '
+)MM' (
+{NN 
+afpOO 
+=OO 
+ObtenerDatosAfpOO )
+(OO) *
+resultadoSQLOO* 6
+)OO6 7
+;OO7 8
+}PP 
+elseQQ 
+{RR 
+
+MessageBoxSS 
+.SS 
+ShowSS #
+(SS# $
+$strSS$ 7
+)SS7 8
+;SS8 9
+}TT 
+}UU 
+catchVV 
+(VV 
+	ExceptionVV 
+eVV 
+)VV 
+{WW 
+
+MessageBoxXX 
+.XX 
+ShowXX 
+(XX  
+$strXX  ?
++XX@ A
+eXXB C
+)XXC D
+;XXD E
+throwYY 
+;YY 
+}ZZ 
+return[[ 
+afp[[ 
+;[[ 
+}\\ 	
+private]] 
+Afp]] 
+ObtenerDatosAfp]] #
+(]]# $
+SqlDataReader]]$ 1
+resultadoSQL]]2 >
+)]]> ?
+{^^ 	
+Afp__ 
+afp__ 
+=__ 
+new__ 
+Afp__ 
+(__ 
+)__ 
+;__  
+afp`` 
+.`` 
+Id_afp`` 
+=`` 
+resultadoSQL`` %
+.``% &
+GetInt32``& .
+(``. /
+$num``/ 0
+)``0 1
+;``1 2
+afpaa 
+.aa 
+Nombreaa 
+=aa 
+resultadoSQLaa %
+.aa% &
+	GetStringaa& /
+(aa/ 0
+$numaa0 1
+)aa1 2
+;aa2 3
+afpbb 
+.bb  
+Porsentaje_descuentobb $
+=bb% &
+resultadoSQLbb' 3
+.bb3 4
+
+GetDecimalbb4 >
+(bb> ?
+$numbb? @
+)bb@ A
+;bbA B
+returndd 
+afpdd 
+;dd 
+}ee 	
+}ff 
+}gg Àœ
 QX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\ContratoSQLServer.cs
 	namespace 	
 Capa
@@ -336,17 +369,17 @@ QX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\ContratoSQLServer.
 public 
 
 class 
-ContratoSQLServer "
+ContratoSqlServer "
 :# $
 	IContrato% .
 { 
 private 
 readonly 
-GestorSQLServer (
+GestorSqlServer (
 	gestorSQL) 2
 ;2 3
 public 
-ContratoSQLServer  
+ContratoSqlServer  
 (  !
 IGestorAccesoDatos! 3
 	gestorSQL4 =
@@ -357,7 +390,7 @@ QX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\ContratoSQLServer.
 	gestorSQL 
 = 
 ( 
-GestorSQLServer -
+GestorSqlServer -
 )- .
 	gestorSQL. 7
 ;7 8
@@ -1882,7 +1915,7 @@ Id_periodo
 êê 	
 }
 íí 
-}îî ½9
+}îî Ë<
 QX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\EmpleadoSQLServer.cs
 	namespace 	
 Capa
@@ -1895,17 +1928,17 @@ QX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\EmpleadoSQLServer.
 public 
 
 class 
-EmpleadoSQLServer "
+EmpleadoSqlServer "
 :# $
 	IEmpleado% .
 { 
 private 
 readonly 
-GestorSQLServer (
+GestorSqlServer (
 	gestorSQL) 2
 ;2 3
 public 
-EmpleadoSQLServer  
+EmpleadoSqlServer  
 (  !
 IGestorAccesoDatos! 3
 	gestorSQL4 =
@@ -1916,7 +1949,7 @@ QX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\EmpleadoSQLServer.
 	gestorSQL 
 = 
 ( 
-GestorSQLServer -
+GestorSqlServer -
 )- .
 	gestorSQL. 7
 ;7 8
@@ -1931,7 +1964,9 @@ QX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\EmpleadoSQLServer.
 { 	
 Empleado 
 empleado 
-; 
+= 
+null "
+;" #
 string 
 consultaSQL 
 =  
@@ -1986,304 +2021,328 @@ QX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\EmpleadoSQLServer.
 catch'' 
 ('' 
 	Exception'' 
-)'' 
-{(( 
-throw)) 
-;)) 
-}** 
-return++ 
-empleado++ 
-;++ 
-},, 	
-public-- 
-List-- 
-<-- 
-Contrato-- 
->-- 
-obtenerContratos-- .
-(--. /
-int--/ 2
+e'' 
+)'' 
+{(( 
 
-idEmpleado--3 =
-)--= >
-{.. 	
-List// 
-<// 
-Contrato// 
->// 
-	contratos// $
-=//% &
-new//' *
-List//+ /
-</// 0
-Contrato//0 8
->//8 9
-(//9 :
-)//: ;
-;//; <
-Contrato00 
-contrato00 
-;00 
-string11 
-consultaSQL11 
-=11  
-$str11! M
-+11N O
+MessageBox)) 
+.)) 
+Show)) 
+())  
+$str))  H
++))I J
+e))K L
+)))L M
+;))M N
+throw** 
+;** 
+}++ 
+return,, 
+empleado,, 
+;,, 
+}-- 	
+public.. 
+List.. 
+<.. 
+Contrato.. 
+>.. 
+obtenerContratos.. .
+(... /
+int../ 2
 
-idEmpleado11P Z
-+11[ \
-$str11] y
-;11y z
-try22 
-{33 
-SqlDataReader44 
-resultadoSQL244 +
-=44, -
-	gestorSQL44. 7
-.447 8
-EjecutarConsulta448 H
-(44H I
-consultaSQL44I T
-)44T U
-;44U V
-while55 
-(55 
-resultadoSQL255 $
-.55$ %
-Read55% )
-(55) *
-)55* +
-)55+ ,
-{66 
-contrato77 
-=77 
-	gestorSQL77 (
-.77( )
-ObtenerContrato77) 8
-(778 9
-resultadoSQL2779 F
-)77F G
-;77G H
-	contratos88 
-.88 
-Add88 !
-(88! "
-contrato88" *
-)88* +
-;88+ ,
-}99 
-resultadoSQL2:: 
-.:: 
-Close:: #
-(::# $
-)::$ %
-;::% &
-};; 
-catch<< 
-(<< 
-	Exception<< 
-er<< 
-)<<  
-{== 
+idEmpleado..3 =
+)..= >
+{// 	
+List00 
+<00 
+Contrato00 
+>00 
+	contratos00 $
+=00% &
+new00' *
+List00+ /
+<00/ 0
+Contrato000 8
+>008 9
+(009 :
+)00: ;
+;00; <
+Contrato11 
+contrato11 
+;11 
+string22 
+consultaSQL22 
+=22  
+$str22! M
++22N O
 
-MessageBox>> 
-.>> 
-Show>> 
-(>>  
-$str>>  )
-+>>) *
-er>>* ,
-)>>, -
-;>>- .
-}?? 
-return@@ 
-	contratos@@ 
-;@@ 
-}AA 	
-publicBB 
-EmpleadoBB 
-BuscarEmpleadoBB &
-(BB& '
-intBB' *
-idBB+ -
-)BB- .
-{CC 	
-EmpleadoDD 
-empleadoDD 
-;DD 
-stringEE 
-consultaSQLEE 
-=EE  
-$strEE! N
-+EEO P
-idEEQ S
-+EET U
-$strEEV Y
-;EEY Z
-tryFF 
-{GG 
-SqlDataReaderHH 
-resultadoSQLHH *
-=HH+ ,
-	gestorSQLHH- 6
-.HH6 7
-EjecutarConsultaHH7 G
-(HHG H
-consultaSQLHHH S
-)HHS T
-;HHT U
-ifII 
-(II 
-resultadoSQLII  
-.II  !
-ReadII! %
-(II% &
-)II& '
-)II' (
-{JJ 
-empleadoKK 
-=KK !
-ObtenerDatosEmpleaodsKK 4
-(KK4 5
-resultadoSQLKK5 A
-)KKA B
-;KKB C
-}LL 
-elseMM 
-{NN 
-returnOO 
-nullOO 
-;OO  
-}PP 
-resultadoSQLQQ 
-.QQ 
-CloseQQ "
-(QQ" #
-)QQ# $
-;QQ$ %
-}RR 
-catchSS 
-(SS 
-	ExceptionSS 
-)SS 
-{TT 
-throwUU 
-;UU 
-}VV 
-returnWW 
-empleadoWW 
-;WW 
-}XX 	
-privateYY 
-EmpleadoYY !
-ObtenerDatosEmpleaodsYY .
-(YY. /
-SqlDataReaderYY/ <
-resultadoSQLYY= I
-)YYI J
-{ZZ 	
-Empleado[[ 
-empleado[[ 
-=[[ 
-new[[  #
-Empleado[[$ ,
-([[, -
-)[[- .
-;[[. /
-empleado\\ 
-.\\ 
-Id_empleado\\  
-=\\! "
-resultadoSQL\\# /
-.\\/ 0
-GetInt32\\0 8
-(\\8 9
-$num\\9 :
-)\\: ;
-;\\; <
-empleado]] 
-.]] 
-Dni]] 
-=]] 
-resultadoSQL]] '
-.]]' (
-	GetString]]( 1
-(]]1 2
-$num]]2 3
-)]]3 4
-;]]4 5
+idEmpleado22P Z
++22[ \
+$str22] y
+;22y z
+try33 
+{44 
+SqlDataReader55 
+resultadoSQL255 +
+=55, -
+	gestorSQL55. 7
+.557 8
+EjecutarConsulta558 H
+(55H I
+consultaSQL55I T
+)55T U
+;55U V
+while66 
+(66 
+resultadoSQL266 $
+.66$ %
+Read66% )
+(66) *
+)66* +
+)66+ ,
+{77 
+contrato88 
+=88 
+	gestorSQL88 (
+.88( )
+ObtenerContrato88) 8
+(888 9
+resultadoSQL2889 F
+)88F G
+;88G H
+	contratos99 
+.99 
+Add99 !
+(99! "
+contrato99" *
+)99* +
+;99+ ,
+}:: 
+resultadoSQL2;; 
+.;; 
+Close;; #
+(;;# $
+);;$ %
+;;;% &
+}<< 
+catch== 
+(== 
+	Exception== 
+er== 
+)==  
+{>> 
+
+MessageBox?? 
+.?? 
+Show?? 
+(??  
+$str??  >
++??> ?
+er??? A
+)??A B
+;??B C
+}@@ 
+returnAA 
+	contratosAA 
+;AA 
+}BB 	
+publicCC 
+EmpleadoCC 
+BuscarEmpleadoCC &
+(CC& '
+intCC' *
+idCC+ -
+)CC- .
+{DD 	
+EmpleadoEE 
+empleadoEE 
+=EE 
+nullEE "
+;EE" #
+stringFF 
+consultaSQLFF 
+=FF  
+$strFF! N
++FFO P
+idFFQ S
++FFT U
+$strFFV Y
+;FFY Z
+tryGG 
+{HH 
+SqlDataReaderII 
+resultadoSQLII *
+=II+ ,
+	gestorSQLII- 6
+.II6 7
+EjecutarConsultaII7 G
+(IIG H
+consultaSQLIIH S
+)IIS T
+;IIT U
+ifJJ 
+(JJ 
+resultadoSQLJJ  
+.JJ  !
+ReadJJ! %
+(JJ% &
+)JJ& '
+)JJ' (
+{KK 
+empleadoLL 
+=LL !
+ObtenerDatosEmpleaodsLL 4
+(LL4 5
+resultadoSQLLL5 A
+)LLA B
+;LLB C
+}MM 
+elseNN 
+{OO 
+returnPP 
+nullPP 
+;PP  
+}QQ 
+resultadoSQLRR 
+.RR 
+CloseRR "
+(RR" #
+)RR# $
+;RR$ %
+}SS 
+catchTT 
+(TT 
+	ExceptionTT 
+erTT 
+)TT  
+{UU 
+
+MessageBoxVV 
+.VV 
+ShowVV 
+(VV  
+$strVV  ?
++VV@ A
+erVVB D
+)VVD E
+;VVE F
+throwWW 
+;WW 
+}XX 
+returnYY 
+empleadoYY 
+;YY 
+}ZZ 	
+private[[ 
+Empleado[[ !
+ObtenerDatosEmpleaods[[ .
+([[. /
+SqlDataReader[[/ <
+resultadoSQL[[= I
+)[[I J
+{\\ 	
+Empleado]] 
+empleado]] 
+=]] 
+new]]  #
+Empleado]]$ ,
+(]], -
+)]]- .
+;]]. /
 empleado^^ 
-.^^ 
-	Direccion^^ 
-=^^  
-resultadoSQL^^! -
-.^^- .
-	GetString^^. 7
-(^^7 8
-$num^^8 9
-)^^9 :
-;^^: ;
+.^^ 
+Id_empleado^^  
+=^^! "
+resultadoSQL^^# /
+.^^/ 0
+GetInt32^^0 8
+(^^8 9
+$num^^9 :
+)^^: ;
+;^^; <
 empleado__ 
-.__ 
-EstadoCivil__  
-=__! "
-resultadoSQL__# /
-.__/ 0
-	GetString__0 9
-(__9 :
-$num__: ;
-)__; <
-;__< =
+.__ 
+Dni__ 
+=__ 
+resultadoSQL__ '
+.__' (
+	GetString__( 1
+(__1 2
+$num__2 3
+)__3 4
+;__4 5
 empleado`` 
-.`` 
-FechaNacimiento`` $
-=``% &
-resultadoSQL``' 3
-.``3 4
-GetDateTime``4 ?
-(``? @
-$num``@ A
-)``A B
-;``B C
+.`` 
+	Direccion`` 
+=``  
+resultadoSQL``! -
+.``- .
+	GetString``. 7
+(``7 8
+$num``8 9
+)``9 :
+;``: ;
 empleadoaa 
-.aa 
-GradoAcademicoaa #
-=aa$ %
-resultadoSQLaa& 2
-.aa2 3
-	GetStringaa3 <
-(aa< =
-$numaa= >
-)aa> ?
-;aa? @
+.aa 
+EstadoCivilaa  
+=aa! "
+resultadoSQLaa# /
+.aa/ 0
+	GetStringaa0 9
+(aa9 :
+$numaa: ;
+)aa; <
+;aa< =
 empleadobb 
-.bb 
-Telefonobb 
-=bb 
-resultadoSQLbb  ,
-.bb, -
-	GetStringbb- 6
-(bb6 7
-$numbb7 8
-)bb8 9
-;bb9 :
+.bb 
+FechaNacimientobb $
+=bb% &
+resultadoSQLbb' 3
+.bb3 4
+GetDateTimebb4 ?
+(bb? @
+$numbb@ A
+)bbA B
+;bbB C
 empleadocc 
-.cc 
-Nombrecc 
-=cc 
-resultadoSQLcc *
-.cc* +
-	GetStringcc+ 4
-(cc4 5
-$numcc5 6
-)cc6 7
-;cc7 8
-returndd 
-empleadodd 
-;dd 
-}ee 	
-}gg 
-}hh ˜V
+.cc 
+GradoAcademicocc #
+=cc$ %
+resultadoSQLcc& 2
+.cc2 3
+	GetStringcc3 <
+(cc< =
+$numcc= >
+)cc> ?
+;cc? @
+empleadodd 
+.dd 
+Telefonodd 
+=dd 
+resultadoSQLdd  ,
+.dd, -
+	GetStringdd- 6
+(dd6 7
+$numdd7 8
+)dd8 9
+;dd9 :
+empleadoee 
+.ee 
+Nombreee 
+=ee 
+resultadoSQLee *
+.ee* +
+	GetStringee+ 4
+(ee4 5
+$numee5 6
+)ee6 7
+;ee7 8
+returnff 
+empleadoff 
+;ff 
+}gg 	
+}ii 
+}jj ˜V
 OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\GestorSQLServer.cs
 	namespace 	
 Capa
@@ -2296,7 +2355,7 @@ OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\GestorSQLServer.cs
 public 
 
 class 
-GestorSQLServer  
+GestorSqlServer  
 :! "
 IGestorAccesoDatos# 5
 { 
@@ -3120,18 +3179,18 @@ MX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\PagoSQLServer.cs
 ADO_SQLServer ,
 { 
 class 	
-PagoSQLServer
+PagoSqlServer
  
 : 
 IPago 
 { 
 private 
 readonly 
-GestorSQLServer (
+GestorSqlServer (
 	gestorSQL) 2
 ;2 3
 public 
-PagoSQLServer 
+PagoSqlServer 
 ( 
 IGestorAccesoDatos /
 	gestorSQL0 9
@@ -3142,7 +3201,7 @@ MX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\PagoSQLServer.cs
 	gestorSQL 
 = 
 ( 
-GestorSQLServer -
+GestorSqlServer -
 )- .
 	gestorSQL. 7
 ;7 8
@@ -3638,7 +3697,7 @@ Id_periodoXX 
 ;^^ 
 }`` 	
 }aa 
-}cc ú=
+}cc ¡?
 PX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\PeriodoSQLServer.cs
 	namespace 	
 Capa
@@ -3649,18 +3708,18 @@ PX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\PeriodoSQLServer.c
 ADO_SQLServer ,
 { 
 class 	
-PeriodoSQLServer
+PeriodoSqlServer
  
 : 
 IPeriodo %
 { 
 private 
 readonly 
-GestorSQLServer (
+GestorSqlServer (
 	gestorSQL) 2
 ;2 3
 public 
-PeriodoSQLServer 
+PeriodoSqlServer 
 (  
 IGestorAccesoDatos  2
 	gestorSQL3 <
@@ -3671,7 +3730,7 @@ PX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\PeriodoSQLServer.c
 	gestorSQL 
 = 
 ( 
-GestorSQLServer -
+GestorSqlServer -
 )- .
 	gestorSQL. 7
 ;7 8
@@ -3860,72 +3919,68 @@ MessageBox&& 
 }?? 
 catch@@ 
 (@@ 
-	Exception@@ 
-)@@ 
-{AA 
-throwBB 
-;BB 
-}CC 
-returnDD 
-periodosDD 
-[DD 
-$numDD 
-]DD 
-;DD 
-}EE 	
-publicFF 
-boolFF 
-UpdatePeriodoFF !
-(FF! "
-PeriodoFF" )
-periodoFF* 1
-)FF1 2
-{GG 	
-boolHH 
-updateHH 
-=HH 
-falseHH 
-;HH 
+	Exception@@ 
+er@@ 
+)@@  
+{AA 
 
-SqlCommandII 
-cmdII 
-=II 
-nullII !
-;II! "
-tryJJ 
-{KK 
-cmdLL 
-=LL 
-	gestorSQLLL 
-.LL  )
-ObtenerComandoDeProcedimientoLL  =
-(LL= >
-$strLL> Q
-)LLQ R
-;LLR S
+MessageBoxBB 
+.BB 
+ShowBB 
+(BB  
+$strBB  >
++BB? @
+erBBA C
+)BBC D
+;BBD E
+throwCC 
+;CC 
+}DD 
+returnEE 
+periodosEE 
+[EE 
+$numEE 
+]EE 
+;EE 
+}FF 	
+publicGG 
+boolGG 
+UpdatePeriodoGG !
+(GG! "
+PeriodoGG" )
+periodoGG* 1
+)GG1 2
+{HH 	
+boolII 
+updateII 
+=II 
+falseII 
+;II 
+
+SqlCommandJJ 
+cmdJJ 
+=JJ 
+nullJJ !
+;JJ! "
+tryKK 
+{LL 
 cmdMM 
-.MM 
-CommandTypeMM 
-=MM  !
-CommandTypeMM" -
-.MM- .
-StoredProcedureMM. =
-;MM= >
+=MM 
+	gestorSQLMM 
+.MM  )
+ObtenerComandoDeProcedimientoMM  =
+(MM= >
+$strMM> Q
+)MMQ R
+;MMR S
 cmdNN 
-.NN 
-
-ParametersNN 
-.NN 
-AddWithValueNN +
-(NN+ ,
-$strNN, 8
-,NN8 9
-periodoNN: A
-.NNA B
-
-Id_periodoNNB L
-)NNL M
-;NNM N
+.NN 
+CommandTypeNN 
+=NN  !
+CommandTypeNN" -
+.NN- .
+StoredProcedureNN. =
+;NN= >
 cmdOO 
 .OO 
 
@@ -3933,13 +3988,14 @@ ParametersOO 
 .OO 
 AddWithValueOO +
 (OO+ ,
-$strOO, :
-,OO: ;
-periodoOO< C
-.OOC D
-FechaInicioOOD O
-)OOO P
-;OOP Q
+$strOO, 8
+,OO8 9
+periodoOO: A
+.OOA B
+
+Id_periodoOOB L
+)OOL M
+;OOM N
 cmdPP 
 .PP 
 
@@ -3947,13 +4003,13 @@ ParametersPP 
 .PP 
 AddWithValuePP +
 (PP+ ,
-$strPP, 7
-,PP7 8
-periodoPP9 @
-.PP@ A
-FechaFinPPA I
-)PPI J
-;PPJ K
+$strPP, :
+,PP: ;
+periodoPP< C
+.PPC D
+FechaInicioPPD O
+)PPO P
+;PPP Q
 cmdQQ 
 .QQ 
 
@@ -3961,138 +4017,152 @@ ParametersQQ 
 .QQ 
 AddWithValueQQ +
 (QQ+ ,
-$strQQ, 5
-,QQ5 6
-periodoQQ7 >
-.QQ> ?
-EstadoQQ? E
-)QQE F
-;QQF G
-intRR 
-iRR 
-=RR 
-cmdRR 
-.RR 
-ExecuteNonQueryRR +
-(RR+ ,
-)RR, -
-;RR- .
-ifSS 
-(SS 
+$strQQ, 7
+,QQ7 8
+periodoQQ9 @
+.QQ@ A
+FechaFinQQA I
+)QQI J
+;QQJ K
+cmdRR 
+.RR 
+
+ParametersRR 
+.RR 
+AddWithValueRR +
+(RR+ ,
+$strRR, 5
+,RR5 6
+periodoRR7 >
+.RR> ?
+EstadoRR? E
+)RRE F
+;RRF G
+intSS 
 iSS 
->SS 
-$numSS 
-)SS 
-{TT 
-updateUU 
-=UU 
-trueUU !
-;UU! "
-}VV 
-}WW 
-catchXX 
-(XX 
-	ExceptionXX 
-eXX 
-)XX 
-{YY 
+=SS 
+cmdSS 
+.SS 
+ExecuteNonQuerySS +
+(SS+ ,
+)SS, -
+;SS- .
+ifTT 
+(TT 
+iTT 
+>TT 
+$numTT 
+)TT 
+{UU 
+updateVV 
+=VV 
+trueVV !
+;VV! "
+}WW 
+}XX 
+catchYY 
+(YY 
+	ExceptionYY 
+eYY 
+)YY 
+{ZZ 
 
-MessageBoxZZ 
-.ZZ 
-ShowZZ 
-(ZZ  
-$strZZ  7
-+ZZ8 9
-eZZ: ;
-)ZZ; <
-;ZZ< =
-throw[[ 
-;[[ 
-}\\ 
-finally]] 
-{]] 
-cmd]] 
-.]] 
+MessageBox[[ 
+.[[ 
+Show[[ 
+([[  
+$str[[  7
++[[8 9
+e[[: ;
+)[[; <
+;[[< =
+throw\\ 
+;\\ 
+}]] 
+finally^^ 
+{^^ 
+cmd^^ 
+.^^ 
 
-Connection]] $
-.]]$ %
-Close]]% *
-(]]* +
-)]]+ ,
-;]], -
-}]]. /
-return^^ 
-update^^ 
-;^^ 
-}__ 	
-private`` 
-Periodo`` 
-ObtenerDatosPeriodo`` +
-(``+ ,
-SqlDataReader``, 9
-resultadoSQL``: F
-)``F G
-{aa 	
-Periodobb 
-periodobb 
-=bb 
-newbb !
-Periodobb" )
-(bb) *
-)bb* +
-;bb+ ,
-periodocc 
-.cc 
-
-Id_periodocc 
-=cc  
-resultadoSQLcc! -
-.cc- .
-GetInt32cc. 6
-(cc6 7
-$numcc7 8
-)cc8 9
-;cc9 :
+Connection^^ $
+.^^$ %
+Close^^% *
+(^^* +
+)^^+ ,
+;^^, -
+}^^. /
+return__ 
+update__ 
+;__ 
+}`` 	
+privateaa 
+Periodoaa 
+ObtenerDatosPeriodoaa +
+(aa+ ,
+SqlDataReaderaa, 9
+resultadoSQLaa: F
+)aaF G
+{bb 	
+Periodocc 
+periodocc 
+=cc 
+newcc !
+Periodocc" )
+(cc) *
+)cc* +
+;cc+ ,
 periododd 
-.dd 
-FechaIniciodd 
-=dd  !
-resultadoSQLdd" .
-.dd. /
-GetDateTimedd/ :
-(dd: ;
-$numdd; <
-)dd< =
-;dd= >
-periodoee 
-.ee 
-FechaFinee 
-=ee 
-resultadoSQLee +
-.ee+ ,
-GetDateTimeee, 7
-(ee7 8
-$numee8 9
-)ee9 :
-;ee: ;
-periodoff 
-.ff 
-Estadoff 
-=ff 
-resultadoSQLff )
-.ff) *
+.dd 
 
-GetBooleanff* 4
-(ff4 5
-$numff5 6
-)ff6 7
-;ff7 8
-returnhh 
-periodohh 
-;hh 
-}ii 	
-}jj 
-}kk ì
+Id_periododd 
+=dd  
+resultadoSQLdd! -
+.dd- .
+GetInt32dd. 6
+(dd6 7
+$numdd7 8
+)dd8 9
+;dd9 :
+periodoee 
+.ee 
+FechaInicioee 
+=ee  !
+resultadoSQLee" .
+.ee. /
+GetDateTimeee/ :
+(ee: ;
+$numee; <
+)ee< =
+;ee= >
+periodoff 
+.ff 
+FechaFinff 
+=ff 
+resultadoSQLff +
+.ff+ ,
+GetDateTimeff, 7
+(ff7 8
+$numff8 9
+)ff9 :
+;ff: ;
+periodogg 
+.gg 
+Estadogg 
+=gg 
+resultadoSQLgg )
+.gg) *
+
+GetBooleangg* 4
+(gg4 5
+$numgg5 6
+)gg6 7
+;gg7 8
+returnii 
+periodoii 
+;ii 
+}jj 	
+}kk 
+}ll ì
 OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\FabricaDatos\FabricaAbstracta.cs
 	namespace
 
@@ -4129,7 +4199,7 @@ OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\FabricaDatos\FabricaAbstracta.cs
 { 	
 return 
 new 
-FabricaSQLServer '
+FabricaSqlServer '
 (' (
 )( )
 ;) *
@@ -4200,7 +4270,7 @@ OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\FabricaDatos\FabricaSQLServer.cs
 public 
 
 class 
-FabricaSQLServer !
+FabricaSqlServer !
 :" #
 FabricaAbstracta$ 4
 { 
@@ -4215,7 +4285,7 @@ OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\FabricaDatos\FabricaSQLServer.cs
 { 	
 return 
 new 
-AfpSQLServer #
+AfpSqlServer #
 (# $
 gestorAccesoDatos$ 5
 )5 6
@@ -4232,7 +4302,7 @@ OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\FabricaDatos\FabricaSQLServer.cs
 { 	
 return 
 new 
-ContratoSQLServer (
+ContratoSqlServer (
 (( )
 gestorAccesoDatos) :
 ): ;
@@ -4249,7 +4319,7 @@ OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\FabricaDatos\FabricaSQLServer.cs
 { 	
 return 
 new 
-EmpleadoSQLServer (
+EmpleadoSqlServer (
 (( )
 gestorAccesoDatos) :
 ): ;
@@ -4266,7 +4336,7 @@ OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\FabricaDatos\FabricaSQLServer.cs
 { 	
 return 
 new 
-PeriodoSQLServer '
+PeriodoSqlServer '
 (' (
 gestorAccesoDatos( 9
 )9 :
@@ -4283,7 +4353,7 @@ OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\FabricaDatos\FabricaSQLServer.cs
 {   	
 return!! 
 new!! 
-PagoSQLServer!! $
+PagoSqlServer!! $
 (!!$ %
 gestorAccesoDatos!!% 6
 )!!6 7
@@ -4298,7 +4368,7 @@ OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\FabricaDatos\FabricaSQLServer.cs
 {$$ 	
 return%% 
 new%% 
-GestorSQLServer%% &
+GestorSqlServer%% &
 (%%& '
 )%%' (
 ;%%( )

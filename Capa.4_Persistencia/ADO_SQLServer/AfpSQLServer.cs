@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
 {
-    public class AfpSQLServer : IAfp
+    public class AfpSqlServer : IAfp
     {
-        private readonly GestorSQLServer gestorSQL;
+        private readonly GestorSqlServer gestorSQL;
 
-        public AfpSQLServer(IGestorAccesoDatos gestorSQL)
+        public AfpSqlServer(IGestorAccesoDatos gestorSQL)
         {
-            this.gestorSQL = (GestorSQLServer)gestorSQL;
+            this.gestorSQL = (GestorSqlServer)gestorSQL;
         }
 
         public List<Afp> ListarAfps()
@@ -34,8 +34,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                     listaAfp.Add(afp);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show("Error al listar AFP " + e);
                 throw;
             }
             return listaAfp;
@@ -58,8 +59,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                     MessageBox.Show("No existe el AFP.");
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show("Error al buscar AFP por nombre " + e);
                 throw;
             }
             return afp;
@@ -81,8 +83,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                     MessageBox.Show("No existe el AFP.");
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show("Error al buscar datos del AFP" + e);
                 throw;
             }
             return afp;

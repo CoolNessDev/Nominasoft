@@ -13,7 +13,7 @@ namespace Capa._4_Persistencia.FabricaDatos
     {
         public static FabricaAbstracta crearInstancia()
         {
-            return new FabricaSQLServer();
+            return new FabricaSqlServer();
         }
         public abstract IGestorAccesoDatos crearGestorAccesoDatos();
         public abstract IAfp crearAfpDAO(IGestorAccesoDatos gestorAccesoDatos);

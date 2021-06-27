@@ -12,12 +12,12 @@ using Capa._3_Dominio.Servicios;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
 {
-    class PeriodoSQLServer : IPeriodo
+    class PeriodoSqlServer : IPeriodo
     {
-        private readonly GestorSQLServer gestorSQL;
-        public PeriodoSQLServer(IGestorAccesoDatos gestorSQL)
+        private readonly GestorSqlServer gestorSQL;
+        public PeriodoSqlServer(IGestorAccesoDatos gestorSQL)
         {
-            this.gestorSQL = (GestorSQLServer)gestorSQL;
+            this.gestorSQL = (GestorSqlServer)gestorSQL;
         }
         public bool InsertarContratoPeriodo(int idContrato, int idPeriodo)
         {
@@ -61,8 +61,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                     return null;
                 }
             }
-            catch (Exception)
+            catch (Exception er)
             {
+                MessageBox.Show("Error obtener periodo activo" + er);
                 throw;
             }
             return periodos[0];

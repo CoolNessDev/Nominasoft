@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
 {
-    public class GestorSQLServer : IGestorAccesoDatos
+    public class GestorSqlServer : IGestorAccesoDatos
     {
         private SqlConnection conexion;
         private SqlTransaction transaccion;

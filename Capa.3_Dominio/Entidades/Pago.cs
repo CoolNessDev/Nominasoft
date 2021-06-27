@@ -8,26 +8,16 @@ namespace Capa._3_Dominio.Entidades
 {
     public class Pago
     {
-        private int id_pago;
-        private DateTime fechaActual;
-        private decimal montoAsignacionFamiliar;
-        private decimal descuentAFP;
-        private decimal sueldoMinimo;
-        private decimal porcentajeDescuento;
-        private decimal valorHora;
-        private decimal totalHoras;
-        private Periodo periodo;
-        private Contrato contrato;
-        public int Id_pago { get => id_pago; set => id_pago = value; }
-        public DateTime FechaActual { get => fechaActual; set => fechaActual = value; }
-        public decimal MontoAsignacionFamiliar { get => montoAsignacionFamiliar; set => montoAsignacionFamiliar = value; }
-        public decimal DescuentAFP { get => descuentAFP; set => descuentAFP = value; }
-        public decimal SueldoMinimo { get => sueldoMinimo; set => sueldoMinimo = value; }
-        public decimal PorcentajeDescuento { get => porcentajeDescuento; set => porcentajeDescuento = value; }
-        public decimal ValorHora { get => valorHora; set => valorHora = value; }
-        public decimal TotalHoras { get => totalHoras; set => totalHoras = value; }
-        public Periodo Periodo { get => periodo; set => periodo = value; }
-        public Contrato Contrato { get => contrato; set => contrato = value; }
+        public int Id_pago { get; set; }
+        public DateTime FechaActual { get; set; }
+        public decimal MontoAsignacionFamiliar { get; set; }
+        public decimal DescuentAFP { get; set; }
+        public decimal SueldoMinimo { get; set; }
+        public decimal PorcentajeDescuento { get; set; }
+        public decimal ValorHora { get; set; }
+        public decimal TotalHoras { get; set; }
+        public Periodo Periodo { get; set; }
+        public Contrato Contrato { get; set; }
 
 
 
