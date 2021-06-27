@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
 {
@@ -27,7 +28,8 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             catch (Exception err)
             {
-                throw new Exception("Error en la conexión con la Base de Datos.", err);
+                MessageBox.Show("Error en la conexión con la Base de Datos." + err);
+                throw;
             }
 
         }
@@ -40,7 +42,8 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             catch (Exception err)
             {
-                throw new Exception("Error al cerrar la conexión con la Base de Datos.", err);
+                MessageBox.Show("Error al cerrar la conexión con la Base de Datos." + err);
+                throw;
             }
 
         }
@@ -54,7 +57,8 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             catch (Exception err)
             {
-                throw new Exception("Error al iniciar la transacción con la Base de Datos.", err);
+                MessageBox.Show("Error al iniciar la transacción con la Base de Datos." + err);
+                throw;
             }
         }
 
@@ -67,7 +71,8 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             catch (Exception err)
             {
-                throw new Exception("Error al terminar la transacción con la Base de Datos.", err);
+                MessageBox.Show("Error al terminar la transacción con la Base de Datos." + err);
+                throw;
             }
         }
 
@@ -80,7 +85,8 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             catch (Exception err)
             {
-                throw new Exception("Error al cancelar la transacción con la Base de Datos.", err);
+                MessageBox.Show("Error al cancelar la transacción con la Base de Datos." + err);
+                throw;
             }
         }
 
@@ -97,7 +103,8 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             catch (Exception err)
             {
-                throw new Exception("Error al ejecutar consulta en la Base de Datos.", err);
+                MessageBox.Show("Error al ejecutar consulta en la Base de Datos." + err);
+                throw;
             }
         }
 
@@ -114,7 +121,8 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             catch (Exception err)
             {
-                throw new Exception("Error de comando en la Base de Datos.", err);
+                MessageBox.Show("Error de comando en la Base de Datos." + err);
+                throw;
             }
         }
 
@@ -130,7 +138,8 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             catch (Exception err)
             {
-                throw new Exception("Error de comando en la Base de Datos.", err);
+                MessageBox.Show("Error de comando en la Base de Datos." + err);
+                throw;
             }
         }
         public Contrato ObtenerContrato(SqlDataReader resultadoSQL)

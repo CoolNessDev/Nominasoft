@@ -7,12 +7,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
 {
     public class AfpSQLServer : IAfp
     {
-        private GestorSQLServer gestorSQL;
+        private readonly GestorSQLServer gestorSQL;
 
         public AfpSQLServer(IGestorAccesoDatos gestorSQL)
         {
@@ -33,9 +34,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                     listaAfp.Add(afp);
                 }
             }
-            catch (Exception er)
+            catch (Exception)
             {
-                throw er;
+                throw;
             }
             return listaAfp;
         }
@@ -43,7 +44,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
 
         public Afp BuscarDatosDelAfp_PorNombre(string nombre)
         {
-            Afp afp;
+            Afp afp=null;
             string consultaSQL = "select * from AFP where nombre = '" + nombre + "'";
             try
             {
@@ -54,19 +55,19 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 }
                 else
                 {
-                    throw new Exception("No existe el AFP.");
+                    MessageBox.Show("No existe el AFP.");
                 }
             }
-            catch (Exception err)
+            catch (Exception)
             {
-                throw err;
+                throw;
             }
             return afp;
         }
 
         public Afp BuscarDatosDelAfp_PorCodigo(int codigo)
         {
-            Afp afp;
+            Afp afp=null;
             string consultaSQL = "select * from AFP where idAfp = '" + codigo + "'";
             try
             {
@@ -77,12 +78,12 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 }
                 else
                 {
-                    throw new Exception("No existe el AFP.");
+                    MessageBox.Show("No existe el AFP.");
                 }
             }
-            catch (Exception err)
+            catch (Exception)
             {
-                throw err;
+                throw;
             }
             return afp;
         }

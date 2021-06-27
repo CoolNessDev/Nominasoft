@@ -1,0 +1,11 @@
+U
+LX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\AfpSQLServer.csutf-8Z
+QX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\ContratoSQLServer.csutf-8Z
+QX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\EmpleadoSQLServer.csutf-8X
+OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\GestorSQLServer.csutf-8V
+MX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\PagoSQLServer.csutf-8Y
+PX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\ADO_SQLServer\PeriodoSQLServer.csutf-8X
+OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\FabricaDatos\FabricaAbstracta.csutf-8X
+OX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\FabricaDatos\FabricaSQLServer.csutf-8R
+IX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\Properties\AssemblyInfo.csutf-8v
+kX:\Virtuales\Calidad\SOWAD\Capa.4_Persistencia\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.csutf-8

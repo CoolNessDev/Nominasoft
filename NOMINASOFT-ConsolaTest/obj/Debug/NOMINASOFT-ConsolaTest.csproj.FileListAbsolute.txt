@@ -36,3 +36,7 @@ X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\NOMINASOFT-ConsolaTest\obj\D
 X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\NOMINASOFT-ConsolaTest\obj\Debug\NOMINASOFT-ConsolaTest.csproj.CopyComplete
 X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\NOMINASOFT-ConsolaTest\obj\Debug\NOMINASOFT-ConsolaTest.dll
 X:\Virtuales\Calidad\original\NOMINASOFT-CALIDAD G5\NOMINASOFT-ConsolaTest\obj\Debug\NOMINASOFT-ConsolaTest.pdb
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT-ConsolaTest\obj\Debug\NOMINASOFT-ConsolaTest.csprojAssemblyReference.cache
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT-ConsolaTest\obj\Debug\NOMINASOFT-ConsolaTest.csproj.CoreCompileInputs.cache
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT-ConsolaTest\obj\Debug\NOMINASOFT-ConsolaTest.dll
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT-ConsolaTest\obj\Debug\NOMINASOFT-ConsolaTest.pdb

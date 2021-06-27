@@ -1,0 +1,10 @@
+b
+3X:\Virtuales\Calidad\SOWAD\NOMINASOFT\Nominasoft.cs 8r	 ‚Ê
+:X:\Virtuales\Calidad\SOWAD\NOMINASOFT\GestionarContrato.csÂ 8*jÃÄÅÉÊËõö÷r»	
+ !"#$%&'()*+,-./012345678:;<=>?ABCEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ ¡¢£¥§©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÆÇÈÌÍÎÐÑÒÓÕÖ×ØÚÛÜÝÞßàáâäåæçèêëìîïðñòóôõö÷ùúûüýþÿ€‚ƒ…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ ¡¢£¤¥¦©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÅÇÈÉËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäæçèéêëìíîïðñòóôøùúûüýx!‚¬ !"#$()*+,-12345678:;<=>?FGIJKMNOPQRSTUX]^_`abcdhijklmnostv{|~ƒ„…†‡ˆ‰“”–—˜™š›œž¢«­±²´µ¶·¸¹º¾ÇÍÒ×ÜÝâäæïðòôöúûüýþÿ€ƒ…†‹ŒŽ‘“•–˜š›Ÿ ¢¤¥«­±²³´µ·½¾ÀÁÂÃÉËÌÍÎÏÐÑÒÓÔÕÚÛÝÞßàáâéêëìíîóú—
+5X:\Virtuales\Calidad\SOWAD\NOMINASOFT\ProcesarPago.csP 	8jHIJb‡rÙ	
+ !"#$%&'()*+,-./012345689:;<=>@ABCDEFGKLMNPQSTUVWXYZ[\]^_`acdefghijklmnoprstuvwxyz{|}~€‚ƒ„†ˆ‰Š‹ŒŽ‘’”•–—˜™š›œžŸ ¡¢£¤¦§©«¬­®±²³´µ¶·¸¹»¼½x‚m!%&+/3456;<=>CDEFMSUW[\^cejktwy{|}~€‚ƒ„ˆ‰ŠŒ‘”–—˜™šœžŸ ¡¢£¤¦©«­²´¶¸Y
+0X:\Virtuales\Calidad\SOWAD\NOMINASOFT\Program.cs 8jr	
+‚d
+@X:\Virtuales\Calidad\SOWAD\NOMINASOFT\Properties\AssemblyInfo.csj !"r	
+#$

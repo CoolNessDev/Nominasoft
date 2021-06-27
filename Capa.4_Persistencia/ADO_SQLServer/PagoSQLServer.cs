@@ -14,7 +14,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
 {
     class PagoSQLServer : IPago
     {
-        private GestorSQLServer gestorSQL;
+        private readonly GestorSQLServer gestorSQL;
         public PagoSQLServer(IGestorAccesoDatos gestorSQL)
         {
             this.gestorSQL = (GestorSQLServer)gestorSQL;
@@ -45,7 +45,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             catch (Exception e)
             {
                 MessageBox.Show("Error update Periodo " + e);
-                throw e;
+                throw;
             }
             finally { cmd.Connection.Close(); }
             return insert;
@@ -68,7 +68,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             catch (Exception err)
             {
                 MessageBox.Show("No existen Pagos." + err);
-                return null;
+                return new List<Pago>();
             }
             return pagos;
         }

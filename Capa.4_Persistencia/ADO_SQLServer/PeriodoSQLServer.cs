@@ -14,7 +14,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
 {
     class PeriodoSQLServer : IPeriodo
     {
-        private GestorSQLServer gestorSQL;
+        private readonly GestorSQLServer gestorSQL;
         public PeriodoSQLServer(IGestorAccesoDatos gestorSQL)
         {
             this.gestorSQL = (GestorSQLServer)gestorSQL;
@@ -45,7 +45,6 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             List<Periodo> periodos = new List<Periodo>();
 
             Periodo periodo;
-            //string consultaSQL = "select * from Periodo where estado = 1 ORDER BY fechaFin DESC";
             string consultaSQL = "select * from Periodo where estado = 1 ORDER BY fechaFin";
             bool periodoObtenido = false;
             try
@@ -62,9 +61,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                     return null;
                 }
             }
-            catch (Exception er)
+            catch (Exception)
             {
-                throw er;
+                throw;
             }
             return periodos[0];
         }
@@ -89,7 +88,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             catch (Exception e)
             {
                 MessageBox.Show("Error update Periodo " + e);
-                throw e;
+                throw;
             }
             finally { cmd.Connection.Close(); }
             return update;

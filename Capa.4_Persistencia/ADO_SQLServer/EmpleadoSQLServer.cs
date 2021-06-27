@@ -13,7 +13,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
 {
     public class EmpleadoSQLServer : IEmpleado
     {
-        private GestorSQLServer gestorSQL;
+        private readonly GestorSQLServer gestorSQL;
         public EmpleadoSQLServer(IGestorAccesoDatos gestorSQL)
         {
             this.gestorSQL = (GestorSQLServer)gestorSQL;
@@ -36,9 +36,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 }
                 resultadoSQL.Close();
             }
-            catch (Exception err)
+            catch (Exception)
             {
-                throw err;
+                throw;
             }
             return empleado;
         }
@@ -80,9 +80,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 }
                 resultadoSQL.Close();
             }
-            catch (Exception err)
+            catch (Exception)
             {
-                throw err;
+                throw;
             }
             return empleado;
         }
