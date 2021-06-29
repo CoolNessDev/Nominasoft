@@ -91,7 +91,7 @@ namespace NOMINASOFT
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(650, 3);
             this.panel5.TabIndex = 47;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel5_Paint);
             // 
             // PanelDatosContrato
             // 

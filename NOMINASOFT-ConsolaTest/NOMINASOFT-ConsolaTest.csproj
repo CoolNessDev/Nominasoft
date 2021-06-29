@@ -59,9 +59,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Capa.2_Aplicacion\Capa.2_Aplicacion.csproj">
+      <Project>{B5003992-4C67-4D4B-82F4-F5B0A3C419C8}</Project>
+      <Name>Capa.2_Aplicacion</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Capa.3_Dominio\Capa.3_Dominio.csproj">
       <Project>{841f3596-90dd-40f8-84b3-fdd680a4c169}</Project>
       <Name>Capa.3_Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Capa.4_Persistencia\Capa.4_Persistencia.csproj">
+      <Project>{4146712B-A37A-46C0-956A-DF94C08FBD31}</Project>
+      <Name>Capa.4_Persistencia</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

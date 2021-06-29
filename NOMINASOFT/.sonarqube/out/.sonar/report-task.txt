@@ -2,5 +2,5 @@ projectKey=nominasoft
 serverUrl=http://localhost:9000
 serverVersion=8.9.1.44547
 dashboardUrl=http://localhost:9000/dashboard?id=nominasoft
-ceTaskId=AXpP4oHMWUN4bgkcpb7R
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXpP4oHMWUN4bgkcpb7R
+ceTaskId=AXpZwSFFrGEAqKenQf9S
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXpZwSFFrGEAqKenQf9S

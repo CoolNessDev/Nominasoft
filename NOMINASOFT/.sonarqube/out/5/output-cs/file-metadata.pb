@@ -1,0 +1,17 @@
+D
+;X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Contratos\IAfp.csutf-8I
+@X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Contratos\IContrato.csutf-8I
+@X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Contratos\IEmpleado.csutf-8G
+>X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Dto\CustomPagoDto.csutf-8R
+IX:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Servicios\IGestorAccesoDatos.csutf-8A
+8X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Pagos\IPago.csutf-8D
+;X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Pagos\IPeriodo.csutf-8C
+:X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Entidades\Afp.csutf-8Z
+QX:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Entidades\ConceptoIngresoDeDescuento.csutf-8H
+?X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Entidades\Contrato.csutf-8H
+?X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Entidades\Empleado.csutf-8D
+;X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Entidades\Pago.csutf-8G
+>X:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Entidades\Periodo.csutf-8M
+DX:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Properties\AssemblyInfo.csutf-8U
+LX:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\Servicios\GestionarLosContratos.csutf-8q
+fX:\Virtuales\Calidad\SOWAD\Capa.3_Dominio\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.csutf-8

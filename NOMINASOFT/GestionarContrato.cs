@@ -196,13 +196,13 @@ namespace NOMINASOFT
         /// Funcion vacia
         /// </summary>
         private void AsignacionSI_CheckedChanged(object sender, EventArgs e){
-            throw new NotSupportedException();
+            //NotImplemented
         }
         /// <summary>
         /// Funcion vacia
         /// </summary>
         private void AsignacionNO_CheckedChanged(object sender, EventArgs e){
-            throw new NotSupportedException();
+            //NotImplemented
         }
 
         private void AFPSI_CheckedChanged(object sender, EventArgs e)
@@ -370,9 +370,9 @@ namespace NOMINASOFT
         /// <summary>
         /// Funcion vacia
         /// </summary>
-        private void panel5_Paint(object sender, PaintEventArgs e)
+        private void Panel5_Paint(object sender, PaintEventArgs e)
         {
-            throw new NotSupportedException();
+            //NotImplemented
         }
     }
 }

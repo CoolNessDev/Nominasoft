@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>NOMINASOFT</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Product</ProjectType>
+  <ProjectGuid>d6af9fde-8089-4bfb-9e78-a3a692cd0cb8</ProjectGuid>
+  <FullPath>X:\Virtuales\Calidad\SOWAD\NOMINASOFT\NOMINASOFT.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="X:\Virtuales\Calidad\SOWAD\NOMINASOFT\.sonarqube\conf\8\FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">X:\Virtuales\Calidad\SOWAD\NOMINASOFT\bin\Debug\NOMINASOFT.exe.RoslynCA.json|X:\Virtuales\Calidad\SOWAD\NOMINASOFT\bin\Debug\NOMINASOFT.exe.RoslynCA.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">X:\Virtuales\Calidad\SOWAD\NOMINASOFT\.sonarqube\out\8</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+</ProjectInfo>

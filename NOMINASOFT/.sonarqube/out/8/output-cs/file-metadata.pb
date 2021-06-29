@@ -1,0 +1,12 @@
+<
+3X:\Virtuales\Calidad\SOWAD\NOMINASOFT\Nominasoft.csutf-8G
+<X:\Virtuales\Calidad\SOWAD\NOMINASOFT\Nominasoft.Designer.csutf-8C
+:X:\Virtuales\Calidad\SOWAD\NOMINASOFT\GestionarContrato.csutf-8N
+CX:\Virtuales\Calidad\SOWAD\NOMINASOFT\GestionarContrato.Designer.csutf-8>
+5X:\Virtuales\Calidad\SOWAD\NOMINASOFT\ProcesarPago.csutf-8I
+>X:\Virtuales\Calidad\SOWAD\NOMINASOFT\ProcesarPago.Designer.csutf-89
+0X:\Virtuales\Calidad\SOWAD\NOMINASOFT\Program.csutf-8I
+@X:\Virtuales\Calidad\SOWAD\NOMINASOFT\Properties\AssemblyInfo.csutf-8Q
+FX:\Virtuales\Calidad\SOWAD\NOMINASOFT\Properties\Resources.Designer.csutf-8P
+EX:\Virtuales\Calidad\SOWAD\NOMINASOFT\Properties\Settings.Designer.csutf-8m
+bX:\Virtuales\Calidad\SOWAD\NOMINASOFT\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.csutf-8

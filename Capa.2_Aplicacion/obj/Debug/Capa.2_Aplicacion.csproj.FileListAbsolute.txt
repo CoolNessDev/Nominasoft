@@ -42,3 +42,7 @@ C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\obj\Debug\Capa.2_Ap
 C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.csproj.CopyComplete
 C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.dll
 C:\Users\Samsung\Desktop\GITHUD\NominaSoft\Capa.2_Aplicacion\obj\Debug\Capa.2_Aplicacion.pdb
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+X:\Virtuales\Calidad\SOWAD\Capa.2_Aplicacion\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
