@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
 {
-    public class ContratoSQLServer : IContrato
+    public class ContratoSqlServer : IContrato
     {
-        private GestorSQLServer gestorSQL;
-        public ContratoSQLServer(IGestorAccesoDatos gestorSQL)
+        private readonly GestorSqlServer gestorSQL;
+        public ContratoSqlServer(IGestorAccesoDatos gestorSQL)
         {
-            this.gestorSQL = (GestorSQLServer)gestorSQL;
+            this.gestorSQL = (GestorSqlServer)gestorSQL;
         }
 
         public void CrearContrato(Contrato contrato)
@@ -51,7 +51,6 @@ namespace Capa._4_Persistencia.ADO_SQLServer
 
         public void EditarContrato(Contrato contrato, int codigoEmpleado)
         {
-            bool edit = false;
 
             try
             {
@@ -69,11 +68,8 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 cmd.Parameters.AddWithValue("@ID_AFP", contrato.Afp.Id_afp);
                 cmd.Parameters.AddWithValue("@ID_EMPLEADO", codigoEmpleado);
 
-                int i = cmd.ExecuteNonQuery();
-                if (i > 0)
-                {
-                    edit = true;
-                }
+                cmd.ExecuteNonQuery();
+
                 MessageBox.Show("Se guardó las modificaciones del contrato");
             }
             catch (Exception er)
@@ -204,7 +200,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             catch (Exception e)
             {
                 MessageBox.Show("Error update Periodo " + e);
-                throw e;
+                throw;
             }
             finally { cmd.Connection.Close(); }
             return contratos;

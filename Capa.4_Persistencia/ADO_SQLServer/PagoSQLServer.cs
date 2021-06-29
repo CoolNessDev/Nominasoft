@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
 {
-    class PagoSQLServer : IPago
+    class PagoSqlServer : IPago
     {
-        private GestorSQLServer gestorSQL;
-        public PagoSQLServer(IGestorAccesoDatos gestorSQL)
+        private readonly GestorSqlServer gestorSQL;
+        public PagoSqlServer(IGestorAccesoDatos gestorSQL)
         {
-            this.gestorSQL = (GestorSQLServer)gestorSQL;
+            this.gestorSQL = (GestorSqlServer)gestorSQL;
         }
         public bool registerPago(Pago pago)
         {
@@ -45,7 +45,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             catch (Exception e)
             {
                 MessageBox.Show("Error update Periodo " + e);
-                throw e;
+                throw;
             }
             finally { cmd.Connection.Close(); }
             return insert;
@@ -68,7 +68,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             catch (Exception err)
             {
                 MessageBox.Show("No existen Pagos." + err);
-                return null;
+                return new List<Pago>();
             }
             return pagos;
         }

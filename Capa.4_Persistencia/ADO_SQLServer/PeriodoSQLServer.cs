@@ -12,12 +12,12 @@ using Capa._3_Dominio.Servicios;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
 {
-    class PeriodoSQLServer : IPeriodo
+    class PeriodoSqlServer : IPeriodo
     {
-        private GestorSQLServer gestorSQL;
-        public PeriodoSQLServer(IGestorAccesoDatos gestorSQL)
+        private readonly GestorSqlServer gestorSQL;
+        public PeriodoSqlServer(IGestorAccesoDatos gestorSQL)
         {
-            this.gestorSQL = (GestorSQLServer)gestorSQL;
+            this.gestorSQL = (GestorSqlServer)gestorSQL;
         }
         public bool InsertarContratoPeriodo(int idContrato, int idPeriodo)
         {
@@ -45,7 +45,6 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             List<Periodo> periodos = new List<Periodo>();
 
             Periodo periodo;
-            //string consultaSQL = "select * from Periodo where estado = 1 ORDER BY fechaFin DESC";
             string consultaSQL = "select * from Periodo where estado = 1 ORDER BY fechaFin";
             bool periodoObtenido = false;
             try
@@ -64,7 +63,8 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             catch (Exception er)
             {
-                throw er;
+                MessageBox.Show("Error obtener periodo activo" + er);
+                throw;
             }
             return periodos[0];
         }
@@ -89,7 +89,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             catch (Exception e)
             {
                 MessageBox.Show("Error update Periodo " + e);
-                throw e;
+                throw;
             }
             finally { cmd.Connection.Close(); }
             return update;

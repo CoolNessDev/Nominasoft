@@ -69,10 +69,12 @@ namespace NOMINASOFT
             inFechaFin.Text = "";
             inEstado.Text = "";
         }
-
+        /// <summary>
+        /// Funcion vacia
+        /// </summary>
         private void label3_Click(object sender, EventArgs e)
         {
-
+            throw new NotSupportedException();
         }
 
         private void btnProcesar_Click(object sender, EventArgs e)

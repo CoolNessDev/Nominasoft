@@ -8,34 +8,18 @@ namespace Capa._3_Dominio.Entidades
 {
     public class Contrato
     {
-        private int id_contrato;
-        private bool asignacionFamiliar;
-        private string cargo;
-        private DateTime fechaInicio;
-        private DateTime fechaFin;
-        private int horasContratadasPorSemana;
-        private int valorHora;
-        private bool estado;
-
-        private Afp afp;
-        private Empleado empleado;
-        private Periodo periodo;
-        private ConceptoIngresoDeDescuento conceptoIngresoDeDescuento;
-
-
-        public int Id_contrato { get => id_contrato; set => id_contrato = value; }
-        public bool AsignacionFamiliar { get => asignacionFamiliar; set => asignacionFamiliar = value; }
-        public string Cargo { get => cargo; set => cargo = value; }
-        public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
-        public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
-        public int HorasContratadasPorSemana { get => horasContratadasPorSemana; set => horasContratadasPorSemana = value; }
-        public int ValorHora { get => valorHora; set => valorHora = value; }
-        public bool Estado { get => estado; set => estado = value; }
-
-        public Afp Afp { get => afp; set => afp = value; }
-        public Empleado Empleado { get => empleado; set => empleado = value; }
-        public Periodo Periodo { get => periodo; set => periodo = value; }
-        public ConceptoIngresoDeDescuento ConceptoIngresoDeDescuento { get => conceptoIngresoDeDescuento; set => conceptoIngresoDeDescuento = value; }
+        public int Id_contrato { get; set; }
+        public bool AsignacionFamiliar { get; set; }
+        public string Cargo { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
+        public int HorasContratadasPorSemana { get; set; }
+        public int ValorHora { get; set; }
+        public bool Estado { get; set; }
+        public Afp Afp { get; set; }
+        public Empleado Empleado { get; set; }
+        public Periodo Periodo { get; set; }
+        public ConceptoIngresoDeDescuento ConceptoIngresoDeDescuento { get; set; }
 
 
         /// <summary>
@@ -69,11 +53,11 @@ namespace Capa._3_Dominio.Entidades
             {
                 anterior = null;
             }
-            if (anterior != null && Id_contrato == anterior.id_contrato) //al editar
+            if (anterior != null && Id_contrato == anterior.Id_contrato) //al editar
             {
                 return true;
             }
-            if (anterior == null || FechaInicio > anterior.FechaFin || !anterior.estado)
+            if (anterior == null || FechaInicio > anterior.FechaFin || !anterior.Estado)
             {
                 return true;
             }
@@ -102,7 +86,7 @@ namespace Capa._3_Dominio.Entidades
         /// <returns>bool</returns>
         public bool ValidarValorHoras()
         {
-            if (10 <= ValorHora && ValorHora <= 60 && ValorHora - (int)ValorHora == 0)
+            if (10 <= ValorHora && ValorHora <= 60)
             {
                 return true;
             }
@@ -117,7 +101,7 @@ namespace Capa._3_Dominio.Entidades
         {
             DateTime today = DateTime.Now;
             
-            if (today <= FechaFin && Estado == true)
+            if (today <= FechaFin && Estado)
             {
                 return true;
             }

@@ -71,24 +71,19 @@ namespace NOMINASOFT
             if (contrato != null)
             {
                 auxIdContrato = contrato.Id_contrato;
-                /*if(contrato.AsignacionFamiliar == true)
-                {
-                    AsignacionSI.Checked = true;
-                }
-                if(contrato.AsignacionFamiliar == false)
-                {
-                    AsignacionNO.Checked = true;
-                }*/
                 Afp afp = servicio.BuscarAFPCodigo(contrato.Afp.Id_afp);
-                cbAFP.Text = afp.Nombre;
-                TextCargo.Text = contrato.Cargo;
-                fechaInicio.Value = contrato.FechaInicio;
-                fechaFinal.Value = contrato.FechaFin;
-                textTotalDeHoras.Text = contrato.HorasContratadasPorSemana.ToString();
-                textValorHora.Text = contrato.ValorHora.ToString();
-                AsignacionSI.Checked = contrato.AsignacionFamiliar;
-                AsignacionNO.Checked = !contrato.AsignacionFamiliar;
-                return true;
+                if (afp != null)
+                {
+                    cbAFP.Text = afp.Nombre;
+                    TextCargo.Text = contrato.Cargo;
+                    fechaInicio.Value = contrato.FechaInicio;
+                    fechaFinal.Value = contrato.FechaFin;
+                    textTotalDeHoras.Text = contrato.HorasContratadasPorSemana.ToString();
+                    textValorHora.Text = contrato.ValorHora.ToString();
+                    AsignacionSI.Checked = contrato.AsignacionFamiliar;
+                    AsignacionNO.Checked = !contrato.AsignacionFamiliar;
+                    return true;
+                }
             }
             return false;
         }
@@ -197,9 +192,18 @@ namespace NOMINASOFT
             }
         }
 
-        private void AsignacionSI_CheckedChanged(object sender, EventArgs e){}
-
-        private void AsignacionNO_CheckedChanged(object sender, EventArgs e){}
+        /// <summary>
+        /// Funcion vacia
+        /// </summary>
+        private void AsignacionSI_CheckedChanged(object sender, EventArgs e){
+            //NotImplemented
+        }
+        /// <summary>
+        /// Funcion vacia
+        /// </summary>
+        private void AsignacionNO_CheckedChanged(object sender, EventArgs e){
+            //NotImplemented
+        }
 
         private void AFPSI_CheckedChanged(object sender, EventArgs e)
         {
@@ -233,14 +237,8 @@ namespace NOMINASOFT
 
             Contrato nuevoContrato = new Contrato();
             nuevoContrato.Id_contrato = auxIdContrato;
-            if (AsignacionSI.Checked == true )
-            {
-                nuevoContrato.AsignacionFamiliar = true;
-            }
-            if(AsignacionNO.Checked == true)
-            {
-                nuevoContrato.AsignacionFamiliar =false;
-            }
+            nuevoContrato.AsignacionFamiliar = AsignacionSI.Checked;
+  
 
             try{
                 nuevoContrato.Cargo = TextCargo.Text.Trim();
@@ -249,15 +247,19 @@ namespace NOMINASOFT
                 nuevoContrato.HorasContratadasPorSemana = int.Parse(textTotalDeHoras.Text.Trim());
                 nuevoContrato.ValorHora = int.Parse(textValorHora.Text.Trim());
                 nuevoContrato.Estado = true;
-                Afp afp = new Afp();
-                afp = servicio.BuscarAFP(cbAFP.Text.Trim());
-                nuevoContrato.Afp = afp;
+                Afp afp = servicio.BuscarAFP(cbAFP.Text.Trim());
+                if (afp != null)
+                {
+                    nuevoContrato.Afp = afp;
 
-                Empleado empleado = new Empleado();
-                empleado = servicio.BuscarEmpleado(textDniBuscar.Text.Trim());
-                nuevoContrato.Empleado = empleado;
+                    Empleado empleadoContrato = servicio.BuscarEmpleado(textDniBuscar.Text.Trim());
+                    if(empleadoContrato != null)
+                    {
+                        nuevoContrato.Empleado = empleadoContrato;
+                    }
+                }
             }
-            catch(Exception exce)
+            catch(Exception)
             {
                 showError("Campos invalidos");
                 return;
@@ -271,15 +273,18 @@ namespace NOMINASOFT
             {
                 showError("El contrato anterior es aún vigente");
                 return;
-            }if (!nuevoContrato.ValidarFechaFinContrato())
+            }
+            if (!nuevoContrato.ValidarFechaFinContrato())
             {
                 showError("Fecha final no valida");
                 return;
-            }if (!nuevoContrato.ValidarHoras())
+            }
+            if (!nuevoContrato.ValidarHoras())
             {
                 showError("El valor de horas por semana no es válido");
                 return;
-            }if (!nuevoContrato.ValidarValorHoras())
+            }
+            if (!nuevoContrato.ValidarValorHoras())
             {
                 showError("El valor de hora no es válido");
                 return;
@@ -288,7 +293,7 @@ namespace NOMINASOFT
 
             try
             {
-                if (EDITAR == true)
+                if (EDITAR)
                 {
                     servicio.EditarContratos(nuevoContrato, int.Parse(textIDResultado.Text.Trim()));
                 }
@@ -309,7 +314,6 @@ namespace NOMINASOFT
                 MessageBox.Show(this, err.Message, "Sistema NominaSoft", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            //limpiarPantalla();
             configuracionInternaDeDatosContrato();
             btnCrearContrato.Enabled = true;
             btnAnularContrato.Enabled = true;
@@ -353,7 +357,6 @@ namespace NOMINASOFT
             GestionarContratos servicio = new GestionarContratos();
             contrato.Estado = false;
             servicio.EditarContratos(contrato, int.Parse(textIDResultado.Text.Trim()));
-            //limpiarPantalla();
             configuracionInternaDeDatosContrato();
             btnCrearContrato.Enabled = true;
             btnAnularContrato.Enabled = true;
@@ -364,10 +367,12 @@ namespace NOMINASOFT
             Exception err = new Exception(message);
             MessageBox.Show(this, err.Message, message, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
+        /// <summary>
+        /// Funcion vacia
+        /// </summary>
+        private void Panel5_Paint(object sender, PaintEventArgs e)
         {
-
+            //NotImplemented
         }
     }
 }

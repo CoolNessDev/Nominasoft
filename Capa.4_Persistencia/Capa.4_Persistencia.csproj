@@ -42,14 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ADO_SQLServer\AfpSQLServer.cs" />
-    <Compile Include="ADO_SQLServer\ContratoSQLServer.cs" />
-    <Compile Include="ADO_SQLServer\EmpleadoSQLServer.cs" />
-    <Compile Include="ADO_SQLServer\GestorSQLServer.cs" />
-    <Compile Include="ADO_SQLServer\PagoSQLServer.cs" />
-    <Compile Include="ADO_SQLServer\PeriodoSQLServer.cs" />
+    <Compile Include="ADO_SQLServer\AfpSqlServer.cs" />
+    <Compile Include="ADO_SQLServer\ContratoSqlServer.cs" />
+    <Compile Include="ADO_SQLServer\EmpleadoSqlServer.cs" />
+    <Compile Include="ADO_SQLServer\GestorSqlServer.cs" />
+    <Compile Include="ADO_SQLServer\PagoSqlServer.cs" />
+    <Compile Include="ADO_SQLServer\PeriodoSqlServer.cs" />
     <Compile Include="FabricaDatos\FabricaAbstracta.cs" />
-    <Compile Include="FabricaDatos\FabricaSQLServer.cs" />
+    <Compile Include="FabricaDatos\FabricaSqlServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

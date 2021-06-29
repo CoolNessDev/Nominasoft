@@ -7,16 +7,17 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
 {
-    public class AfpSQLServer : IAfp
+    public class AfpSqlServer : IAfp
     {
-        private GestorSQLServer gestorSQL;
+        private readonly GestorSqlServer gestorSQL;
 
-        public AfpSQLServer(IGestorAccesoDatos gestorSQL)
+        public AfpSqlServer(IGestorAccesoDatos gestorSQL)
         {
-            this.gestorSQL = (GestorSQLServer)gestorSQL;
+            this.gestorSQL = (GestorSqlServer)gestorSQL;
         }
 
         public List<Afp> ListarAfps()
@@ -33,9 +34,10 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                     listaAfp.Add(afp);
                 }
             }
-            catch (Exception er)
+            catch (Exception e)
             {
-                throw er;
+                MessageBox.Show("Error al listar AFP " + e);
+                throw;
             }
             return listaAfp;
         }
@@ -43,7 +45,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
 
         public Afp BuscarDatosDelAfp_PorNombre(string nombre)
         {
-            Afp afp;
+            Afp afp=null;
             string consultaSQL = "select * from AFP where nombre = '" + nombre + "'";
             try
             {
@@ -54,19 +56,20 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 }
                 else
                 {
-                    throw new Exception("No existe el AFP.");
+                    MessageBox.Show("No existe el AFP.");
                 }
             }
-            catch (Exception err)
+            catch (Exception e)
             {
-                throw err;
+                MessageBox.Show("Error al buscar AFP por nombre " + e);
+                throw;
             }
             return afp;
         }
 
         public Afp BuscarDatosDelAfp_PorCodigo(int codigo)
         {
-            Afp afp;
+            Afp afp=null;
             string consultaSQL = "select * from AFP where idAfp = '" + codigo + "'";
             try
             {
@@ -77,12 +80,13 @@ namespace Capa._4_Persistencia.ADO_SQLServer
                 }
                 else
                 {
-                    throw new Exception("No existe el AFP.");
+                    MessageBox.Show("No existe el AFP.");
                 }
             }
-            catch (Exception err)
+            catch (Exception e)
             {
-                throw err;
+                MessageBox.Show("Error al buscar datos del AFP" + e);
+                throw;
             }
             return afp;
         }

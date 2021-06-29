@@ -10,31 +10,31 @@ using System.Threading.Tasks;
 
 namespace Capa._4_Persistencia.FabricaDatos
 {
-    public class FabricaSQLServer : FabricaAbstracta
+    public class FabricaSqlServer : FabricaAbstracta
     {
         public override IAfp crearAfpDAO(IGestorAccesoDatos gestorAccesoDatos)
         {
-            return new AfpSQLServer(gestorAccesoDatos);
+            return new AfpSqlServer(gestorAccesoDatos);
         }
         public override IContrato crearContratoDAO(IGestorAccesoDatos gestorAccesoDatos)
         {
-            return new ContratoSQLServer(gestorAccesoDatos);
+            return new ContratoSqlServer(gestorAccesoDatos);
         }
         public override IEmpleado crearEmpleadoDAO(IGestorAccesoDatos gestorAccesoDatos)
         {
-            return new EmpleadoSQLServer(gestorAccesoDatos);
+            return new EmpleadoSqlServer(gestorAccesoDatos);
         }
         public override IPeriodo crearPeriodoDAO(IGestorAccesoDatos gestorAccesoDatos)
         {
-            return new PeriodoSQLServer(gestorAccesoDatos);
+            return new PeriodoSqlServer(gestorAccesoDatos);
         }
         public override IPago crearPagoDAO(IGestorAccesoDatos gestorAccesoDatos)
         {
-            return new PagoSQLServer(gestorAccesoDatos);
+            return new PagoSqlServer(gestorAccesoDatos);
         }
         public override IGestorAccesoDatos crearGestorAccesoDatos()
         {
-            return new GestorSQLServer();
+            return new GestorSqlServer();
         }
     }
 }
