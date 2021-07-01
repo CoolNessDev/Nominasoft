@@ -4,9 +4,6 @@ using Capa._3_Dominio.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
@@ -21,7 +18,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
 
         public Empleado BuscarEmpleadoPorDNI(string DNI)
         {
-            Empleado empleado=null;
+            Empleado empleado = null;
             string consultaSQL = "select * from Empleado where dni = '" + DNI + "'";
             try
             {
@@ -60,13 +57,13 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             }
             catch (Exception er)
             {
-                MessageBox.Show("Error al obtener contratos: "+er);
+                MessageBox.Show("Error al obtener contratos: " + er);
             }
             return contratos;
         }
         public Empleado BuscarEmpleado(int id)
         {
-            Empleado empleado=null;
+            Empleado empleado = null;
             string consultaSQL = "select * from Empleado where idEmpleado = '" + id + "'";
             try
             {
@@ -101,6 +98,6 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             empleado.Nombre = resultadoSQL.GetString(7);
             return empleado;
         }
-        
+
     }
 }

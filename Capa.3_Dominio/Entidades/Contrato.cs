@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Capa._3_Dominio.Entidades
 {
@@ -100,7 +96,7 @@ namespace Capa._3_Dominio.Entidades
         public bool ValidarVigenciaContrato()
         {
             DateTime today = DateTime.Now;
-            
+
             if (today <= FechaFin && Estado)
             {
                 return true;
@@ -117,11 +113,11 @@ namespace Capa._3_Dominio.Entidades
         {
 
 
-                if (FechaFin > Periodo.FechaInicio && Estado)
-                {
-                    return true;
-                }
-            
+            if (FechaFin > Periodo.FechaInicio && Estado)
+            {
+                return true;
+            }
+
             return false;
         }
     }

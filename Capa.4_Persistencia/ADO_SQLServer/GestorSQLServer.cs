@@ -1,13 +1,8 @@
-﻿using Capa._3_Dominio.Contratos;
-using Capa._3_Dominio.Entidades;
+﻿using Capa._3_Dominio.Entidades;
 using Capa._3_Dominio.Servicios;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
@@ -156,6 +151,9 @@ namespace Capa._4_Persistencia.ADO_SQLServer
             Afp afp = new Afp();
             afp.Id_afp = resultadoSQL.GetInt32(8);
             contrato.Afp = afp;
+            Empleado empleado = new Empleado();
+            empleado.Id_empleado = resultadoSQL.GetInt32(9);
+            contrato.Empleado = empleado;
             if (!contrato.ValidarVigenciaContrato())
             {
                 contrato.Estado = false;

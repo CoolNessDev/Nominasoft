@@ -1,14 +1,11 @@
-﻿using Capa._3_Dominio.Pagos;
-using Capa._3_Dominio.Entidades;
+﻿using Capa._3_Dominio.Entidades;
+using Capa._3_Dominio.Pagos;
+using Capa._3_Dominio.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Capa._3_Dominio.Servicios;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
 {
@@ -70,7 +67,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
         }
         public bool UpdatePeriodo(Periodo periodo)
         {
-            bool update=false;
+            bool update = false;
             SqlCommand cmd = null;
             try
             {

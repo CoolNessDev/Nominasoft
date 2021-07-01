@@ -58,3 +58,4 @@ X:\Virtuales\Calidad\SOWAD\NOMINASOFT-ConsolaTest\bin\Debug\Capa.4_Persistencia.
 X:\Virtuales\Calidad\SOWAD\NOMINASOFT-ConsolaTest\bin\Debug\Capa.4_Persistencia.pdb
 X:\Virtuales\Calidad\SOWAD\NOMINASOFT-ConsolaTest\bin\Debug\Capa.2_Aplicacion.dll
 X:\Virtuales\Calidad\SOWAD\NOMINASOFT-ConsolaTest\bin\Debug\Capa.2_Aplicacion.pdb
+X:\Virtuales\Calidad\SOWAD\NOMINASOFT-ConsolaTest\obj\Debug\NOMINASOFT-ConsolaTest.csprojAssemblyReference.cache

@@ -32,7 +32,7 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
             contratosAnterior.FechaInicio = new DateTime(2021, 4, 16);
             contratosAnterior.FechaFin = new DateTime(2021, 5, 15);
             Empleado empleado = new Empleado();
-            empleado.Contratos= new List<Contrato>();
+            empleado.Contratos = new List<Contrato>();
             empleado.Contratos.Add(contratosAnterior);
             contratos.Empleado = empleado;
 
@@ -72,7 +72,7 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
         {
             Contrato contratos = new Contrato();
             contratos.Estado = true;
-            contratos.FechaFin = new DateTime(2021, 6, 15);
+            contratos.FechaFin = new DateTime(2021, 9, 15);
             //FechaActual
             contratos.FechaInicio = new DateTime(2021, 6, 15);
 

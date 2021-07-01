@@ -40,7 +40,7 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
         public void Test2_ValidarPeriodoActivo()
         {
             Periodo periodo = new Periodo();
-            periodo.FechaFin = new DateTime(2021, 6, 16);
+            periodo.FechaFin = new DateTime(2021, 5, 16);
             periodo.FechaInicio = new DateTime(2021, 4, 16);
             periodo.Estado = false;
 

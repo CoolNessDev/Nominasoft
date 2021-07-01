@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Capa._3_Dominio.Entidades
 {
@@ -32,7 +29,7 @@ namespace Capa._3_Dominio.Entidades
         public bool ValidarPeriodoActivos()
         {
             DateTime now = DateTime.Now;
-            if (now>=FechaFin)
+            if (now >= FechaFin)
             {
                 return true;
             }

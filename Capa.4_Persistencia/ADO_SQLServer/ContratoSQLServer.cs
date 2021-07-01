@@ -5,9 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
@@ -153,8 +150,8 @@ namespace Capa._4_Persistencia.ADO_SQLServer
         public ConceptoIngresoDeDescuento GetCIDByContrato_Periodo(int idContrato, int idPeriodo)
         {
             ConceptoIngresoDeDescuento cid;
-            string consulta = "SELECT * from CID INNER join Contrato_periodo on Contrato_periodo.id = CID.ID_CONTRATO_PERIODO "+
-            "where Contrato_periodo.ID_CONTRATO = "+ idContrato + " AND Contrato_periodo.ID_PERIODO = "+ idPeriodo;
+            string consulta = "SELECT * from CID INNER join Contrato_periodo on Contrato_periodo.id = CID.ID_CONTRATO_PERIODO " +
+            "where Contrato_periodo.ID_CONTRATO = " + idContrato + " AND Contrato_periodo.ID_PERIODO = " + idPeriodo;
 
             try
             {

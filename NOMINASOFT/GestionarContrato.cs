@@ -2,12 +2,7 @@
 using Capa._3_Dominio.Entidades;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NOMINASOFT
@@ -62,12 +57,12 @@ namespace NOMINASOFT
             textTotalDeHoras.Text = "";
             textValorHora.Text = "";
 
-        } 
+        }
         private bool mostrarContrato()
         {
 
-                GestionarContratos servicio = new GestionarContratos();
-                contrato = servicio.MostrarContratos(int.Parse(textIDResultado.Text.Trim()));
+            GestionarContratos servicio = new GestionarContratos();
+            contrato = servicio.MostrarContratos(int.Parse(textIDResultado.Text.Trim()));
             if (contrato != null)
             {
                 auxIdContrato = contrato.Id_contrato;
@@ -113,7 +108,7 @@ namespace NOMINASOFT
         private void btnBuscarEmpleado_Click(object sender, EventArgs e)
         {
             string dniEmpleado = textDniBuscar.Text.Trim();
-            if(textDniBuscar.Text.Trim() == "")
+            if (textDniBuscar.Text.Trim() == "")
             {
                 MessageBox.Show("Ingrese Los Datos Del Empleado");
             }
@@ -161,11 +156,11 @@ namespace NOMINASOFT
                 {
                     MessageBox.Show("ya tiene un contrato vigente");
                 }
-               
+
             }
-           
+
         }
-        
+
         private void btnEditarContrato_Click(object sender, EventArgs e)
         {
             if (textIDResultado.Text.Trim() == "")
@@ -174,7 +169,7 @@ namespace NOMINASOFT
             }
             else
             {
-                bool contratoObtenido=mostrarContrato();
+                bool contratoObtenido = mostrarContrato();
                 if (contratoObtenido)
                 {
                     EDITAR = true;
@@ -195,13 +190,15 @@ namespace NOMINASOFT
         /// <summary>
         /// Funcion vacia
         /// </summary>
-        private void AsignacionSI_CheckedChanged(object sender, EventArgs e){
+        private void AsignacionSI_CheckedChanged(object sender, EventArgs e)
+        {
             //NotImplemented
         }
         /// <summary>
         /// Funcion vacia
         /// </summary>
-        private void AsignacionNO_CheckedChanged(object sender, EventArgs e){
+        private void AsignacionNO_CheckedChanged(object sender, EventArgs e)
+        {
             //NotImplemented
         }
 
@@ -238,9 +235,10 @@ namespace NOMINASOFT
             Contrato nuevoContrato = new Contrato();
             nuevoContrato.Id_contrato = auxIdContrato;
             nuevoContrato.AsignacionFamiliar = AsignacionSI.Checked;
-  
 
-            try{
+
+            try
+            {
                 nuevoContrato.Cargo = TextCargo.Text.Trim();
                 nuevoContrato.FechaInicio = fechaInicio.Value.Date;
                 nuevoContrato.FechaFin = fechaFinal.Value.Date;
@@ -253,13 +251,13 @@ namespace NOMINASOFT
                     nuevoContrato.Afp = afp;
 
                     Empleado empleadoContrato = servicio.BuscarEmpleado(textDniBuscar.Text.Trim());
-                    if(empleadoContrato != null)
+                    if (empleadoContrato != null)
                     {
                         nuevoContrato.Empleado = empleadoContrato;
                     }
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 showError("Campos invalidos");
                 return;
@@ -289,7 +287,7 @@ namespace NOMINASOFT
                 showError("El valor de hora no es válido");
                 return;
             }
-            
+
 
             try
             {
@@ -337,7 +335,7 @@ namespace NOMINASOFT
             btnAnularContrato.Enabled = true;
             btnEditarContrato.Enabled = true;
         }
-        
+
         private void btnAnularContrato_Click(object sender, EventArgs e)
         {
             bool contratoEncontrado = mostrarContrato();
@@ -351,7 +349,7 @@ namespace NOMINASOFT
                 configuracionDeDatosContrato();
             }
         }
-          
+
         private void banularInterno_Click(object sender, EventArgs e)
         {
             GestionarContratos servicio = new GestionarContratos();
