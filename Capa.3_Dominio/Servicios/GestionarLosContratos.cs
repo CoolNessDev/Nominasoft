@@ -1,9 +1,4 @@
 ﻿using Capa._3_Dominio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Capa._3_Dominio.Servicios
@@ -24,7 +19,7 @@ namespace Capa._3_Dominio.Servicios
                 MessageBox.Show("La Hora contratadas por semana es Incorrecta");
                 estadito = false;
             }
-            if(!contrato.ValidarValorHoras())
+            if (!contrato.ValidarValorHoras())
             {
                 MessageBox.Show("El Valor Hora es Incorrecto");
                 estadito = false;

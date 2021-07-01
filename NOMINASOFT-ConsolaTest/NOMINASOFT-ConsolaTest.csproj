@@ -54,6 +54,7 @@
     <Compile Include="Test-Entidad\ContratosTest.cs" />
     <Compile Include="Test-Entidad\PagoTest.cs" />
     <Compile Include="Test-Entidad\PeriodoTest.cs" />
+    <Compile Include="Test-Entidad\AfpTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

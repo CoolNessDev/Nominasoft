@@ -4,9 +4,6 @@ using Capa._3_Dominio.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
@@ -45,7 +42,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
 
         public Afp BuscarDatosDelAfp_PorNombre(string nombre)
         {
-            Afp afp=null;
+            Afp afp = null;
             string consultaSQL = "select * from AFP where nombre = '" + nombre + "'";
             try
             {
@@ -69,7 +66,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
 
         public Afp BuscarDatosDelAfp_PorCodigo(int codigo)
         {
-            Afp afp=null;
+            Afp afp = null;
             string consultaSQL = "select * from AFP where idAfp = '" + codigo + "'";
             try
             {

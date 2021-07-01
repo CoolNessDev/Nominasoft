@@ -34,6 +34,9 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
             conceptoIngresoDeDescuento.MontoReingreso = 34;
             conceptoIngresoDeDescuento.MontoOtrosIngresos = 34;
 
+            pagos.Contrato = new Contrato();
+            pagos.Contrato.ConceptoIngresoDeDescuento = conceptoIngresoDeDescuento;
+
 
 
             decimal IngresoTotal_esperado = 1696;
@@ -70,6 +73,8 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
             conceptoIngresoDeDescuento.MontoHorasAusente = 34;
             conceptoIngresoDeDescuento.MontoPorAdelanto = 34;
             conceptoIngresoDeDescuento.MontoOtrosDescuentos = 34;
+            pagos.Contrato = new Contrato();
+            pagos.Contrato.ConceptoIngresoDeDescuento = conceptoIngresoDeDescuento;
 
             decimal DescuentoTotal_obtenido = pagos.CalcularDescuentoTotal();
             Assert.AreEqual((decimal)382.8, DescuentoTotal_obtenido);
@@ -99,6 +104,10 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
             conceptoIngresoDeDescuento.MontoPorAdelanto = 34;
             conceptoIngresoDeDescuento.MontoOtrosDescuentos = 34;
 
+            pagos.Contrato = new Contrato();
+            pagos.Contrato.ConceptoIngresoDeDescuento = conceptoIngresoDeDescuento;
+
+
             decimal SueldoNeto_obtenido = pagos.CalcularSueldoNeto();
             Assert.AreEqual((decimal)1313.2, SueldoNeto_obtenido);
         }
@@ -116,7 +125,7 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
             pagos.TotalHoras = 48;
 
             decimal TotalDeHoras_obtenido = pagos.CalcularTotalDeHoras();
-            Assert.AreEqual(192, TotalDeHoras_obtenido);
+            Assert.AreEqual(48, TotalDeHoras_obtenido);
         }
 
         [TestMethod]
@@ -124,33 +133,15 @@ namespace NOMINASOFT_ConsolaTest.Test_Entidad
         {
             Contrato contrato = new Contrato();
             Pago pagos = new Pago();
-            pagos.Contrato = contrato;
 
             contrato.AsignacionFamiliar = true;
 
-            pagos.SueldoMinimo = 930;
-
-
-            decimal MontoPorAsignacionFamiliar_obtenido = pagos.CalcularMontoPorAsignacionFamiliar();
-            Assert.AreEqual(192, MontoPorAsignacionFamiliar_obtenido);
-
-        }
-
-        [TestMethod]
-        public void Test2_CalcularMontoPorAsignacionFamiliar()
-        {
-            Contrato contrato = new Contrato();
-            Pago pagos = new Pago();
             pagos.Contrato = contrato;
-
-            contrato.AsignacionFamiliar = false;
-
             pagos.SueldoMinimo = 930;
 
 
-
             decimal MontoPorAsignacionFamiliar_obtenido = pagos.CalcularMontoPorAsignacionFamiliar();
-            Assert.AreEqual(0, MontoPorAsignacionFamiliar_obtenido);
+            Assert.AreEqual(93, MontoPorAsignacionFamiliar_obtenido);
 
         }
     }

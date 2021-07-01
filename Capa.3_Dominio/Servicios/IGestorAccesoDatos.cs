@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Capa._3_Dominio.Servicios
+﻿namespace Capa._3_Dominio.Servicios
 {
     public interface IGestorAccesoDatos
     {

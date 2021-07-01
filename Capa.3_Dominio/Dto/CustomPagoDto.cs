@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Capa._3_Dominio.Dto
+﻿namespace Capa._3_Dominio.Dto
 {
     public class CustomPagoDto
     {
@@ -12,7 +6,7 @@ namespace Capa._3_Dominio.Dto
         //código del empleado, nombre del empleado, dni del empleado, el total de horas, el valor
         //hora, el sueldo básico, el total de ingresos, el total de descuento y el sueldo neto.
 
-        public int Id_empleado {get;set;}
+        public int Id_empleado { get; set; }
         public string NombreEmpleado { get; set; }
         public string DniEmpleado { get; set; }
         public decimal TotalHoras { get; set; }

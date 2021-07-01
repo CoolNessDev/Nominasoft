@@ -3,11 +3,7 @@ using Capa._3_Dominio.Entidades;
 using Capa._3_Dominio.Servicios;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Capa._4_Persistencia.ADO_SQLServer
@@ -52,7 +48,7 @@ namespace Capa._4_Persistencia.ADO_SQLServer
         }
         public List<Pago> GetPagosByPeriodo(Periodo periodo)
         {
-            List<Pago> pagos=new List<Pago>();
+            List<Pago> pagos = new List<Pago>();
             Pago pago;
             string consulta = "SELECT * from Pago where ID_PERIODO = " + periodo.Id_periodo;
 
@@ -95,5 +91,5 @@ namespace Capa._4_Persistencia.ADO_SQLServer
 
         }
     }
-   
+
 }

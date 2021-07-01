@@ -74,5 +74,3 @@ C:\Users\Samsung\Desktop\GITHUD\NominaSoft\NOMINASOFT\obj\Debug\NOMINASOFT.cspro
 C:\Users\Samsung\Desktop\GITHUD\NominaSoft\NOMINASOFT\obj\Debug\NOMINASOFT.exe
 C:\Users\Samsung\Desktop\GITHUD\NominaSoft\NOMINASOFT\obj\Debug\NOMINASOFT.pdb
 X:\Virtuales\Calidad\SOWAD\NOMINASOFT\obj\Debug\NOMINASOFT.Nominasoft.resources
-X:\Virtuales\Calidad\SOWAD\NOMINASOFT\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
-X:\Virtuales\Calidad\SOWAD\NOMINASOFT\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml

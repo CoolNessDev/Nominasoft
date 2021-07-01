@@ -3,12 +3,6 @@ using Capa._3_Dominio.Dto;
 using Capa._3_Dominio.Entidades;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NOMINASOFT
@@ -142,7 +136,7 @@ namespace NOMINASOFT
                 }
 
                 //Listar CustomPagosDto (Usar misma tabla)
-                List <Pago> pagos = servicio.GetPagpsByPeriodo(periodo);
+                List<Pago> pagos = servicio.GetPagpsByPeriodo(periodo);
                 List<CustomPagoDto> customPagos = new List<CustomPagoDto>();
 
                 for (int i = 0; i < pagos.Count; i++)

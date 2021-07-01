@@ -1,6 +1,5 @@
 ﻿using Capa._3_Dominio.Entidades;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace NOMINASOFT_ConsolaTest.Test_Entidad
 {
